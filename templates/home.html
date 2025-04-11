@@ -3,6 +3,7 @@
 
 {% block head %}
     {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 
 {% endblock %}
@@ -16,7 +17,9 @@
     <div class="container py-5">
   <div class="row justify-content-center g-4">
     <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
-      <div class="glass-card"><span class="glass-text">Why study CSE at UAP?</span></div>
+      <div class="glass-card">
+          <i class="icofont icofont-university"></i>
+          <span class="glass-text">Why study CSE at UAP?</span></div>
     </div>
     <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
       <div class="glass-card"><span class="glass-text">Faculty & Stuff</span></div>
