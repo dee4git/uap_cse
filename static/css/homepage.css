@@ -18,7 +18,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.icofont{
+  font-size: 3rem;
+  color: #9e61ff;
+  display: block;
+  text-align: center;
+  margin-bottom: 2px;
 }
 
 .glass-card:hover {
