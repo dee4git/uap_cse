@@ -36,13 +36,14 @@
 
 .mission-card p {
     overflow-y: auto;
+    padding-bottom: 10px;
     flex-grow: 1;
     margin-bottom: 0;
     padding-right: 8px; /* optional: adds space so scrollbar doesn’t touch text */
 }
 
 iframe {
-    width: 100%;
+    height: inherit;
     border-radius: 15px;
 }
 
