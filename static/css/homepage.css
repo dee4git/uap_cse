@@ -54,13 +54,18 @@ iframe {
     }
 }
 .icofont{
-  font-size: 3rem;
+  font-size: 1.90rem;
   color: #9e61ff;
   display: block;
   text-align: center;
   margin-bottom: 2px;
+  animation: smoothFloat 3s infinite ease-in-out;
 }
-
+@keyframes smoothFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
 .glass-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);

@@ -8,14 +8,12 @@
 
 @font-face {
   font-family: 'IcoFont';
-  src: url('fonts/icofont.woff2') format('woff2'),
-       url('fonts/icofont.woff') format('woff'),
-       url('fonts/icofont.ttf') format('truetype'),
-       url('fonts/icofont.eot') format('embedded-opentype'),
-       url('fonts/icofont.svg#IcoFont') format('svg');
+  src: url('../css/fonts/icofont.woff2') format('woff2'),
+       url('../css/fonts/icofont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
+
 [class^="icofont-"], [class*=" icofont-"]
 {
   font-family: 'IcoFont' !important;
@@ -33,104 +31,29 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.icofont-duotone.icofont-learn:before
+.icofont-abc:before
 {
-  content: "\13b4d";
+  content: "\eacc";
 }
 
-.icofont-duotone.icofont-learn:after
+.icofont-atom:before
 {
-  content: "\13b4c";
+  content: "\eacd";
 }
 
-.icofont-duotone.icofont-info:before
+.icofont-award:before
 {
-  content: "\13b47";
+  content: "\eace";
 }
 
-.icofont-duotone.icofont-info:after
+.icofont-bell-alt:before
 {
-  content: "\13b46";
+  content: "\eacf";
 }
 
-.icofont-duotone.icofont-media:before
+.icofont-black-board:before
 {
-  content: "\13b63";
-}
-
-.icofont-duotone.icofont-media:after
-{
-  content: "\13b62";
-}
-
-.icofont-duotone.icofont-manage-user:before
-{
-  content: "\13b5e";
-}
-
-.icofont-duotone.icofont-manage-user:after
-{
-  content: "\13b5d";
-}
-
-.icofont-duotone.icofont-groups:before
-{
-  content: "\13b3f";
-}
-
-.icofont-duotone.icofont-groups:after
-{
-  content: "\13b3e";
-}
-
-.icofont-duotone.icofont-home:before
-{
-  content: "\13b41";
-}
-
-.icofont-duotone.icofont-home:after
-{
-  content: "\13b40";
-}
-
-.icofont-duotone.icofont-messaging:before
-{
-  content: "\13b67";
-}
-
-.icofont-duotone.icofont-messaging:after
-{
-  content: "\13b66";
-}
-
-.icofont-duotone.icofont-notification:before
-{
-  content: "\13d14";
-}
-
-.icofont-duotone.icofont-notification:after
-{
-  content: "\13cf5";
-}
-
-.icofont-university:before
-{
-  content: "\eaf3";
-}
-
-.icofont-paper:before
-{
-  content: "\eae5";
-}
-
-.icofont-teacher:before
-{
-  content: "\eaf0";
-}
-
-.icofont-graduate:before
-{
-  content: "\eadc";
+  content: "\ead0";
 }
 
 .icofont-book-alt:before
@@ -138,19 +61,174 @@
   content: "\ead1";
 }
 
+.icofont-book:before
+{
+  content: "\ead2";
+}
+
 .icofont-brainstorming:before
 {
   content: "\ead3";
 }
 
-.icofont-notebook:before
+.icofont-certificate-alt-1:before
 {
-  content: "\efaa";
+  content: "\ead4";
 }
 
-.icofont-money-bag:before
+.icofont-certificate-alt-2:before
 {
-  content: "\e972";
+  content: "\ead5";
+}
+
+.icofont-certificate:before
+{
+  content: "\ead6";
+}
+
+.icofont-education:before
+{
+  content: "\ead7";
+}
+
+.icofont-electron:before
+{
+  content: "\ead8";
+}
+
+.icofont-fountain-pen:before
+{
+  content: "\ead9";
+}
+
+.icofont-globe-alt:before
+{
+  content: "\eada";
+}
+
+.icofont-graduate-alt:before
+{
+  content: "\eadb";
+}
+
+.icofont-graduate:before
+{
+  content: "\eadc";
+}
+
+.icofont-group-students:before
+{
+  content: "\eadd";
+}
+
+.icofont-hat-alt:before
+{
+  content: "\eade";
+}
+
+.icofont-hat:before
+{
+  content: "\eadf";
+}
+
+.icofont-instrument:before
+{
+  content: "\eae0";
+}
+
+.icofont-lamp-light:before
+{
+  content: "\eae1";
+}
+
+.icofont-medal:before
+{
+  content: "\eae2";
+}
+
+.icofont-microscope-alt:before
+{
+  content: "\eae3";
+}
+
+.icofont-microscope:before
+{
+  content: "\eae4";
+}
+
+.icofont-paper:before
+{
+  content: "\eae5";
+}
+
+.icofont-pen-alt-4:before
+{
+  content: "\eae6";
+}
+
+.icofont-pen-nib:before
+{
+  content: "\eae7";
+}
+
+.icofont-pencil-alt-5:before
+{
+  content: "\eae8";
+}
+
+.icofont-quill-pen:before
+{
+  content: "\eae9";
+}
+
+.icofont-read-book-alt:before
+{
+  content: "\eaea";
+}
+
+.icofont-read-book:before
+{
+  content: "\eaeb";
+}
+
+.icofont-school-bag:before
+{
+  content: "\eaec";
+}
+
+.icofont-school-bus:before
+{
+  content: "\eaed";
+}
+
+.icofont-student-alt:before
+{
+  content: "\eaee";
+}
+
+.icofont-student:before
+{
+  content: "\eaef";
+}
+
+.icofont-teacher:before
+{
+  content: "\eaf0";
+}
+
+.icofont-test-bulb:before
+{
+  content: "\eaf1";
+}
+
+.icofont-test-tube-alt:before
+{
+  content: "\eaf2";
+}
+
+.icofont-university:before
+{
+  content: "\eaf3";
 }
 
 [class^="icofont-"].icofont-duotone,
