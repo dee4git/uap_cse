@@ -1,8 +1,38 @@
-<!-- home.html -->
 {% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Home Page!</h1>
-<p>This is the content of the home page.</p>
+<br><br><br>
+
+<h1 class="text-center fw-bold">Department of CSE</h1>
+<h2 class="text-center mb-5">University of Asia Pacific</h2>
+
+    <div class="container py-5">
+  <div class="row justify-content-center g-4">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Why study CSE at UAP?</span></div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Item 2</span></div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Item 3</span></div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Item 4</span></div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Item 5</span></div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+      <div class="glass-card"><span class="glass-text">Item 6</span></div>
+    </div>
+  </div>
+</div>
 {% endblock %}

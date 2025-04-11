@@ -1,369 +1,378 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UAP CSE Navbar</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icofont@1.0.1/icofont.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Lexend', sans-serif;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UAP CSE Navbar</title>
 
-    body {
-      background-color: #f8f9fa;
-    }
+  {% block head %}
 
-    header {
-      position: fixed;
-      top: -200px;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 60px 30px;
-      z-index: 1000;
-      transition: all 0.4s ease;
-      background: rgba(255, 255, 255, 0.9); /* Fallback */
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
+  {% endblock %}
 
-    header.loaded {
-      top: 0;
-    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lexend', sans-serif;
+        }
 
-    header.shrink {
-      padding: 15px 25px;
-    }
+        body {
+            background-color: #f8f9fa;
+        }
 
-    .logo {
-      font-size: 60px;
-      font-weight: 700;
-      transition: font-size 0.3s ease;
-    }
+        header {
+            position: fixed;
+            top: -200px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 30px;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.9); /* Fallback */
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-    header.shrink .logo {
-      font-size: 28px;
-    }
+        header.loaded {
+            top: 0;
+        }
 
-    nav {
-      position: relative;
-    }
+        header.shrink {
+            padding: 15px 25px;
+        }
 
-    .nav-container {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+        .logo {
+            font-size: 60px;
+            font-weight: 700;
+            transition: font-size 0.3s ease;
+        }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      position: relative;
-    }
+        header.shrink .logo {
+            font-size: 28px;
+        }
 
-    .nav-links li {
-      position: relative;
-    }
+        nav {
+            position: relative;
+        }
 
-    .nav-links li a {
-      text-decoration: none;
-      color: black;
-      font-size: 20px;
-      transition: color 0.2s;
-      cursor: pointer;
-    }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-    .nav-links li a:hover {
-      color: #0077cc;
-    }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            position: relative;
+        }
 
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 180px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      padding: 10px;
-      z-index: 999;
-    }
+        .nav-links li {
+            position: relative;
+        }
 
-    .dropdown a {
-      display: block;
-      padding: 10px 16px;
-      font-size: 16px;
-      color: black;
-      text-decoration: none;
-      border-radius: 12px;
-    }
+        .nav-links li a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
 
-    .dropdown a:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
+        .nav-links li a:hover {
+            color: rgba(90, 26, 219, 0.42);
+        }
 
-    .nav-links li:hover .dropdown {
-      display: block;
-    }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 10px;
+            z-index: 999;
+        }
 
-    .apply-btn {
-      background-color: rgba(90, 26, 219, 0.1);
-      color: rgba(26, 139, 219, 0.7);
-      padding: 10px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
+        .dropdown a {
+            display: block;
+            padding: 10px 16px;
+            font-size: 16px;
+            color: black;
+            text-decoration: none;
+            border-radius: 12px;
+        }
 
-    .apply-btn:hover {
-      background-color: rgba(208, 187, 255, 0.42);
-        color: rgba(26, 190, 219, 0.55);
-    }
+        .dropdown a:hover {
+            background-color: rgba(208, 187, 255, 0.42);
+        }
 
-    .hamburger {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      z-index: 1001;
-    }
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
 
-    @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 280px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    padding: 20px 15px;
-    border-radius: 16px;
-    gap: 5px;
-  }
+        .apply-btn {
+            background-color: rgba(90, 26, 219, 0.1);
+            color: rgba(26, 139, 219, 0.7);
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
 
-  .nav-links li {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  }
+        .apply-btn:hover {
+            background-color: rgba(208, 187, 255, 0.42);
+            color: rgba(26, 190, 219, 0.55);
+        }
 
-  .nav-links.open {
-    display: flex;
-  }
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001;
+        }
 
-  .nav-links li:hover .dropdown {
-    display: none;
-  }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 280px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+                padding: 20px 15px;
+                border-radius: 16px;
+                gap: 5px;
+            }
 
-  .hamburger {
-    display: block;
-  }
+            .nav-links li {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 8px;
+                margin-bottom: 8px;
+            }
 
-  .apply-btn {
-    margin-top: 12px;
-    text-align: center;
-  }
+            .nav-links.open {
+                display: flex;
+            }
 
-  .dropdown-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+            .nav-links li:hover .dropdown {
+                display: none;
+            }
 
-  .dropdown {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    position: relative;
-    background: #f9f9f9;
-    border-radius: 12px;
-    margin-top: 8px;
-    padding: 0;
-  }
+            .hamburger {
+                display: block;
+            }
 
-  .dropdown.open {
-    max-height: 500px;
-    padding: 10px;
-  }
+            .apply-btn {
+                margin-top: 12px;
+                text-align: center;
+            }
 
-  .dropdown a {
-    font-size: 15px;
-    padding: 6px 10px;
-  }
+            .dropdown-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
 
-  .icofont-rounded-down {
-    font-size: 14px;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-  }
+            .dropdown {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                position: relative;
+                background: #f9f9f9;
+                border-radius: 12px;
+                margin-top: 8px;
+                padding: 0;
+            }
 
-  .rotate-icon {
-    transform: rotate(180deg);
-  }
-}
+            .dropdown.open {
+                max-height: 500px;
+                padding: 10px;
+            }
+
+            .dropdown a {
+                font-size: 15px;
+                padding: 6px 10px;
+            }
+
+            .icofont-rounded-down {
+                font-size: 14px;
+                margin-left: 5px;
+                transition: transform 0.3s ease;
+            }
+
+            .rotate-icon {
+                transform: rotate(180deg);
+            }
+        }
 
 
-    main {
-      padding-top: 180px;
-    }
+        main {
+            padding-top: 180px;
+        }
 
-    section {
-      height: 2000px;
-      padding: 20px;
-    }
+        section {
+            height: 2000px;
+            padding: 20px;
+        }
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-  </style>
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
 
-  <header id="navbar">
-    <div class="logo">UAP CSE</div>
+<header id="navbar">
+    <div class="logo">
+        <div style="display: inline; align-items: center;">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" style="height: 10vh; width: auto; margin-right: 10px;"></div>
+        UAP︱CSE
+    </div>
     <nav role="navigation">
-      <div class="nav-container">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#" class="nav-item">Home</a></li>
-          <li>
-            <a href="#" class="nav-item">Admission</a>
-            <div class="dropdown">
-              <a href="#">Undergraduate</a>
-              <a href="#">Graduate</a>
-              <a href="#">International</a>
-            </div>
-          </li>
-          <li>
-            <a href="#" class="nav-item">Academic</a>
-            <div class="dropdown">
-              <a href="#">Programs</a>
-              <a href="#">Curriculum</a>
-              <a href="#">Faculty</a>
-            </div>
-          </li>
-          <li>
-            <a href="#" class="nav-item">More</a>
-            <div class="dropdown">
-              <a href="#">Research</a>
-              <a href="#">Clubs</a>
-              <a href="#">Contact</a>
-            </div>
-          </li>
-          <li class="apply-mobile"><a href="#" class="apply-btn">Apply Now</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">&#9776;</div>
-      </div>
+        <div class="nav-container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-item">Home</a></li>
+                <li>
+                    <a href="#" class="nav-item">Admission</a>
+                    <div class="dropdown">
+                        <a href="#">Undergraduate</a>
+                        <a href="#">Graduate</a>
+                        <a href="#">International</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">Academic</a>
+                    <div class="dropdown">
+                        <a href="#">Programs</a>
+                        <a href="#">Curriculum</a>
+                        <a href="#">Faculty</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">More</a>
+                    <div class="dropdown">
+                        <a href="#">Research</a>
+                        <a href="#">Clubs</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </li>
+                <li class="apply-mobile"><a href="#" class="apply-btn">Apply Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">&#9776;</div>
+        </div>
     </nav>
-  </header>
+</header>
 <br>
 <br>
-  <main>
+<main>
     <section>
-        <div class="container">
-        {% block content %}
-        {% endblock %}
-         </div>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
 
     </section>
-  </main>
+</main>
 
-  <script>
+<script>
     const navbar = document.getElementById("navbar");
     const navLinks = document.getElementById("navLinks");
     const hamburger = document.getElementById("hamburger");
     const navItems = document.querySelectorAll(".nav-item");
 
     window.addEventListener("load", () => {
-      navbar.classList.add("loaded");
+        navbar.classList.add("loaded");
     });
 
     let hasShrunk = false;
     let lastScroll = 0;
 
     window.addEventListener("scroll", () => {
-      const currentScroll = window.scrollY;
+        const currentScroll = window.scrollY;
 
-      if (currentScroll > lastScroll && currentScroll > 50 && !hasShrunk) {
-        navbar.classList.add("shrink");
-        hasShrunk = true;
-      } else if (currentScroll < lastScroll && currentScroll < 50 && hasShrunk) {
-        navbar.classList.remove("shrink");
-        hasShrunk = false;
-      }
-
-      lastScroll = currentScroll;
-    });
-  document.querySelectorAll('.nav-links > li').forEach(item => {
-  const link = item.querySelector('.nav-item');
-  const dropdown = item.querySelector('.dropdown');
-  const icon = document.createElement('i');
-
-  if (dropdown) {
-    icon.classList.add('icofont-rounded-down');
-    link.classList.add('dropdown-toggle');
-    link.appendChild(icon);
-
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-
-        const isOpen = dropdown.classList.contains('open');
-        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-        document.querySelectorAll('.icofont-rounded-down').forEach(i => i.classList.remove('rotate-icon'));
-
-        if (!isOpen) {
-          dropdown.classList.add('open');
-          icon.classList.add('rotate-icon');
+        if (currentScroll > lastScroll && currentScroll > 50 && !hasShrunk) {
+            navbar.classList.add("shrink");
+            hasShrunk = true;
+        } else if (currentScroll < lastScroll && currentScroll < 50 && hasShrunk) {
+            navbar.classList.remove("shrink");
+            hasShrunk = false;
         }
-      }
+
+        lastScroll = currentScroll;
     });
-  }
-});
+    document.querySelectorAll('.nav-links > li').forEach(item => {
+        const link = item.querySelector('.nav-item');
+        const dropdown = item.querySelector('.dropdown');
+        const icon = document.createElement('i');
+
+        if (dropdown) {
+            icon.classList.add('icofont-rounded-down');
+            link.classList.add('dropdown-toggle');
+            link.appendChild(icon);
+
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+
+                    const isOpen = dropdown.classList.contains('open');
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+                    document.querySelectorAll('.icofont-rounded-down').forEach(i => i.classList.remove('rotate-icon'));
+
+                    if (!isOpen) {
+                        dropdown.classList.add('open');
+                        icon.classList.add('rotate-icon');
+                    }
+                }
+            });
+        }
+    });
 
     hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
+        navLinks.classList.toggle("open");
     });
 
     // Dropdown toggle on mobile
     document.querySelectorAll('.nav-links > li').forEach(item => {
-      item.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          const dropdown = item.querySelector('.dropdown');
-          if (dropdown) {
-            e.preventDefault();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-          }
-        }
-      });
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                const dropdown = item.querySelector('.dropdown');
+                if (dropdown) {
+                    e.preventDefault();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                }
+            }
+        });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener("click", function (e) {
-      if (!navbar.contains(e.target) && navLinks.classList.contains("open")) {
-        navLinks.classList.remove("open");
-      }
+        if (!navbar.contains(e.target) && navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+        }
     });
-  </script>
+</script>
 
 </body>
 </html>
