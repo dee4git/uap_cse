@@ -8,6 +8,7 @@
 .glass-card {
   width: 150px;
   height: 150px;
+  overflow: auto;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
@@ -22,6 +23,35 @@
 
 }
 
+.mission-card {
+    height: 55vh;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-card p {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-bottom: 0;
+    padding-right: 8px; /* optional: adds space so scrollbar doesn’t touch text */
+}
+
+iframe {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Make iframe height smaller on mobile */
+@media (max-width: 576px) {
+    iframe {
+        height: 180px !important;
+    }
+}
 .icofont{
   font-size: 1.90rem;
   color: #9e61ff;
