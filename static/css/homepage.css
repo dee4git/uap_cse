@@ -1,9 +1,26 @@
 .uap-cse-head h1 {
-  font-size: clamp(3rem, 6vw + 1rem, 10vh); /* Increased size */
+  font-size: clamp(2.5rem, 6vw + 1rem, 8vh);
+  font-weight: bold;
   line-height: 1.2;
   word-wrap: break-word;
-  font-weight: bold; /* Making the font bold */
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
+
+  background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
 }
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .uap-cse-head hr {
   border: 3px solid #b3a8cb; /* Increased thickness of the hr */
   width: 65%; /* Adjust the length to match heading width */
