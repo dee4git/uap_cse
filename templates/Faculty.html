@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Faculty{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+    <h1 class="gradient-text">Faculty</h1>
+</div>
+  <section class="faculty-section">
+    <h2>Head of Department</h2>
+    <div class="faculty-container">
+      <div class="faculty-card">
+        <img src="../static/img/eita2.jpg" alt="Dr. Shah Murtaza Rashid Al Masud">
+        <div class="card-info">
+          <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
+          <p>Professor</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Professors</h2>
+    <div class="faculty-container">
+      <div class="faculty-card">
+        <img src="../static/img/eita1.jpg" alt="Dr. Bilkis Jamal Ferdosi">
+        <div class="card-info">
+          <h3>Dr. Bilkis Jamal Ferdosi</h3>
+          <p>Professor</p>
+        </div>
+      </div>
+      <div class="faculty-card">
+        <img src="../static/img/eita3.jpg" alt="Dr. Aloke Kumar Saha">
+        <div class="card-info">
+          <h3>Dr. Aloke Kumar Saha</h3>
+          <p>Professor</p>
+        </div>
+      </div>
+    </div>
+ <h2 class="title">Faculty Members</h2>
+  <div class="card-container">
+    <div class="card active" style="background-image: url('../static/img/eita1.jpg');">
+      <div class="overlay">
+        <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
+        <p>Professor & Head of Department</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('../static/img/eita2.jpg');">
+      <div class="overlay">
+        <h3>Dr. Bilkis Jamal Ferdosi</h3>
+        <p>Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('../static/img/eita3.jpg');">
+      <div class="overlay">
+        <h3>Dr. Aloke Kumar Saha</h3>
+        <p>Professor</p>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+      <script src="../static/js/faculty.js"></script>
+    <!-- Add other faculty groups (Associate Professors, Assistant Professors) below similarly -->
+  </section>
+{% endblock %}
