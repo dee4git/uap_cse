@@ -1,6 +1,17 @@
-.uap-cse-head{
-    background-color: #b3a8cb;
+.uap-cse-head h1 {
+  font-size: clamp(3rem, 6vw + 1rem, 10vh); /* Increased size */
+  line-height: 1.2;
+  word-wrap: break-word;
+  font-weight: bold; /* Making the font bold */
 }
+.uap-cse-head hr {
+  border: 3px solid #b3a8cb; /* Increased thickness of the hr */
+  width: 65%; /* Adjust the length to match heading width */
+  margin: 1.5rem auto; /* Centers the hr and adds spacing */
+  border-radius: 1rem; /* Rounded corners */
+}
+
+
 .container {
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
