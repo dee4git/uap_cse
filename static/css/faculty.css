@@ -9,6 +9,8 @@ body {
 
 /* Banner Styling */
 .banner {
+    scale: 1.2;
+    margin-top: -20px;
     width: 100%;
     padding: 40px;
     background-image: linear-gradient(108.4deg, rgba(220,194,255,1) 6.9%, rgba(185,223,248,1) 86.5%);
