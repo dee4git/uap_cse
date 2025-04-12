@@ -22,10 +22,10 @@
 }
 
 .uap-cse-head hr {
-  border: 3px solid #b3a8cb; /* Increased thickness of the hr */
-  width: 65%; /* Adjust the length to match heading width */
-  margin: 1.5rem auto; /* Centers the hr and adds spacing */
-  border-radius: 1rem; /* Rounded corners */
+    border: 3px solid #b3a8cb; /* Increased thickness of the hr */
+    width: 65%; /* Adjust the length to match heading width */
+    margin: 1.5rem auto; /* Centers the hr and adds spacing */
+    border-radius: 1rem; /* Rounded corners */
 }
 
 
