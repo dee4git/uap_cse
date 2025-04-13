@@ -27,7 +27,25 @@
     margin: 1.5rem auto; /* Centers the hr and adds spacing */
     border-radius: 1rem; /* Rounded corners */
 }
-
+.gradient-texts {
+ background: linear-gradient(108.4deg, rgba(150,92,255,1) 6.9%, rgba(55,152,255,1) 86.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 4em;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .container {
   background: rgba(255, 255, 255, 0.05);

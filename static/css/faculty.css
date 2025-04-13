@@ -9,8 +9,10 @@ body {
 
 /* Banner Styling */
 .banner {
-    scale: 1.2;
-    margin-top: -20px;
+    transform: scale(1.2);
+    transform-origin: top center;
+    margin-top: -40px;
+    margin-bottom: 100px; /* Added space below banner */
     width: 100%;
     padding: 40px;
     background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
@@ -32,131 +34,163 @@ body {
 }
 
 .banner:hover {
-    transform: scale(1.02);
+    transform: scale(1.22);
 }
 
 .gradient-text {
- background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 4em;
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
-  background-size: 200% 200%;
-  animation: gradientMove 10s ease infinite;
+    background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
 }
+
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Faculty Section */
-
-
+/* Section Heading Styles */
 h2 {
-  font-size: 1.5rem;
-  margin-top: 40px;
-  color: #333;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    color: #333;
 }
 
+.grad-text {
+    background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  clear: both;
+}
+
+.tt {
+    border: 3px solid #b3a8cb;
+    width: 100%;
+    margin: 1.5rem auto;
+    border-radius: 1rem;
+}
+
+/* Faculty Section Styles */
 .faculty-section {
-  max-width: 1200px;
-  margin: auto;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: auto;
+    display: block;
 }
 
 .faculty-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-  padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0;
 }
 
 .faculty-card {
-  flex: 1 1 calc(20% - 20px);
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    flex: 1 1 calc(20% - 20px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .faculty-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .faculty-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .card-info {
-  padding: 15px;
+    padding: 15px;
 }
 
 .card-info h3 {
-  font-size: 1rem;
-  color: #333;
-  margin: 10px 0 5px;
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0 5px;
 }
 
 .card-info p {
-  color: #777;
-  font-size: 0.9rem;
-}
-.title {
-  text-align: center;
-  margin: 2rem 0;
-  color: #333;
+    color: #777;
+    font-size: 0.9rem;
 }
 
+.title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+}
+
+/* Expanding Card Section */
 .card-container {
-  display: flex;
-  height: 500px;
-  gap: 10px;
-  padding: 0 2rem;
-  transition: all 0.3s ease-in-out;
+    display: flex;
+    max-width: 1200px;
+    height: 400px;
+    gap: 10px;
+    padding: 0 2rem;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+    box-sizing: border-box;
+    justify-content: center;
 }
 
 .card {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  cursor: pointer;
-  position: relative;
-  transition: flex 0.6s ease;
-  overflow: hidden;
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: flex 0.6s ease;
+    overflow: hidden;
 }
 
 .card.active {
-  flex: 3;
+    flex: 3;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .card.active .overlay {
-  opacity: 1;
+    opacity: 1;
 }
