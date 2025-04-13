@@ -7,9 +7,9 @@ def faculty(request):
     return render(request, 'faculty.html')
 
 def undergraduate(request):
-    return render(request, 'undergraduate.html')
+    return render(request, 'hard_html/undergraduate.html')
 
 def graduate(request):
-    return render(request, 'graduate.html')
+    return render(request, 'hard_html/graduate.html')
 def international(request):
-    return render(request, 'international.html')
+    return render(request, 'hard_html/international.html')
