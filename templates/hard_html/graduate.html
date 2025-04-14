@@ -1,183 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Admission Info - UAP MCSE</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Graduate{% endblock %}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/graduate.css' %}">
+{% endblock %}
 
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+{% block content %}
+  <div class="banner2">
+    <h1 class="gradient-text">Admission Info</h1><br>
+    <h2 class="gradient-text">Graduate</h2>
+  </div>
 
-    header h1 {
-      font-size: 48px;
-    }
+    <h3>Why MCSE at UAP</h3>
+    <ul>
+      <li>Highly qualified faculty members with Ph.D. degrees from abroad and reputed top-ranked universities</li>
+      <li>Adjunct faculty members from BUET and Dhaka University</li>
+      <li>Syllabus and curriculum are updated to keep up with the demand of employers</li>
+      <li>Well-furnished laboratories with world-class facilities</li>
+      <li>Government-funded Lab for Games and Android App development for students</li>
+      <li>Students publish their research work in high impact factor journals and conferences</li>
+    </ul>
+    <h3>General Info</h3>
+    <!-- Tab buttons -->
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab(event, 'motivation')">Motivation</button>
+<button class="tab-button" onclick="showTab(event, 'timing')">General Timing and Procedure</button>
+    </div>
 
-    header h2 {
-      font-size: 28px;
-      font-weight: normal;
-      margin-top: 10px;
-    }
+    <!-- Tab contents -->
+    <div id="motivation" class="tab-content active">
+      <p>
+        The admission screening procedure at UAP aims to find the most deserving students for each department.
+        It is also important for students to find out their own skill sets...
+      </p>
+    </div>
 
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h3 {
-      font-size: 26px;
-      color: #003366;
-      margin-bottom: 15px;
-      border-left: 5px solid #0073e6;
-      padding-left: 10px;
-    }
-
-    ul {
-      list-style-type: disc;
-      margin-left: 25px;
-      margin-bottom: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .tab-button {
-      padding: 10px 20px;
-      background-color: #e0e0e0;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px 5px 0 0;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .tab-button.active {
-      background-color: #0073e6;
-      color: white;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 20px 40px; /* left padding creates indent */
-      border: 1px solid #ddd;
-      border-top: none;
-      background-color: #f9f9f9;
-      border-radius: 0 0 5px 5px;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Admission Info</h1>
-    <h2>Graduate</h2>
-  </header>
-
-  <main>
-
-    <section>
-      <h3>Why MCSE at UAP</h3>
+    <div id="timing" class="tab-content">
       <ul>
-        <li>Highly qualified faculty members with Ph.D. degrees from abroad and reputed top-ranked universities</li>
-        <li>Adjunct faculty members from BUET and Dhaka University</li>
-        <li>Syllabus and curriculum are updated to keep up with the demand of employers</li>
-        <li>Well-furnished laboratories with world-class facilities</li>
-        <li>Government-funded Lab for Games and Android App development for students</li>
-        <li>Students publish their research work in high impact factor journals and conferences</li>
+        <li><strong>Spring Semester (in general):</strong> July to December</li>
+        <li><strong>Fall Semester (in general):</strong> January to June</li>
+        <li><strong>Note:</strong> Detailed timing of each semester is published online beforehand as “academic calendar”</li>
       </ul>
-    </section>
-
-    <section>
-      <h3>General Info</h3>
-
-      <!-- Tab buttons -->
-      <div class="tabs">
-        <button class="tab-button active" onclick="showTab('motivation')">Motivation</button>
-        <button class="tab-button" onclick="showTab('timing')">General Timing and Procedure</button>
-      </div>
-
-      <!-- Tab contents with 4-space indentation via padding -->
-      <div id="motivation" class="tab-content active">
-        <p>
-            The admission screening procedure at UAP aims to find the most deserving students for each department.
-            It is also important for students to find out their own skill sets which will suggest and guide them
-            in choosing appropriate career paths. The admission system varies for different departments depending
-            on each department’s requirements, but it is strictly maintained that the procedures are fair and transparent.
-            We value that each student deserves a culture where all the classmates are motivated to pursue higher education
-            and have something to offer in their lateral education. Good admission procedures are here to satisfy that.
-        </p>
-      </div>
-
-      <div id="timing" class="tab-content">
-        <ul>
-          <li><strong>Spring Semester (in general):</strong> July to December</li>
-          <li><strong>Fall Semester (in general):</strong> January to June</li>
-          <li><strong>Note:</strong> Detailed timing of each semester is published online beforehand as “academic calendar”</li>
-        </ul>
-      </div>
-
-    </section>
-
-  </main>
+    </div>
 
   <footer>
     &copy; 2025 University of Asia Pacific (UAP) - Department of CSE
   </footer>
-
-  <script>
-    function showTab(tabId) {
-      // Remove active class from all tab buttons
-      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-
-      // Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-      // Show selected tab
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
+<script src="{% static 'js/grad.js' %}"></script>
+{% endblock %}

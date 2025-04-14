@@ -1,10 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Undergraduate{% endblock %}
 
-</body>
-</html>
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/undergraduate.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="banner">
+    <h1 class="gradient-text">Admission Info</h1><br>
+    <h2 class="gradient-text">Undergraduate</h2>
+  </div>
+
+<section class="cse-benefits">
+    <h2 class="section-title">Why CSE at UAP?</h2>
+    <div class="benefits-container">
+        <div class="benefit-card">
+            <p>Ranked "Very Good" by External Peer Review Team (EPRT), IQAC, UGC.</p>
+        </div>
+        <div class="benefit-card">
+
+            <p>Ranked 11th among public and private universities in Bangladesh (SCImago Ranking 2021).</p>
+        </div>
+        <div class="benefit-card">
+            <p>Faculty members with Ph.D. degrees from reputed universities worldwide.</p>
+        </div>
+        <div class="benefit-card">
+            <p>Adjunct faculty only from renowned public universities like BUET, DU, and JU.</p>
+        </div>
+        <div class="benefit-card">
+            <p>Industrial training integrated into the course curriculum.</p>
+        </div>
+        <div class="benefit-card">
+            <p>Government-funded Lab for Game & Android App development.</p>
+        </div>
+    </div>
+</section>
+
+ <div class="container">
+    <h1 class="section-title">General Info</h1>
+
+  <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+        <h2>Motivation</h2>
+        <p>The admission screening procedure at UAP aims to find the most deserving students for each department. It is also important for students to find out their own skill sets which will suggest and guide them in choosing appropriate career paths.</p>
+      </div>
+    </div>
+
+     <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+        <h2>General Timing and Procedure</h2>
+        <ul>
+          <li>Spring Semester (in general): July to December</li>
+          <li>Fall Semester (in general): January to June</li>
+        </ul>
+      </div>
+    </div>
+
+   <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+        <h2>Admission Test</h2>
+        <p>Applicants must sit for an admission test conducted by the university, unless exempted by eligibility criteria or credit transfer from equivalent institutions.</p>
+      </div>
+    </div>
+
+  <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+        <h2>Transfer Students</h2>
+        <p>Transfer students may be considered based on their previous academic records and availability of space in the desired department.</p>
+      </div>
+    </div>
+
+    <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+        <h2>International Students</h2>
+        <p>International applicants must follow the same admission procedures, with appropriate credential equivalency and visa requirements fulfilled.</p>
+      </div>
+    </div>
+
+ <h1 class="section-title">Admission Info</h1>
+
+  <div class="section">
+    <div class="section-icon">🎓</div>
+    <div class="section-content">
+      <h2>Admission Criteria</h2>
+      <p><strong>B.Sc. Eng. in CSE</strong></p>
+      <p><strong>Minimum GPA Requirements</strong></p>
+      <ul>
+        <li>Total GPA in SSC & HSC = 7.50</li>
+        <li>Total GPA in O & A level = 7.50</li>
+        <li>(Minimum GPA of 2.5 in 5 subjects in O level and 2 subjects in A level)</li>
+      </ul>
+      <p><strong>Subject Requirements</strong>: Must have Physics, Mathematics in HSC (or equivalent) and Chemistry in SSC or HSC (or equivalent).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-icon">📝</div>
+    <div class="section-content">
+      <h2>Special Notes</h2>
+      <ul>
+        <li><strong>Admit Card</strong>: Collect from UAP admission office.</li>
+        <li><strong>Admission Notice / Test Schedules</strong>: Available at the office or online.</li>
+        <li><strong>Diploma Students</strong>: Must have minimum GPA of 3.0 and apply for respective department.</li>
+        <li><strong>H.S.C. Appeared Candidates</strong>: Must meet minimum requirements after HSC result.</li>
+        <li><strong>Students with Study Gap</strong>: Max 2 years (or 1 for Pharmacy).</li>
+      </ul>
+      <p><strong style="color: #c70039;">Deviation between documents and info will cancel admission.</strong></p>
+    </div>
+  </div>
+
+
+  <section class="cse-benefits">
+          <h3> 📍 Admission Office</h3>
+        <div class="benefits-container">
+        <div class="benefit-card">
+          <p>T74/A Green Road, Farmgate<br>
+            Dhaka - 1215, Bangladesh<br>
+            PABX: +8802-58157091-4, FAX: +8802-58157097.</p>
+        </div>
+      </div>
+
+          <h3>👩‍💼 Admission Personnel</h3>
+        <div class="benefits-container">
+        <div class="benefit-card">
+          <p>
+            Rabeya Khandoker<br>
+            Admission Officer<br>
+            ✉️ rabeyakhandoker@uap-bd.edu
+          </p>
+        </div>
+      </div>
+  </section>
+ </div>
+{% endblock %}

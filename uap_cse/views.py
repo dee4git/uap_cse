@@ -11,5 +11,12 @@ def undergraduate(request):
 
 def graduate(request):
     return render(request, 'hard_html/graduate.html')
+
 def international(request):
     return render(request, 'hard_html/international.html')
+
+def why_cse(request):
+    return render(request, 'hard_html/why_cse.html')
+
+def host(request):
+    return render(request, 'hard_html/icpc_host.html')

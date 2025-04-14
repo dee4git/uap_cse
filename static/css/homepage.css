@@ -1,3 +1,14 @@
+.glass-card-link {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+
+.glass-card-link:hover .glass-card {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
 .uap-cse-head h1 {
   font-size: clamp(2.5rem, 6vw + 1rem, 8vh);
   font-weight: bold;
@@ -6,7 +17,6 @@
   display: inline-block;
   margin: 0 auto;
   padding: 10px;
-
   background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
   background-clip: text;
   -webkit-background-clip: text;
