@@ -1,0 +1,8 @@
+.gradient-text-global {
+    background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s ease infinite;
+    background-size: 200% 200%;
+}

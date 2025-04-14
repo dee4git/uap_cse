@@ -52,7 +52,13 @@
   padding: 30px;
   border-radius: 20px;
 }
-
+.lottie {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .glass-card {
   width: 150px;
   height: 150px;
@@ -118,16 +124,19 @@ iframe {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
-
+.glass-card dotlottie-player {
+    width: 90% !important;
+    height: auto !important;
+    max-width: 150px;
+    max-height: 102px;
+}
 .glass-text {
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     color: #b3a8cb;
     font-weight: 600;
-    font-size: 1.1rem;
-    /* text-shadow: 0 0 5px rgba(90, 26, 219, 0.1); */
+    font-size: small;
 }
-
 /* Update the height of the tagline-wrapper to fit only one line of text */
 .tagline-wrapper {
   height: 40px; /* Ensure enough height to hold a single text */
