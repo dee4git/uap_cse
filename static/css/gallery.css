@@ -1,4 +1,4 @@
-faculty.css
+
 /* General Styles */
 body {
     font-family: "Lexend", sans-serif;
@@ -10,9 +10,9 @@ body {
 
 /* Banner Styling */
 .banner {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transform-origin: top center;
-    margin-top: -40px;
+    margin-top: -20px;
     margin-bottom: 100px; /* Added space below banner */
     width: 100%;
     padding: 40px;
@@ -45,7 +45,7 @@ body {
     -webkit-text-fill-color: transparent;
     display: inline-block;
     font-weight: bold;
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     margin: 0 auto;
     padding: 10px;

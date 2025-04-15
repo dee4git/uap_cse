@@ -12,8 +12,8 @@ def undergraduate(request):
 def graduate(request):
     return render(request, 'hard_html/graduate.html')
 
-def international(request):
-    return render(request, 'hard_html/international.html')
+def tuition(request):
+    return render(request, 'hard_html/tuition.html')
 
 def why_cse(request):
     return render(request, 'hard_html/why_cse.html')
@@ -25,3 +25,5 @@ def clubs(request):
     return render(request, 'hard_html/clubs.html')
 def club_detail(request):
     return render(request, 'club_detail.html')
+def gallery(request):
+    return render(request, 'hard_html/gallery.html')
