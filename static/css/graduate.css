@@ -11,8 +11,8 @@ body {
 .banner2 {
     transform: scale(1.1);
     transform-origin: top center;
-    margin-top: -40px;
-    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-bottom: 100px;
     width: 100%;
     padding: 40px;
     background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
@@ -55,17 +55,16 @@ body {
 }
 .section{
       padding: 20px;
-      max-width: 1000px;
-      margin: auto;
+    margin: auto;
+     justify-content: space-between;
       background-color: white;
-      margin-bottom: 20px;
 }
 
 /* Headings */
 h3 {
     font-size: 26px;
     margin-bottom: 15px;
-    border-left: 5px solid #205566;
+    border-left: 5px solid #c084fc;
     padding-left: 10px;
     text-align: left;
 }
@@ -101,8 +100,8 @@ li {
 }
 
 .tab-button.active {
-    background-color: #91d4d1;
-    color: white;
+    background-color: #E6E6FA;;
+    color: #c084fc;
 }
 
 .tab-content {

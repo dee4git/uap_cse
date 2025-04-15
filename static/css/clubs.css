@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom Card Container Grid */
+.custom-card-container {
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  padding: 2rem;
+   display: grid;
+  gap:20px;
+    justify-content: center; /* Centers the cards */
+}
+
+/* Card Wrapper Link */
+.custom-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.custom-card-link:hover {
+  transform: scale(1.02);
+}
+
+/* Custom Card Style */
+.custom-card {
+  background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 280px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.custom-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Card Logo */
+.custom-card-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Card Text */
+.custom-card-text {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Read More Button (span for click look) */
+.custom-read-more {
+  font-weight: bold;
+  font-size: 14px;
+  color: blueviolet;
+  border: 2px solid #d8b4fe;
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-read-more:hover {
+  background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
+  color: white;
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+  .custom-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    padding: 30px;
+  }
+}
+.club-description {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Darker text color */
+    text-align: center;
+    background-color: #f8f9fa; /* Light background */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1); /* Light shadow for depth */
+}
+
+
+
+/* Banner Section */
+.banner {
+  margin-top:-10px;
+  width: 100%;
+  padding: 50px;
+  background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Gradient Text Header */
+.gradient-text {
+  background: linear-gradient(108.4deg, rgb(204, 146, 177), rgb(113, 111, 185));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  padding: 10px;
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+  0% { background-size: 100% 100%; }
+  50% { background-size: 120% 120%; }
+  100% { background-size: 100% 100%; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

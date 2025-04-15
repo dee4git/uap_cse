@@ -20,3 +20,8 @@ def why_cse(request):
 
 def host(request):
     return render(request, 'hard_html/icpc_host.html')
+
+def clubs(request):
+    return render(request, 'hard_html/clubs.html')
+def club_detail(request):
+    return render(request, 'club_detail.html')

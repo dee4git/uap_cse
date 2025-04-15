@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Gallery | CSE{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/clubs.css' %}">
+{% endblock %}
+
+{% block content %}
+ <h1 class="grad-text">Assistant Professors</h1>
+      <div class="card-container">
+    <div class="card active" style="background-image: url('{% static 'img/p3.jpg' %}')">
+      <div class="overlay">
+        <h3>Shaila Rahman</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p2.jpg' %}')">
+      <div class="overlay">
+        <h3>Shammi Akhter</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p1.png' %}')">
+      <div class="overlay">
+        <h3>A S Zaforullah Momtaz</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-container">
+    <div class="card active" style="background-image: url('{% static 'img/p3.jpg' %}')">
+      <div class="overlay">
+        <h3>Molla Rushied Hussain</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p2.jpg' %}')">
+      <div class="overlay">
+        <h3>Nadeem Ahmed</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p1.png' %}')">
+      <div class="overlay">
+        <h3>Tanjina Helaly</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+  </div>
+
+     <div class="card-container">
+    <div class="card active" style="background-image: url('{% static 'img/p3.jpg' %}')">
+      <div class="overlay">
+        <h3>Tahira Alam</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p2.jpg' %}')">
+      <div class="overlay">
+        <h3>Dr. Muhammad Towfiqur Rahman</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p1.png' %}')" >
+      <div class="overlay">
+        <h3>Md. Shahidul Islam</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+  </div>
+<div class="card-container">
+    <div class="card" style="background-image: url('{% static 'img/p2.jpg' %}')">
+      <div class="overlay">
+        <h3>Dr.Homeyra Akter</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('{% static 'img/p3.jpg' %}')">
+      <div class="overlay">
+        <h3>Dr.Subhra Prosun Paul</h3>
+        <p>Assistant Professor</p>
+      </div>
+    </div>
+
+
+
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="lab.jpg" alt="Gallery Image 1" class="gallery-image" data-full="lab.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="DSC_0020-min.JPG" alt="Gallery Image 2" class="gallery-image" data-full="DSC_0020-min.JPG">
+    </div>
+    <div class="gallery-item">
+      <img src="DSC_0003-min.JPG" alt="Gallery Image 3" class="gallery-image" data-full="DSC_0003-min.JPG">
+    </div>
+    <div class="gallery-item">
+      <img src="DSC_0076-min.JPG" alt="Gallery Image 4" class="gallery-image" data-full="DSC_0076-min.JPG">
+    </div>
+    <div class="gallery-item">
+      <img src="image5.jpg" alt="Gallery Image 5" class="gallery-image" data-full="image5.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="image6.jpg" alt="Gallery Image 6" class="gallery-image" data-full="image6.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="image7.jpg" alt="Gallery Image 7" class="gallery-image" data-full="image7.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="image8.jpg" alt="Gallery Image 8" class="gallery-image" data-full="image8.jpg">
+    </div>
+    <!-- Add more images as needed -->
+  </section>
+
+  <!-- Modal to show full-size image -->
+  <div id="modal" class="modal">
+    <span class="close" id="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <div id="caption"></div>
+  </div>
+{% endblock %}

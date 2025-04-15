@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Club | CSE{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/clubs.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <h1 class="gradient-text">Explore All Clubs</h1>
+</div>
+<p class="club-description">
+  Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that match your interests!
+</p>
+
+<div class="custom-card-container">
+  {% comment %} Loop over clubs in context if dynamic {% endcomment %}
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/Software&Hardware club.png' %}" alt="Software & Hardware Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Software & Hardware Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail' %}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/mathclublogo.png' %}" alt="Math Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Math Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/programming contest club.png' %}" alt="Programming Contest Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Programming Contest Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/film & photography.png' %}" alt="Film & Photography Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Film & Photography Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/career development.png' %}" alt="Career Development Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Career Development Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/cse cultural club.png' %}" alt="CSE Cultural Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">CSE Cultural Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail' %}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/sports.png' %}" alt="Sports Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">Sports Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+
+  <a href="{% url 'club_detail'%}" class="custom-card-link">
+    <div class="custom-card">
+      <img src="{% static 'img/cyber security club.png' %}" alt="Cyber Security Club Logo" class="custom-card-logo">
+      <p class="custom-card-text">CyberSecurity Club</p>
+      <span class="custom-read-more">Learn More</span>
+    </div>
+  </a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('show');
+  }
+
+</script>
+{% endblock %}
