@@ -5,92 +5,96 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
-
 {% endblock %}
 
 {% block content %}
 <div class="banner">
     <h1 class="gradient-text">Faculty</h1>
 </div>
-  <section class="faculty-section">
+<section class="faculty-section">
+
     <h1 class="gradient-text" style="
-    font-size: x-large;
-    margin-top:20px;
-    display: block;
-    margin-bottom: -27px;
-    align-items: center!important;
-    text-align: center;
-    justify-content: center!important;
-">Head of Department</h1>
-         <hr style="border: 3px solid #b3a8cb; /* Increased thickness of the hr */
-  width: 100%; /* Adjust the length to match heading width */
-  margin: 1.5rem auto; /* Centers the hr and adds spacing */
-  border-radius: 1rem; /* Rounded corners */">
+        font-size: x-large;
+        margin-top:20px;
+        display: block;
+        margin-bottom: -27px;
+        align-items: center!important;
+        text-align: center;
+        justify-content: center!important;
+    ">Head of Department</h1>
+    <hr style="border: 3px solid #b3a8cb;
+        width: 100%;
+        margin: 1.5rem auto;
+        border-radius: 1rem;">
 
     <div class="faculty-container">
-      <div class="faculty-card">
-        <img src="../static/img/p1.png" alt="Dr. Shah Murtaza Rashid Al Masud">
-        <div class="card-info">
-          <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
-          <p>Professor</p>
+        <div class="faculty-card">
+            <img src="../static/img/p1.png" alt="Dr. Shah Murtaza Rashid Al Masud">
+            <div class="card-info">
+                <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
+                <p>Professor</p>
+            </div>
         </div>
-      </div>
     </div>
 
-<h1 class="gradient-text" style="
-    font-size: x-large;
-    display: block;
-    margin-top: 20px;
-    margin-bottom: -27px;
-    align-items: center!important;
-    text-align: center;
-    justify-content: center!important;
-">Professor</h1>    <div class="faculty-container">
-      <div class="faculty-card">
-        <img src="../static/img/p2.jpg" alt="Dr. Bilkis Jamal Ferdosi">
-        <div class="card-info">
-          <h3>Dr. Bilkis Jamal Ferdosi</h3>
-          <p>Professor</p>
-        </div>
-      </div>
-      <div class="faculty-card">
-        <img src="../static/img/p3.jpg" alt="Dr. Aloke Kumar Saha">
-        <div class="card-info">
-          <h3>Dr. Aloke Kumar Saha</h3>
-          <p>Professor</p>
-        </div>
-      </div>
-    </div>
     <h1 class="gradient-text" style="
-    font-size: x-large;
-    margin-top:20px;
-    display: block;
-    margin-bottom: -27px;
-    align-items: center!important;
-    text-align: center;
-    justify-content: center!important;
-">Associate Professors</h1>  <div class="card-container">
-    <div class="card active" style="background-image: url('../static/img/p2.jpg');">
-      <div class="overlay">
-        <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
-        <p>Professor & Head of Department</p>
-      </div>
+        font-size: x-large;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;  /* changed here */
+        align-items: center!important;
+        text-align: center;
+        justify-content: center!important;
+    ">Professor</h1>
+
+    <div class="faculty-container">
+        <div class="faculty-card">
+            <img src="../static/img/p2.jpg" alt="Dr. Bilkis Jamal Ferdosi">
+            <div class="card-info">
+                <h3>Dr. Bilkis Jamal Ferdosi</h3>
+                <p>Professor</p>
+            </div>
+        </div>
+        <div class="faculty-card">
+            <img src="../static/img/p3.jpg" alt="Dr. Aloke Kumar Saha">
+            <div class="card-info">
+                <h3>Dr. Aloke Kumar Saha</h3>
+                <p>Professor</p>
+            </div>
+        </div>
     </div>
-    <div class="card" style="background-image: url('../static/img/p1.png');">
-      <div class="overlay">
-        <h3>Dr. Bilkis Jamal Ferdosi</h3>
-        <p>Professor</p>
-      </div>
+
+    <h1 class="gradient-text" style="
+        font-size: x-large;
+        margin-top:20px;
+        margin-bottom: 20px;  /* changed here */
+        display: block;
+        align-items: center!important;
+        text-align: center;
+        justify-content: center!important;
+    ">Associate Professors</h1>
+
+    <div class="card-container">
+        <div class="card active" style="background-image: url('../static/img/p2.jpg');">
+            <div class="overlay">
+                <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
+                <p>Professor & Head of Department</p>
+            </div>
+        </div>
+        <div class="card" style="background-image: url('../static/img/p1.png');">
+            <div class="overlay">
+                <h3>Dr. Bilkis Jamal Ferdosi</h3>
+                <p>Professor</p>
+            </div>
+        </div>
+        <div class="card" style="background-image: url('../static/img/p3.jpg');">
+            <div class="overlay">
+                <h3>Dr. Aloke Kumar Saha</h3>
+                <p>Professor</p>
+            </div>
+        </div>
     </div>
-    <div class="card" style="background-image: url('../static/img/p3.jpg');">
-      <div class="overlay">
-        <h3>Dr. Aloke Kumar Saha</h3>
-        <p>Professor</p>
-      </div>
-    </div>
-    <!-- Add more cards as needed -->
-  </div>
-      <script src="../static/js/faculty.js"></script>
-    <!-- Add other faculty groups (Associate Professors, Assistant Professors) below similarly -->
-  </section>
+
+    <script src="../static/js/faculty.js"></script>
+</section>
 {% endblock %}

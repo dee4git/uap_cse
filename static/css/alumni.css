@@ -1,0 +1,36 @@
+.apply-section {
+    margin-top: 96px; /* 1 inch after last cards */
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.apply-button-list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.apply-button-list .apply-mobile {
+    display: inline-block;
+}
+
+.apply-button-list .apply-btn {
+    font-size: 20px;
+    padding: 18px 32px;
+    background-color: rgba(90, 26, 219, 0.1);
+    color: black !important;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.apply-button-list .apply-btn:hover {
+    background-color: rgba(208, 187, 255, 0.42);
+    color: black !important;
+    transform: scale(1.05);
+}

@@ -24,4 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('faculty/', views.faculty, name='faculty'),
+    path('alumni/', views.alumni, name='alumni'),
+    path('alumni_stories/', views.alumni_stories, name='alumni_stories'),
+    path('alumni_association/', views.alumni_association, name='alumni_association'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

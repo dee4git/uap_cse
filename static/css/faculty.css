@@ -160,3 +160,24 @@ h2 {
 .card.active .overlay {
   opacity: 1;
 }
+
+
+.section-title {
+    font-size: x-large;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-divider {
+    border: 3px solid #b3a8cb;
+    width: 100%;
+    margin: 1.5rem auto;
+    border-radius: 1rem;
+}
+
+.card-spacing {
+    margin-bottom: 40px;
+}
+
+
