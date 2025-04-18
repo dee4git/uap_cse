@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Graduate{% endblock %}
 
-</body>
-</html>
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/graduate.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="banner2">
+    <h1 class="gradient-text">Admission Info</h1><br>
+    <h2 class="gradient-text">Graduate</h2>
+  </div>
+
+
+<div class="section">
+    <h3>Why MCSE at UAP</h3>
+    <ul>
+      <li>Highly qualified faculty members with Ph.D. degrees from abroad and reputed top-ranked universities</li>
+      <li>Adjunct faculty members from BUET and Dhaka University</li>
+      <li>Syllabus and curriculum are updated to keep up with the demand of employers</li>
+      <li>Well-furnished laboratories with world-class facilities</li>
+      <li>Government-funded Lab for Games and Android App development for students</li>
+      <li>Students publish their research work in high impact factor journals and conferences</li>
+    </ul>
+    <h3>General Info</h3>
+    <!-- Tab buttons -->
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab(event, 'motivation')">Motivation</button>
+<button class="tab-button" onclick="showTab(event, 'timing')">General Timing and Procedure</button>
+    </div>
+
+    <!-- Tab contents -->
+    <div id="motivation" class="tab-content active">
+        <ul>
+       <li> The admission screening procedure at UAP aims to find the most deserving students for each department.
+        It is also important for students to find out their own skill sets...</li>
+      </ul>
+    </div>
+
+    <div id="timing" class="tab-content">
+      <ul>
+        <li><strong>Spring Semester (in general):</strong> July to December</li>
+        <li><strong>Fall Semester (in general):</strong> January to June</li>
+        <li><strong>Note:</strong> Detailed timing of each semester is published online beforehand as “academic calendar”</li>
+      </ul>
+    </div>
+</div>
+
+<script src="{% static 'js/grad.js' %}"></script>
+{% endblock %}

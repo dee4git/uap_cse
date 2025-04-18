@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+        <img src="logo-footer.png" alt="University Logo" class="footer-logo">
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()"> <span></span> <span></span> <span></span> </div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+       
+      
+        
+      
+        <div class="dropdown">
+          <button>Resources</button>
+          <div class="dropdown-content">
+            <a href="blog.html">Explore Inside</a>
+            <a href="ejournal.html">E-journal</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+            <button>More</button>
+            <div class="dropdown-content">
+                <a href="clubs.html">Clubs</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="#">Events</a>
+                <a href="#">News</a>
+                <a href="#">Research and Publications</a>
+                <a href="#">Alumni Stories</a>
+                <a href="#">Alumni Associations</a>
+            </div>    
+          </div>
+      
+        <button class="apply-btn">Apply for Admission</button>
+      </div>
+</nav> <!-- Stylish Heading Section --> 
+<section class="header-section"> 
+    <h1>University of Asia Pacific</h1> 
+    <h2>Department of Computer Science</h2> 
+    <p> The University of Asia Pacific offers a world-class education in the field of Computer Science, preparing students for the ever-evolving world of technology. Our department is dedicated to providing the best resources, faculty, and curriculum to ensure students are at the forefront of innovation. </p> 
+</section> 
+<!-- Mission, Vision, Inside CSE Section --> 
+<section class="mission-vision-section"> 
+    <h2>Mission, Vision & Inside CSE</h2> 
+    <div class="cards-container"> 
+        <div class="card"> 
+            <h3>Mission</h3> 
+            <p>Our mission is to provide students with a comprehensive education, fostering skills for the real world of technology.</p> 
+        </div> 
+        <div class="card"> 
+            <h3>Vision</h3> 
+            <p>Our vision is to become a global leader in Computer Science education, pushing the boundaries of innovation.</p> 
+        </div> 
+        <div class="card"> 
+            <h3>Inside CSE</h3> 
+            <p>Our department offers cutting-edge courses and research opportunities in artificial intelligence, data science, and more.</p> 
+        </div> 
+    </div> 
+</section> 
+<!-- Alumni Section --> 
+<section class="alumni-section"> 
+    <h2>Our Proud Alumni</h2> 
+    <div class="alumni-cards-container"> 
+        <div class="alumni-card"> 
+            <h3>John Doe</h3> 
+            <p>CEO at Tech Innovators</p> 
+            <p>Graduated in 2015, John is now leading a global tech company, driving innovative projects.</p> 
+            <a href="#">Read More</a> 
+        </div> 
+        <div class="alumni-card"> 
+            <h3>Jane Smith</h3> 
+            <p>Data Scientist at DataTech</p> 
+            <p>Graduated in 2017, Jane is revolutionizing the tech industry with her data-driven solutions.</p> 
+            <a href="#">Read More</a> 
+        </div> 
+        <div class="alumni-card"> 
+            <h3>Mike Johnson</h3> 
+            <p>Software Engineer at CodeLab</p> 
+            <p>Mike has been building cutting-edge software solutions since his graduation in 2016.</p> 
+            <a href="#">Read More</a> 
+        </div> 
+    </div> 
+</section> 
+
+<footer class="footer">
+    <!-- First Section: Logo and Social Icons -->
+    <div class="footer-section">
+      <img src="logo-footer.png" alt="Logo" class="footer-logo">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-icon facebook"></a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon instagram"></a>
+        <a href="https://www.twitter.com/yourprofile" target="_blank" class="social-icon twitter"></a>
+      </div>
+    </div>
+    <!-- Second Section: Important Links -->
+    <div class="footer-section">
+      <h4>Important Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Third Section: Contact Information -->
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>Email: contact@example.com</p>
+      <p>Phone: +123 456 7890</p>
+      <p>Address: 123 Street Name, City, Country</p>
+    </div>
+  </footer>
+  
+  
+  
+    <script> 
+    function toggleMenu(){
+        const navLinks = document.getElementById('navLinks'); 
+        navLinks.classList.toggle('show'); 
+        } 
+    // Change navbar style on scroll window.onscroll = function() { const navbar = document.getElementById("navbar"); if (window.scrollY > 50) { navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); } };
+    </script> 
+</body> </html>       

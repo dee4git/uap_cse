@@ -1,3 +1,23 @@
+.glass-card-link {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+
+.glass-card-link:hover .glass-card {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+.glass-card-link {
+     text-decoration: none;
+     display: inline-block;
+     color: inherit;
+ }
+
+ .glass-card-link:hover .glass-card {
+     transform: scale(1.03);
+     transition: transform 0.3s ease;
+ }
 .uap-cse-head h1 {
   font-size: clamp(2.5rem, 6vw + 1rem, 8vh);
   font-weight: bold;
@@ -6,7 +26,6 @@
   display: inline-block;
   margin: 0 auto;
   padding: 10px;
-
   background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -27,14 +46,38 @@
     margin: 1.5rem auto; /* Centers the hr and adds spacing */
     border-radius: 1rem; /* Rounded corners */
 }
-
+.gradient-texts {
+ background: linear-gradient(108.4deg, rgba(150,92,255,1) 6.9%, rgba(55,152,255,1) 86.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 4em;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .container {
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 20px;
 }
-
+.lottie {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .glass-card {
   width: 150px;
   height: 150px;
@@ -100,14 +143,62 @@ iframe {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
+.glass-card dotlottie-player {
+    width: 90% !important;
+    height: auto !important;
+    max-width: 150px;
+    max-height: 102px;
+}
+.div-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.div-img img {
+    width: 75%;
+    height: 75%;
+    margin-top: 17px;
+    object-fit: cover;
+    border-radius: inherit;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: popThenFloat 1.5s ease-out forwards, floatIdle 3s ease-in-out 1.5s infinite alternate;
+}
 
+/* Pop in animation */
+@keyframes popThenFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1);
+    }
+}
+
+/* Gentle float after popping in */
+@keyframes floatIdle {
+    0% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
 .glass-text {
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     color: #b3a8cb;
     font-weight: 600;
-    font-size: 1.1rem;
-    /* text-shadow: 0 0 5px rgba(90, 26, 219, 0.1); */
+    font-size: small;
 }
 
 /* Update the height of the tagline-wrapper to fit only one line of text */
