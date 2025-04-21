@@ -8,7 +8,7 @@
 :root {
     --primary-color: #8d8be1;
     /*!*LIGHT MODE THEME*!*/
-    --bg-color: #e5e5e5;
+    --bg-color: rgba(126, 219, 26, 0.06);
     --txt-color: #181515;
     --shadow-color: rgba(178, 178, 178, 0.4);
     --secondary-color: rgba(181, 181, 238, 0.39);
@@ -45,7 +45,7 @@ header {
     transition: all 0.4s ease;
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 25px var(--shadow-color);
-    border-bottom: 1px solid var(--primary-color);
+    /*border-bottom: 1px solid var(--primary-color);*/
 }
 
 header.loaded {

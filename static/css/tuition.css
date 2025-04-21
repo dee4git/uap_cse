@@ -111,6 +111,8 @@ tr:hover{
      background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
     /*box-shadow: 0px 0px 10px #c084fc;*/
     color: #3a1b2f;
+        border-radius: 20px;
+
 }
 
 
