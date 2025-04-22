@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 
@@ -10,6 +11,7 @@ from django.contrib.contenttypes.models import ContentType
 
 
 from .forms import SignUpForm
+from .forms import UpdateForm
 from .models import Profile
 
 
@@ -40,7 +42,7 @@ def signup_view(request):
             user.user_permissions.set([view_permission, change_permission])
 
             login(request, user)
-            return redirect('home')
+            return redirect('update')
         else:
             return render(request, 'signup.html', {
                 'form': form,
@@ -62,18 +64,28 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # If authentication is successful, log the user in
+            # If authentication is successful
             login(request, user)
-            return redirect('home')
+            return redirect('update')
         else:
-            # If authentication fails, show an error message
+            # If authentication fails
             messages.error(request, "Invalid username or password")
             return redirect('login')
     return render(request, 'login.html')
 
 @login_required
-def home(request):
-    return render(request, 'home.html')
+def update_faculty(request, pk):
+    p = Profile.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = UpdateForm(request.POST, instance=p)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Updated Successfully')
+    else:
+        form = UpdateForm(instance=p)
+    return render(request, 'forms.html', {'form': form})
+
+
 
 
 

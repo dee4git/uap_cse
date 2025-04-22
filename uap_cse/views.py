@@ -1,10 +1,15 @@
 from django.shortcuts import render
+from faculty.models import Profile
 
 
 def home(request):
     return render(request, 'home.html')
+
 def faculty(request):
-    return render(request, 'faculty.html')
+    profiles = Profile.objects.all()
+    return render(request, 'faculty.html',{
+        'profiles' : profiles
+    })
 
 def undergraduate(request):
     return render(request, 'hard_html/undergraduate.html')
@@ -23,7 +28,9 @@ def host(request):
 
 def clubs(request):
     return render(request, 'hard_html/clubs.html')
+
 def club_detail(request):
     return render(request, 'club_detail.html')
+
 def gallery(request):
     return render(request, 'hard_html/gallery.html')

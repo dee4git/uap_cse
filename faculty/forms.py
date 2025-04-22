@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import AllowedEmail
+from .models import AllowedEmail, Profile
 
 
 class SignUpForm(forms.ModelForm):
@@ -22,3 +22,14 @@ class SignUpForm(forms.ModelForm):
 
         return email
 
+
+class UpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = [
+            'user',
+            'designation',
+            'phone',
+            'bio',
+            'about',
+        ]
