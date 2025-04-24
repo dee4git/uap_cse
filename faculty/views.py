@@ -73,13 +73,10 @@ def update_faculty(request, pk):
 
 @login_required
 def update_view(request):
-    print("update_view triggered")
-    return HttpResponse(f"Hello {request.user.username}, you are logged in.")
-
-    # facultys = Faculty.objects.all()
-    # return render(request, 'update.html',{
-    #     'facultys' : facultys
-    # })
+    facultys = Faculty.objects.all()
+    return render(request, 'update.html',{
+        'facultys' : facultys
+    })
 
 
 
