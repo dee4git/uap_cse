@@ -29,7 +29,7 @@
     margin-bottom: 100px; /* Added space below banner */
     width: 100%;
     padding: 40px;
-    background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
+    background-image: linear-gradient(108.4deg, rgb(220, 194, 255) 6.9%, rgb(185, 223, 248) 86.5%);
     background-size: 200% 200%;
     animation: gradientAnimation 10s ease infinite;
     position: relative;

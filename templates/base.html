@@ -24,9 +24,11 @@
 {#    </div>#}
 {#        UAP︱CSE#}
     </div>
+
     <nav role="navigation">
         <div class="nav-container">
             <ul class="nav-links" id="navLinks">
+
                 <li><a href="{% url 'home' %}" class="nav-item">Home</a></li>
                 <li>
                     <a href="#" class="nav-item">Admission</a>
@@ -55,11 +57,18 @@
                         <a href="{% url 'login'%}">Login</a>
                     </div>
                 </li>
-                <li class="apply-mobile"><a href="#" class="apply-btn">Apply Now</a></li>
+                <div class="buttons">
+                    <li class="apply-mobile"><a href="#" class="apply-btn">Apply Now</a></li>
+                    <li class="theme-toggle">
+                        <i> 🌙 </i>
+                    </li>
+                </div>
+
             </ul>
             <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">&#9776;</div>
         </div>
     </nav>
+
 </header>
 <br>
 <br>
@@ -147,7 +156,27 @@
             navLinks.classList.remove("open");
         }
     });
+    document.addEventListener('DOMContentLoaded',
+    function() {
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const moonIcon = themeToggle.querySelector('i');
 
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            moonIcon.className = savedTheme === 'dark-mode' ? '☀️' : '🌙';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            moonIcon.className = isDarkMode ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDarkMode ? 'dark-mode' : '');
+        });
+    })
 
 </script>
 

@@ -6,30 +6,28 @@
 }
 
 :root {
-    --primary-color: #8d8be1;
+    --primary-color: #9896e8;
     /*!*LIGHT MODE THEME*!*/
-    --bg-color: rgba(126, 219, 26, 0.06);
+    --bg-color: rgb(246, 248, 255);
     --txt-color: #181515;
     --shadow-color: rgba(178, 178, 178, 0.4);
     --secondary-color: rgba(181, 181, 238, 0.39);
 
     /*DARK MODE THEME*/
-    /*--bg-color: #111111;*/
-    /*--txt-color: #d3d3d3;*/
-    /*--shadow-color: rgba(95, 95, 95, 0.4);*/
-    /*--secondary-color: rgba(36, 36, 60, 0.39);*/
+
 }
 
 .dark-mode {
     --bg-color: #111111;
     --txt-color: #d3d3d3;
-    --shadow-color: rgba(95, 95, 95, 0.4);
+    --shadow-color: rgb(33, 33, 33);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }
 
 
 body {
     background-color: var(--bg-color);
+    --header-color: var(--primary-color);
 }
 
 header {
@@ -131,6 +129,27 @@ nav {
 
 .nav-links li:hover .dropdown {
     display: block;
+}
+
+.buttons{
+    display: flex;
+    gap: 25px;
+    flex-direction: row;
+}
+
+.theme-toggle {
+    color: rgb(0, 0, 0);
+    padding: 5px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #9896E8FF;
+    border: 1px solid #2a2a42;
 }
 
 .apply-btn {
@@ -268,3 +287,4 @@ p {
     transform: translateY(0);
   }
 }
+
