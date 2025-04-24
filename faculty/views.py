@@ -12,7 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from .forms import SignUpForm
 from .forms import UpdateForm
-from .models import Profile
+from .models import Faculty
 
 
 def signup_view(request):
@@ -21,25 +21,11 @@ def signup_view(request):
 
         if form.is_valid():
             user = form.save(commit=False)
-
-            full_name = form.cleaned_data.get('full_name').strip()
-            name_parts = full_name.split()
-            user.first_name = name_parts[0]
-            user.last_name = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ''
-
             user.set_password(form.cleaned_data['password'])
-            user.is_staff = True
             user.save()
 
-            profile = Profile(user=user)
+            profile = Faculty(user=user)
             profile.save()
-
-            content_type = ContentType.objects.get_for_model(Profile)
-
-            view_permission = Permission.objects.get(codename='view_profile', content_type=content_type)
-            change_permission = Permission.objects.get(codename='change_profile', content_type=content_type)
-
-            user.user_permissions.set([view_permission, change_permission])
 
             login(request, user)
             return redirect('update')
@@ -75,7 +61,7 @@ def login_view(request):
 
 @login_required
 def update_faculty(request, pk):
-    p = Profile.objects.get(pk=pk)
+    p = Faculty.objects.get(pk=pk)
     if request.method == 'POST':
         form = UpdateForm(request.POST, instance=p)
         if form.is_valid():
@@ -85,7 +71,15 @@ def update_faculty(request, pk):
         form = UpdateForm(instance=p)
     return render(request, 'forms.html', {'form': form})
 
+@login_required
+def update_view(request):
+    print("update_view triggered")
+    return HttpResponse(f"Hello {request.user.username}, you are logged in.")
 
+    # facultys = Faculty.objects.all()
+    # return render(request, 'update.html',{
+    #     'facultys' : facultys
+    # })
 
 
 

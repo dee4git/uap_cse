@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from faculty.models import Profile
+from faculty.models import Faculty
 
 
 def home(request):
     return render(request, 'home.html')
 
 def faculty(request):
-    profiles = Profile.objects.all()
+    facultys = Faculty.objects.all()
     return render(request, 'faculty.html',{
-        'profiles' : profiles
+        'facultys' : facultys
     })
 
 def undergraduate(request):

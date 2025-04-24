@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block title %}Update Faculty{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    {% for i in facultys %}
+        {{ i.user.username }}<br>
+        {{ i.first_name }} {{ i.last_name }}<br>
+        {{ i.designation }}<br>
+        {{ i.phone }}<br>
+        {{ i.bio }}<br>
+        {{ i.about }}<br>
+        <a href="{% url 'update-faculty' i.id %}">Update profile</a><br><br>
+    {% endfor %}
+
+{% endblock %}

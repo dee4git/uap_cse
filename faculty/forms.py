@@ -1,15 +1,14 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import AllowedEmail, Profile
+from .models import AllowedEmail, Faculty
 
 
 class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-    full_name = forms.CharField(max_length=100, required=True, label='Full Name')
 
     class Meta:
         model = User
-        fields = ['full_name', 'username', 'email', 'password']
+        fields = ['username', 'email', 'password']
 
     def clean_email(self):
         email = self.cleaned_data.get('email').lower()
@@ -25,9 +24,10 @@ class SignUpForm(forms.ModelForm):
 
 class UpdateForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Faculty
         fields = [
-            'user',
+            'first_name',
+            'last_name',
             'designation',
             'phone',
             'bio',
