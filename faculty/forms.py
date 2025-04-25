@@ -26,8 +26,7 @@ class UpdateForm(forms.ModelForm):
     class Meta:
         model = Faculty
         fields = [
-            'full_name',
-            # 'last_name',
+            'name',
             'joining_date',
             'designation',
             'phone',
