@@ -15,7 +15,7 @@ class Faculty(models.Model):
     google_scholar_url = models.URLField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.first_name + " " + self.last_name}'
+        return f'{self.full_name + " | " + self.designation}'
 
 USER_ROLE_CHOICES = [
     ('3', 'Super Admin'),      # highest access
