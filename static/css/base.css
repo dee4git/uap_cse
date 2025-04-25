@@ -8,7 +8,7 @@
 :root {
     --primary-color: #9896e8;
     /*!*LIGHT MODE THEME*!*/
-    --bg-color: rgb(246, 248, 255);
+    --bg-color: rgb(246, 248, 255);!important;
     --txt-color: #181515;
     --shadow-color: rgba(178, 178, 178, 0.4);
     --secondary-color: rgba(181, 181, 238, 0.39);
@@ -26,7 +26,7 @@
 
 
 body {
-    background-color: var(--bg-color);
+    background-color: var(--bg-color);!important;
     --header-color: var(--primary-color);
 }
 
