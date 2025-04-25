@@ -2,7 +2,7 @@
 .login{
    background: linear-gradient(135deg, #E6E6FA, #B39DDB, #e0b3ff );
     font-family: 'Poppins', sans-serif;
-    margin:auto;
+    margin:-20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
 
 .login-container {
     max-width: 400px;
-    background: #fff;
+    background: var(--bg-color);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -30,7 +30,7 @@ h1 {
     margin-bottom: 20px;
 }
 .gradient-text {
-    background: linear-gradient(135deg, #C3B1E1, darkorchid);
+    background: linear-gradient(135deg, #C3B1E1, var(--primary-color));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,7 +64,7 @@ label {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
-    color: #555;
+    color: var(--txt-color);
 }
 
 input[type="text"]:focus,

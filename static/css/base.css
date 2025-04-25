@@ -9,7 +9,7 @@
     --primary-color: #9896e8;
     /*!*LIGHT MODE THEME*!*/
     --bg-color: #f7f7ff;
-    --txt-color: #181515;
+    --txt-color: #161518;
     --shadow-color: rgba(170, 170, 170, 0.78);
     --secondary-color: rgba(181, 181, 238, 0.39);
 
@@ -18,7 +18,7 @@
 
 .dark-mode {
     --bg-color: #101015;
-    --txt-color: #f6f8ff;
+    --txt-color: rgb(239, 236, 251);
     --shadow-color: rgb(202, 202, 202);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }

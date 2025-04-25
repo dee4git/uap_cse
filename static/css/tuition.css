@@ -103,24 +103,19 @@ th{
     padding: 10px;
     text-align: center;
     background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
-    border-start-start-radius: 10px;
-    border-start-end-radius: 10px;
+    border-radius: 10px;
     /*border: 2px solid #c084fc;*/
 }
 td {
     font-size:20px;
     padding: 10px;
-    color: #111111;
+    color: var(--txt-color);
     /*border-radius: 20px;*/
     text-align: center;
     /*border: 2px solid #c084fc;*/
     transition: 0.3s ease-in-out;
 }
 
-tr{
-    background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
-
-}
 
 tr:hover{
      /*background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);*/
@@ -135,24 +130,7 @@ tr:hover{
   padding: 15px;
   border-radius: 8px;
 }
-.banner {
-    transform: scale(1.1);
-    transform-origin: top center;
-    margin-top: -20px;
-    margin-bottom: 100px; /* Added space below banner */
-    width: 100%;
-    padding: 40px;
-    background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
-    background-size: 200% 200%;
-    animation: gradientAnimation 10s ease infinite;
-    position: relative;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-    transition: background 0.5s ease-in-out;
-    text-align: center;
-}
+
 
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
@@ -160,20 +138,7 @@ tr:hover{
     100% { background-position: 0% 50%; }
 }
 
-.gradient-text {
-    background: linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 3em;
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-    background-size: 200% 200%;
-    animation: gradientMove 10s ease infinite;
-}
+
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
