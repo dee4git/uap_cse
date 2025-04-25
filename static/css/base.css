@@ -8,25 +8,24 @@
 :root {
     --primary-color: #9896e8;
     /*!*LIGHT MODE THEME*!*/
-    --bg-color: rgb(246, 248, 255);!important;
+    --bg-color: #f7f7ff;
     --txt-color: #181515;
-    --shadow-color: rgba(178, 178, 178, 0.4);
+    --shadow-color: rgba(170, 170, 170, 0.78);
     --secondary-color: rgba(181, 181, 238, 0.39);
 
-    /*DARK MODE THEME*/
 
 }
 
 .dark-mode {
-    --bg-color: #111111;
-    --txt-color: #d3d3d3;
-    --shadow-color: rgb(33, 33, 33);
+    --bg-color: #101015;
+    --txt-color: #f6f8ff;
+    --shadow-color: rgb(202, 202, 202);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }
 
 
 body {
-    background-color: var(--bg-color);!important;
+    background-color: var(--bg-color);
     --header-color: var(--primary-color);
 }
 
@@ -58,6 +57,11 @@ header.shrink {
     font-size: 60px;
     font-weight: 700;
     transition: font-size 0.3s ease;
+}
+.logo img{
+    height: 9vh;
+    width: auto;
+    margin-right: 10px;
 }
 
 header.shrink .logo {
@@ -251,6 +255,12 @@ nav {
 
     .rotate-icon {
         transform: rotate(180deg);
+    }
+
+    .logo img{
+        height: 6vh;
+        width: auto;
+        margin-right: 10px;
     }
 }
 

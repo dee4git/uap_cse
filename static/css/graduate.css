@@ -2,29 +2,10 @@ body {
     font-family: "Lexend", sans-serif;
     text-align: center;
     margin: 0;
-    padding: 0;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: var(--bg-color);
 }
 
-/* Banner Styling */
-.banner2 {
-    transform: scale(1.1);
-    transform-origin: top center;
-    margin-top: -10px;
-    margin-bottom: 100px;
-    width: 100%;
-    padding: 40px;
-    background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
-    background-size: 200% 200%;
-    animation: gradientAnimation 10s ease infinite;
-    position: relative;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-    text-align: center;
-    border-radius: 0 0 12px 12px;
-}
 
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
@@ -55,9 +36,9 @@ body {
 }
 .section{
       padding: 20px;
-    margin: auto;
-     justify-content: space-between;
-      background-color: white;
+      margin: 8%;
+      justify-content: space-between;
+      background-color: var(--bg-color);
 }
 
 /* Headings */
