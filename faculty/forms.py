@@ -28,8 +28,14 @@ class UpdateForm(forms.ModelForm):
         fields = [
             'first_name',
             'last_name',
+            'joining_date',
             'designation',
             'phone',
             'bio',
             'about',
+            'profile_pic',
+
         ]
+        help_texts = {
+            'joining_date': 'Date format: YYYY-MM-DD',
+        }

@@ -111,7 +111,10 @@
 <!--        </div>-->
 <!--    </div>-->
 
-    {% for i in faculty %}
+    {% for i in facultys %}
+        {% if i.profile_pic %}
+            <img src="{{ i.profile_pic.url }}" width="200" /><br>
+        {% endif %}
         {{ i.first_name }} {{ i.last_name }}<br>
         {{ i.designation }}<br>
         {{ i.phone }}<br>

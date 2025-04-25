@@ -5,13 +5,8 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Permission
 
-from django.contrib.contenttypes.models import ContentType
-
-
-from .forms import SignUpForm
-from .forms import UpdateForm
+from .forms import SignUpForm, UpdateForm
 from .models import Faculty
 
 
@@ -63,7 +58,7 @@ def login_view(request):
 def update_faculty(request, pk):
     p = Faculty.objects.get(pk=pk)
     if request.method == 'POST':
-        form = UpdateForm(request.POST, instance=p)
+        form = UpdateForm(request.POST, request.FILES, instance=p)
         if form.is_valid():
             form.save()
             return HttpResponse('Updated Successfully')

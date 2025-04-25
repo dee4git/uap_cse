@@ -9,6 +9,8 @@ class Faculty(models.Model):
     phone = models.CharField(max_length=11)
     bio = models.TextField(max_length=200)
     about = models.TextField(max_length=1000)
+    profile_pic = models.ImageField(upload_to='faculty_photos/', null=True, blank=True)
+    joining_date = models.DateField(null=True)
 
     def __str__(self):
         return f'{self.first_name + " " + self.last_name}'
