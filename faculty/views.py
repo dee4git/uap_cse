@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, UpdateForm
 from .models import Faculty
 
+from django.shortcuts import render, get_object_or_404
+from .scholar_api import get_best_papers
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -72,6 +75,17 @@ def update_view(request):
     return render(request, 'update.html',{
         'facultys' : facultys
     })
+
+def faculty_research(request, faculty_id):
+    faculty = get_object_or_404(Faculty, id=faculty_id)
+    papers = get_best_papers(faculty.google_scholar_url)
+
+    context = {
+        'faculty': faculty,
+        'papers': papers
+    }
+
+    return render(request, 'faculty_research.html', context)
 
 
 

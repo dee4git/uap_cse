@@ -34,6 +34,7 @@ class UpdateForm(forms.ModelForm):
             'bio',
             'about',
             'profile_pic',
+            'google_scholar_url',
 
         ]
         help_texts = {

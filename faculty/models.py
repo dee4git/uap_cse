@@ -11,6 +11,7 @@ class Faculty(models.Model):
     about = models.TextField(max_length=1000)
     profile_pic = models.ImageField(upload_to='faculty_photos/', null=True, blank=True)
     joining_date = models.DateField(null=True)
+    google_scholar_url = models.URLField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f'{self.first_name + " " + self.last_name}'

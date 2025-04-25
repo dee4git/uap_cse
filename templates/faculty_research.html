@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ faculty.first_name }} {{ faculty.last_name }} - Research Papers{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="faculty-research">
+        <h1>{{ faculty.first_name }} {{ faculty.last_name }} - Top Research Papers</h1>
+        
+        {% if papers %}
+            <ul class="research-papers">
+                {% for paper in papers %}
+                    <li class="paper">
+                        <h3 class="paper-title">{{ paper.title }}</h3>
+                        <div class="paper-meta">
+                            <span class="year">Published: {{ paper.year }}</span>
+                            <span class="citations">Citations: {{ paper.citations }}</span>
+                        </div>
+                        {% if paper.url %}
+                            <a href="{{ paper.url }}" target="_blank" class="paper-link">View Paper</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No research papers found or Google Scholar profile not available.</p>
+        {% endif %}
+        
+    </div>
+{% endblock %}

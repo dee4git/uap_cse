@@ -119,7 +119,10 @@
         {{ i.designation }}<br>
         {{ i.phone }}<br>
         {{ i.bio }}<br>
-        {{ i.about }}<br><br>
+        {{ i.about }}<br>
+        {% if i.google_scholar_url %}
+                <a href="{% url 'faculty_research' i.id %}" class="research-link">View Research Papers</a>
+        {% endif %}
     {% endfor %}
 
 {% endblock %}
