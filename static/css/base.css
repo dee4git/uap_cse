@@ -1,19 +1,25 @@
+:root {
+    --primary-color: #9896e8;
+    --bg-color: #f7f7ff;
+    --txt-color: #161518;
+    --shadow-color: rgba(170, 170, 170, 0.78);
+    --secondary-color: rgba(181, 181, 238, 0.39);
+    /* Add transition for all color changes */
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out;
+}
+
+/* Apply transitions to all elements */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Lexend', sans-serif;
-}
-
-:root {
-    --primary-color: #9896e8;
-    /*!*LIGHT MODE THEME*!*/
-    --bg-color: #f7f7ff;
-    --txt-color: #161518;
-    --shadow-color: rgba(170, 170, 170, 0.78);
-    --secondary-color: rgba(181, 181, 238, 0.39);
-
-
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
 }
 
 .dark-mode {
@@ -297,4 +303,3 @@ p {
     transform: translateY(0);
   }
 }
-

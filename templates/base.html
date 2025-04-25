@@ -156,27 +156,41 @@
             navLinks.classList.remove("open");
         }
     });
-    document.addEventListener('DOMContentLoaded',
-    function() {
-        // Theme Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
-        const moonIcon = themeToggle.querySelector('i');
+    // Dark mode
+    document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const moonIcon = themeToggle.querySelector('i');
 
-        // Check for saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.classList.add(savedTheme);
-            moonIcon.className = savedTheme === 'dark-mode' ? '☀️' : '🌙';
-        }
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        moonIcon.textContent = savedTheme === 'dark-mode' ? '☀️' : '🌙';
+    }
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            moonIcon.className = isDarkMode ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDarkMode ? 'dark-mode' : '');
-        });
-    })
+    themeToggle.addEventListener('click', () => {
+        // Add rotation class
+        themeToggle.classList.add('rotate');
+        
+        // Toggle dark mode
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        
+        // Update icon with slight delay to match rotation
+        setTimeout(() => {
+            moonIcon.textContent = isDarkMode ? '☀️' : '🌙';
+        }, 150);
+
+        // Store theme preference
+        localStorage.setItem('theme', isDarkMode ? 'dark-mode' : '');
+
+        // Remove rotation class after animation
+        setTimeout(() => {
+            themeToggle.classList.remove('rotate');
+        }, 500);
+    });
+});
 
 </script>
 
