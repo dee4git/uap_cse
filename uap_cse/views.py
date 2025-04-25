@@ -34,3 +34,9 @@ def club_detail(request):
 
 def gallery(request):
     return render(request, 'hard_html/gallery.html')
+
+from academics.models import PDFFile
+
+def show_pdf(request):
+    pdfs = PDFFile.objects.all()
+    return render(request, 'curriculum.html', {'pdfs': pdfs})

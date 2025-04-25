@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Viewer</title>
+</head>
+<body>
+    <h1>Uploaded PDFs</h1>
+    {% for pdf in pdfs %}
+        <h2>{{ pdf.title }}</h2>
+        <p>PDF URL: <a href="{{ pdf.pdf.url }}">{{ pdf.pdf.url }}</a></p>
+        <iframe src="{{ pdf.pdf.url }}" width="100%" height="600px"></iframe>
+        <hr>
+    {% endfor %}
+
+</body>
+</html>

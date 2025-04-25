@@ -34,6 +34,7 @@ urlpatterns = [
     path('club_detail/', views.club_detail, name='club_detail'),
     path('', include('faculty.urls')),
     path('alumni/',include('others.urls')),
+    path('aca/',views.show_pdf, name='show_pdf'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
