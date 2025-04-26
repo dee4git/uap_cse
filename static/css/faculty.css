@@ -90,8 +90,11 @@
     }
 
     .card-subtitle {
+        padding-left: 10px;
       font-size: 0.92rem;
       color: #7b7b9d;
+            margin-left: -2px;
+
     }
 
     .citation-count {

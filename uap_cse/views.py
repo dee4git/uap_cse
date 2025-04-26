@@ -7,7 +7,7 @@ def home(request):
 
 def faculty(request):
     facultys = Faculty.objects.all()
-    return render(request, 'faculty.html',{
+    return render(request, 'faculty/faculty.html', {
         'facultys' : facultys
     })
 

@@ -38,6 +38,7 @@ def signup_view(request):
         'form': form,
     })
 
+
 @csrf_protect
 def login_view(request):
     if request.method == 'POST':
@@ -57,6 +58,7 @@ def login_view(request):
             return redirect('login')
     return render(request, 'login.html')
 
+
 @login_required
 def update_faculty(request, pk):
     p = Faculty.objects.get(pk=pk)
@@ -70,17 +72,19 @@ def update_faculty(request, pk):
         form = UpdateForm(instance=p)
     return render(request, 'forms.html', {'form': form})
 
+
 @login_required
 def update_view(request):
     try:
         faculty = Faculty.objects.get(user=request.user)
         return render(request, 'update.html', {
-            'facultys': [faculty] 
+            'facultys': [faculty]
         })
-    
+
     except Faculty.DoesNotExist:
         messages.error(request, "No faculty profile found for your account")
         return redirect('login')
+
 
 def faculty_research(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)
@@ -91,8 +95,21 @@ def faculty_research(request, faculty_id):
         'papers': papers
     }
 
-    return render(request, 'faculty_research.html', context)
+    return render(request, 'faculty/faculty_research.html', context)
 
 
+from .forms import FacultySerialNumberForm
 
 
+def update_faculty_serial_number(request, faculty_id):
+    faculty = get_object_or_404(Faculty, id=faculty_id)
+
+    if request.method == 'POST':
+        form = FacultySerialNumberForm(request.POST, instance=faculty)
+        if form.is_valid():
+            form.save()  # Save the updated serial number
+            return redirect('/')  # Redirect to the faculty list page or any other page
+    else:
+        form = FacultySerialNumberForm(instance=faculty)
+
+    return render(request, 'forms.html', {'form': form, 'faculty': faculty})
