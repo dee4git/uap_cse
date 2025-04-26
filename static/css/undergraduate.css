@@ -3,26 +3,14 @@
 }
 
 body {
-  font-family: 'Lexend', sans-serif;
-  background-size: 400% 400%;
-  margin: 0;
+    font-family: 'Lexend', sans-serif;
+    background-size: 400% 400%;
+    margin: 0;
+    h3,h2{
+         color: var(--primary-color);
+     }
 }
 
-/*.gradient-text {*/
-/*    background: linear-gradient(108.4deg, rgb(204, 146, 177), rgb(113, 111, 185));*/
-/*    background-clip: text;*/
-/*    -webkit-background-clip: text;*/
-/*    -webkit-text-fill-color: transparent;*/
-/*    display: inline-block;*/
-/*    font-weight: bold;*/
-/*    font-size: 3em;*/
-/*    text-align: center;*/
-/*    margin: 0 auto;*/
-/*    padding: 10px;*/
-/*    background-size: 200% 200%;*/
-/*    transition: background-position 0.1s ease;*/
-/*    !*animation: gradientMove 10s ease infinite;*!*/
-/*}*/
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
@@ -41,24 +29,23 @@ body {
     margin: auto;
 }
 .section-title {
-    --header-color: var(--primary-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    background-clip: text;
+    -webkit-background-clip: text;
     font-size: 32px;
     text-align: center;
-    font-weight: bold;
-     padding: 20px 10px;
+    font-weight: bolder;
+    padding: 20px 10px;
     margin-top: 30px;
-    text-transform: uppercase;
-    animation: fadeIn 2s ease-in-out;
+    /*text-transform: uppercase;*/
+    animation: fadeIn 0.5s ease-in-out;
 }
 .benefits-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-
+    margin: 20px;
 }
 
 .benefit-card {
@@ -73,7 +60,10 @@ body {
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    background: linear-gradient(108.4deg, #b281e7 10%, #aeb5ff 90%);
+    background: linear-gradient(108.4deg, #e5cbff 10%, #c3c7ff 90%);
+    p{
+        color: black;
+    }
 
 }
 @keyframes fadeIn {
@@ -176,11 +166,13 @@ body {
   justify-content: center;
 }
  .section {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: flex-start;
-    background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
+     display: flex;
+     margin: 5%;
+     /*padding: 5px;*/
+     margin-bottom: 3rem;
+     align-items: flex-start;
+     border-radius: 0.5rem;
+     background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
 }
 
 
@@ -195,8 +187,10 @@ body {
 
     .section-content {
       flex: 1;
+        font-size: 1rem;
       background: rgba(255, 255, 255, 0.7);
       padding: 1.5rem;
+        text-align: justify;
       border-left: 6px solid darkmagenta;
       border-radius: 0.5rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
