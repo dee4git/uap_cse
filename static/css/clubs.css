@@ -18,9 +18,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   padding: 2rem;
-   display: grid;
-  gap:20px;
-    justify-content: center; /* Centers the cards */
+  margin-inline: 50px;
+  display: grid;
+  gap:30px;
+  justify-content: center; /* Centers the cards */
 }
 
 /* Card Wrapper Link */
@@ -48,6 +49,7 @@ body {
   align-items: center;
   justify-content: center;
   max-height: 280px;
+  min-height: 230px;
   transition: transform 0.3s ease-in-out;
 }
 

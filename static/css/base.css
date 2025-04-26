@@ -141,19 +141,14 @@ nav {
     display: block;
 }
 
-.buttons{
-    display: flex;
-    gap: 25px;
-    flex-direction: row;
-}
 
 .theme-toggle {
     color: rgb(0, 0, 0);
     padding: 5px 18px;
+    margin: 0px;
     border-radius: 20px;
     text-decoration: none;
     font-size: 16px;
-    font-weight: 500;
     transition: background 0.3s ease;
 }
 
@@ -270,6 +265,26 @@ nav {
     }
 }
 
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+/* Existing rotation animation */
+.theme-toggle.rotate .theme-icon {
+    animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 main {
     padding-top: 180px;
