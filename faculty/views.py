@@ -64,17 +64,23 @@ def update_faculty(request, pk):
         form = UpdateForm(request.POST, request.FILES, instance=p)
         if form.is_valid():
             form.save()
-            return HttpResponse('Updated Successfully')
+            messages.success(request, "Profile updated successfully!")
+            return redirect('update')
     else:
         form = UpdateForm(instance=p)
     return render(request, 'forms.html', {'form': form})
 
 @login_required
 def update_view(request):
-    facultys = Faculty.objects.all()
-    return render(request, 'update.html',{
-        'facultys' : facultys
-    })
+    try:
+        faculty = Faculty.objects.get(user=request.user)
+        return render(request, 'update.html', {
+            'facultys': [faculty] 
+        })
+    
+    except Faculty.DoesNotExist:
+        messages.error(request, "No faculty profile found for your account")
+        return redirect('login')
 
 def faculty_research(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)

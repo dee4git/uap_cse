@@ -53,7 +53,7 @@ class Faculty(models.Model):
                 img_resized.save(pic_path, optimize=True, quality=70)
 
     def __str__(self):
-        return f'{self.full_name + " | " + self.designation}'
+        return f'{self.name + " | " + self.designation}'
 
 
 USER_ROLE_CHOICES = [
