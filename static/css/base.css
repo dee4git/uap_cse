@@ -1,6 +1,7 @@
 :root {
     --primary-color: #9896e8;
     --bg-color: #f7f7ff;
+    --bg-shade: rgba(0, 0, 0, 0.03);
     --txt-color: #161518;
     --shadow-color: rgba(170, 170, 170, 0.78);
     --secondary-color: rgba(181, 181, 238, 0.39);
@@ -24,8 +25,9 @@
 
 .dark-mode {
     --bg-color: #101015;
+    --bg-shade: rgba(255, 255, 255, 0.03);
     --txt-color: rgb(239, 236, 251);
-    --shadow-color: rgb(202, 202, 202);
+    --shadow-color: rgb(228, 228, 228);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }
 
@@ -90,6 +92,7 @@ nav {
     gap: 25px;
     position: relative;
     margin-top: 17px;
+    align-items: center;
 }
 
 .nav-links li {
@@ -139,12 +142,15 @@ nav {
 
 .nav-links li:hover .dropdown {
     display: block;
+    align-items: start;
 }
 
 
 .buttons {
     display: flex;
     align-items: center;
+    padding-inline: 10px;
+    justify-content: space-between;
     gap: 15px;
 }
 
@@ -154,7 +160,7 @@ nav {
     justify-content: center;
     cursor: pointer;
     color: var(--txt-color);
-    padding: 10px 18px;
+    padding: 10px;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -163,7 +169,7 @@ nav {
 
 .theme-toggle:hover {
     background-color: var(--secondary-color);
-    border: none;
+    border: solid 2px var(--primary-color);
 }
 
 .theme-toggle i {
@@ -209,6 +215,7 @@ nav {
         padding: 20px 15px;
         border-radius: 16px;
         gap: 5px;
+        align-items: unset;
     }
 
     .nav-links li {

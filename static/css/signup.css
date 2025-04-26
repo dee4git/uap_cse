@@ -1,19 +1,19 @@
 
 .signup {
-    background: linear-gradient(135deg, #E6E6FA, #B39DDB);
+    background: linear-gradient(135deg, rgba(165, 136, 217, 0.88), rgba(177, 177, 248, 0.88));
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    margin: -20px;
     animation: gradientAnimation 10s ease infinite;
 }
 
 
 .signup-container {
     max-width: 400px;
-    background: #fff;
+    background: var(--bg-color);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -23,6 +23,7 @@
 
 .signup-container:hover {
     transform: scale(1.02);
+    transition: ease-in-out 0.3s;
 }
 
 /* Headings */
@@ -31,9 +32,9 @@ h1 {
     color: #5A3E90;
     margin-bottom: 15px;
 }
- h3 {
+h3 {
     font-size: 18px;
-    color: #5A3E90;
+    color: var(--txt-color);
     margin-bottom: 15px;
 }
 
@@ -47,7 +48,7 @@ h1 {
 label {
     display: block;
     font-size: 17px;
-    color: #333;
+    color: var(--txt-color);
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -91,7 +92,7 @@ input:focus {
 
 
 .text-center a {
-    color: #5A3E90;
+    color: #a17de7;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -124,4 +125,14 @@ input:focus {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+
+@media (max-width: 768px){
+    .signup-container {
+        max-width: 300px;
+    }
+    h1{
+        font-size: 1rem;
+    }
 }

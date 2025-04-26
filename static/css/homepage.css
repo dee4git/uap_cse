@@ -67,8 +67,7 @@
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+  background: var(--bg-shade);
   border-radius: 20px;
 }
 .lottie {
@@ -79,19 +78,20 @@
     align-items: center;
 }
 .glass-card {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   overflow: auto;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--shadow-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
@@ -102,7 +102,7 @@
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px var(--shadow-color);
     display: flex;
     flex-direction: column;
 }
@@ -141,7 +141,7 @@ iframe {
 }
 .glass-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px var(--shadow-color);
 }
 .glass-card dotlottie-player {
     width: 90% !important;
@@ -196,7 +196,7 @@ iframe {
 .glass-text {
     text-align: center;
     padding: 0px;
-    color: #b3a8cb;
+    color: var(--primary-color);
     font-weight: 600;
     font-size: small;
 }
