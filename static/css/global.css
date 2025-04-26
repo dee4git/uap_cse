@@ -32,7 +32,7 @@ body {
 .banner-global {
     /*transform: scale();*/
     transform-origin: top center;
-    margin-top: -20px;
+    margin-top: -15px;
     margin-bottom: 80px; /* Added space below banner */
     width: 100%;
     padding: 40px;
