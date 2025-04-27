@@ -1,0 +1,117 @@
+:root {
+    --card-height: 280px;
+    --card-width: calc(var(--card-height) / 1.2);
+}
+
+/* Faculty Card Styling */
+.faculty-card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    perspective: 2000px;
+    transition: transform 0.5s ease;
+   padding: 0;
+    margin: 0 auto;
+  background-color: transparent !important;
+}
+
+/* 3D Cover Image */
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Wrapper for Hover Effect */
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.faculty-card:hover .wrapper {
+    transform: perspective(1200px) translateY(-5%) rotateX(20deg);
+    box-shadow: 2px 25px 28px rgba(0, 0, 0, 0.7);
+}
+
+/* Faculty Info */
+.faculty-info {
+    position: absolute;
+    text-align: center;
+    bottom: 15px;
+}
+
+/* Name Styling */
+.title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(45deg, #8E44AD, #3498DB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.5s ease;
+}
+
+.faculty-card:hover .title {
+    transform: translate3d(0%, -30px, 80px);
+}
+
+/* Designation */
+.designation {
+    font-size: 1.2rem;
+    color: #ddd;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.faculty-card:hover .designation {
+    opacity: 1;
+}
+
+/* Citation Count */
+.citation-count {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Additional Sections */
+.additional-info h5 {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.additional-info p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Back Button */
+.btn-primary {
+    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    color: white;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #8f94fb, #4e54c8);
+    transform: translateY(-3px);
+}
+
+

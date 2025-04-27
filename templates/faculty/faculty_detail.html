@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ faculty.name }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/faculty_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<div class="banner-global">
+    <h1 class="gradient-text-global-big-size">{{ faculty.name }}</h1>
+</div>
+
+<div class="container my-5">
+    <div class="row g-5 align-items-center">
+        <!-- Faculty Profile 3D Card -->
+        <div class="col-md-4 text-center">
+            <div class="faculty-card">
+                <div class="wrapper">
+                    <img src="{{ faculty.profile_pic.url }}" class="cover-image" alt="{{ faculty.name }}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Faculty Information -->
+        <div class="col-md-8">
+            <div class="card-body text-start">
+                <h2 class="gradient-text-global">{{ faculty.name }}</h2>
+                <h5 class="card-subtitle mb-3">{{ faculty.designation }}</h5>
+                <p class="card-text mb-4">{{ faculty.bio }}</p>
+
+                <div class="additional-info">
+                    {% if faculty.research_area %}
+                    <h5 class="gradient-text-global mb-2">Research Interests</h5>
+                    <p>{{ faculty.research_area }}</p>
+                    {% endif %}
+
+                    {% if faculty.publications %}
+                    <h5 class="gradient-text-global mb-2 mt-4">Selected Publications</h5>
+                    <p>{{ faculty.publications }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <a href="{% url 'faculty' %}" class="btn btn-primary">← Back to Faculty</a>
+</div>
+{% endblock %}
