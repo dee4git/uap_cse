@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from faculty.models import Faculty
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
@@ -10,6 +11,10 @@ def faculty(request):
     return render(request, 'faculty/faculty.html', {
         'facultys' : facultys
     })
+def faculty_detail(request, pk):
+    faculty = get_object_or_404(Faculty, pk=pk)
+    return render(request, 'faculty/faculty_detail.html', {'faculty': faculty})
+
 
 def undergraduate(request):
     return render(request, 'hard_html/undergraduate.html')

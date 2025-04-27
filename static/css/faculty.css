@@ -1,142 +1,128 @@
-    .faculty-wrapper {
-      padding: 3rem 1rem;
-      background: linear-gradient(to top right, #e9e3f9, #ffffff);
-    }
-
-.faculty-card {
-    height: 100%;
-    min-height: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 24px rgba(130, 100, 255, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    /*padding-bottom: 1rem;*/
+/* Clickable Faculty Card */
+.faculty-card-link {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-    .faculty-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 36px rgba(90, 60, 200, 0.2);
-    }
+.faculty-card-link:hover .faculty-card {
+    transform: scale(1.05);
+}
 
-    .profile-img-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 1rem;
-    }
+/* Faculty Card Styling */
+.faculty-card {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 10px 30px rgba(130, 100, 255, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 1.25rem;
-      object-fit: cover;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      opacity: 0;
-      transform: translateY(30px) scale(0.8);
-      animation: popThenFloat 1.4s ease-out forwards, floatIdle 3s ease-in-out 1.4s infinite alternate;
-    }
+/* 3D Hover Effect */
+.faculty-card:hover {
+    transform: perspective(1000px) rotateX(8deg) translateY(-5px);
+    box-shadow: 0px 12px 36px rgba(90, 60, 200, 0.2);
+}
 
-    @keyframes popThenFloat {
-      0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.8);
-      }
-      80% {
-        opacity: 1;
-        transform: translateY(0px) scale(1);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(-4px) scale(1);
-      }
-    }
 
-    @keyframes floatIdle {
-      0% {
-        transform: translateY(-4px);
-      }
-      100% {
-        transform: translateY(-8px);
-      }
-    }
+.faculty-card:hover .profile-img {
+    transform: scale(2.0) rotateX(5deg);
+}
 
-    .card-body {
-      padding: 1.25rem 1.5rem 1.8rem;
-    }
+/* Wrapper Effect */
+.wrapper {
+    transition: all 0.5s;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
 
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+.faculty-card:hover .wrapper {
+    transform: perspective(1000px) translateY(-3%) rotateX(12deg);
+    box-shadow: 2px 20px 25px rgba(0, 0, 0, 0.6);
+}
+.profile-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+     background: none !important;
+}
 
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-        margin: 5px;
-      margin-bottom: 0;
-      color: #3e2e85;
+.profile-img {
+     width: 100%;
+    height: 100%;
+    max-width: 220px;
+    object-fit: cover;
+    background: transparent !important;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: popThenFloat 1.4s ease-out forwards,
+    floatIdle 3s ease-in-out 1.4s infinite alternate; }
 
-    }
+@keyframes popThenFloat {
+    0% { opacity: 0;
+        transform: translateY(30px) scale(0.8); }
+    80% { opacity: 1; transform: translateY(0px) scale(1); }
+    100% { opacity: 1; transform: translateY(-4px) scale(1); } }
+@keyframes floatIdle {
+    0% { transform: translateY(-4px); }
+    100% { transform: translateY(-8px); } }
 
-    .card-subtitle {
-        padding-left: 10px;
-      font-size: 0.92rem;
-      color: #7b7b9d;
-            margin-left: -2px;
+.card-body { padding: 1.25rem 1.5rem 1.8rem; }
 
-    }
+.top-row { display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; }
 
-    .citation-count {
-      padding: 0.4rem 0.85rem;
-      background-color: rgba(240, 230, 255, 0.5);
-      border-radius: 1rem;
-      font-weight: 500;
-      color: #5e3e9f;
-      font-size: 0.85rem;
-      position: relative;
-      z-index: 1;
-    }
+.card-title { font-size: 1.25rem;
+    font-weight: 700;
+    margin: 5px;
+    color: #3e2e85; }
 
-    .citation-count::after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      width: calc(100% + 20px);
-      height: calc(100% + 20px);
-      background: radial-gradient(circle, #d8b6ff 15%, transparent 60%);
-      border-radius: 2rem;
-      z-index: -1;
-      filter: blur(18px);
-      animation: glowPulse 2.8s ease-in-out infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes glowPulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-      50% {
-        transform: scale(1.12);
-        opacity: 1;
-      }
-    }
-
-    .card-text {
-      font-size: 0.93rem;
-      margin-top: 1.15rem;
-      line-height: 1.5;
-      color: #555574;
-    }
+.card-subtitle {
+    padding-left: 10px;
+    font-size: 0.92rem;
+    color: #7b7b9d;
+    margin-left: -2px; }
+.citation-count {
+    padding: 0.4rem 0.85rem;
+    background-color: rgba(240, 230, 255, 0.5);
+    border-radius: 1rem;
+    font-weight: 500;
+    color: #5e3e9f;
+    font-size: 0.85rem;
+    position: relative; z-index: 1; }
+.citation-count::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: radial-gradient(circle, #d8b6ff 15%, transparent 60%);
+    border-radius: 2rem;
+    z-index: -1;
+    filter: blur(18px);
+    animation: glowPulse 2.8s ease-in-out infinite;
+    opacity: 0.8; }
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.12); opacity: 1; } }
+.card-text {
+    font-size: 0.93rem;
+    margin-top: 1.15rem;
+    line-height: 1.5;
+    color: #555574; }
