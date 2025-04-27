@@ -23,17 +23,29 @@ class Faculty(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, default="Name")
+    shortname = models.CharField(max_length=5, default='N/A')  # 🆕 short name field
     designation = models.CharField(max_length=20, choices=DESIGNATION_CHOICES, null=True)
     phone = models.CharField(max_length=11)
     bio = models.TextField(max_length=200)
     about = models.TextField(max_length=1000)
     profile_pic = models.ImageField(upload_to='faculty_photos/', default='defaults/faculty.png', null=True, blank=True)
     joining_date = models.DateField(null=True)
+
+    # Links
     google_scholar_url = models.URLField(max_length=255, blank=True, null=True)
+    researchgate_url = models.URLField(max_length=255, blank=True, null=True)
+    orcid_url = models.URLField(max_length=255, blank=True, null=True)
+    scopus_url = models.URLField(max_length=255, blank=True, null=True)
+    linkedin_url = models.URLField(max_length=255, blank=True, null=True)
+
     citation = models.PositiveIntegerField(default=0, blank=True, null=True)
     sl = models.PositiveIntegerField(unique=True, blank=True, null=True)
 
-    def save(self, *args, **kwargs):
+    # Routine upload (PDF/image)
+    routine = models.FileField(upload_to='faculty_routines/', null=True, blank=True)
+
+
+def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
         if self.profile_pic:
@@ -53,14 +65,16 @@ class Faculty(models.Model):
             if os.path.getsize(pic_path) > 307200:
                 img_resized.save(pic_path, optimize=True, quality=70)
 
-    def __str__(self):
-        return f'{self.sl}. {self.name} | {self.designation}'
+def __str__(self):
+    return f'{self.sl}. {self.name} | {self.designation}'
 
 
 USER_ROLE_CHOICES = [
-    ('3', 'Super Admin'),  # highest access
-    ('2', 'Course Access'),  # medium access
-    ('1', 'General User'),  # lowest access
+    ('5', 'Head'),  # highest access
+    ('4', 'Super Admin'),  # highest access
+    ('3', 'Course Access'),  # medium access
+    ('2', 'General User'),  # lowest access
+    ('1', 'Club Member'),  # lowest access
 ]
 
 
