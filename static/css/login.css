@@ -1,13 +1,19 @@
-
-.login{
-    background: linear-gradient(135deg, rgba(165, 136, 217, 0.88), rgba(177, 177, 248, 0.88));
+.login {
+    background: linear-gradient(135deg, #E6E6FA,#c9bfe0, #bfb4db);
     font-family: 'Poppins', sans-serif;
-    margin:-20px;
+    margin: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    animation: gradientAnimation 10s ease infinite;
+    background-size: 300% 300%;
+    animation: gradientAnimation 12s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 
@@ -42,12 +48,6 @@ h1 {
   animation: gradientMove 10s ease infinite;
 }
 
-
-@keyframes gradientAnimation {
-  0% { background-size: 100% 100%; }
-  50% { background-size: 120% 120%; }
-  100% { background-size: 100% 100%; }
-}
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
