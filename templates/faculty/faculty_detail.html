@@ -10,45 +10,122 @@
 {% endblock %}
 
 {% block content %}
-<div class="banner-global">
-    <h1 class="gradient-text-global-big-size">{{ faculty.name }}</h1>
-</div>
 
-<div class="container my-5">
-    <div class="row g-5 align-items-center">
-        <!-- Faculty Profile 3D Card -->
+
+<div class="container faculty-profile">
+
+    <div class="row align-items-center">
         <div class="col-md-4 text-center">
-            <div class="faculty-card">
-                <div class="wrapper">
-                    <img src="{{ faculty.profile_pic.url }}" class="cover-image" alt="{{ faculty.name }}">
-                </div>
-            </div>
+            <img src="{{ faculty_profile.profile_pic.url }}" alt="Profile Picture" class="profile-img">
         </div>
+        <div class="col-md-8 faculty-info">
+            <h1>{{ faculty_profile.name }}</h1>
+            <h5>{{ faculty_profile.designation }}</h5>
 
-        <!-- Faculty Information -->
-        <div class="col-md-8">
-            <div class="card-body text-start">
-                <h2 class="gradient-text-global">{{ faculty.name }}</h2>
-                <h5 class="card-subtitle mb-3">{{ faculty.designation }}</h5>
-                <p class="card-text mb-4">{{ faculty.bio }}</p>
+            <div class="faculty-meta">
+                <div><strong>Short Name:</strong> {{ faculty_profile.shortname }}</div>
+                <div><strong>Phone:</strong> {{ faculty_profile.phone }}</div>
+                <div><strong>Joining Date:</strong> {{ faculty_profile.joining_date }}</div>
 
-                <div class="additional-info">
-                    {% if faculty.research_area %}
-                    <h5 class="gradient-text-global mb-2">Research Interests</h5>
-                    <p>{{ faculty.research_area }}</p>
-                    {% endif %}
-
-                    {% if faculty.publications %}
-                    <h5 class="gradient-text-global mb-2 mt-4">Selected Publications</h5>
-                    <p>{{ faculty.publications }}</p>
-                    {% endif %}
-                </div>
+                {% if faculty_profile.google_scholar_url %}
+                <div><strong>Google Scholar:</strong> <a href="{{ faculty_profile.google_scholar_url }}" target="_blank">View Profile</a></div>
+                {% endif %}
+                {% if faculty_profile.research_gate_url %}
+                <div><strong>Research Gate:</strong> <a href="{{ faculty_profile.research_gate_url }}" target="_blank">View Profile</a></div>
+                {% endif %}
+                {% if faculty_profile.orcid_url %}
+                <div><strong>Orcid:</strong> <a href="{{ faculty_profile.orcid_url }}" target="_blank">View Profile</a></div>
+                {% endif %}
+                {% if faculty_profile.scopus_url %}
+                <div><strong>Scopus:</strong> <a href="{{ faculty_profile.scopus_url }}" target="_blank">View Profile</a></div>
+                {% endif %}
+                {% if faculty_profile.linkedin_url %}
+                <div><strong>LinkedIn:</strong> <a href="{{ faculty_profile.linkedin_url }}" target="_blank">View Profile</a></div>
+                {% endif %}
             </div>
         </div>
     </div>
+
+    <hr class="my-4">
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">About</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="research-tab" data-bs-toggle="tab" data-bs-target="#research" type="button" role="tab">Research</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses" type="button" role="tab">Courses Conducted</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="profileTabsContent">
+        <div class="tab-pane fade show active" id="about" role="tabpanel">
+            {{ faculty_profile.about|safe }}
+        </div>
+        <div class="tab-pane fade" id="research" role="tabpanel">
+            {% if faculty_profile.research_file %}
+                <a href="{{ faculty_profile.research_file.url }}" target="_blank" class="btn btn-primary mt-2">Download Research PDF</a>
+            {% else %}
+                <p>No research file available.</p>
+            {% endif %}
+        </div>
+        <div class="tab-pane fade" id="courses" role="tabpanel">
+            {% if faculty_profile.course_file %}
+                <a href="{{ faculty_profile.course_file.url }}" target="_blank" class="btn btn-primary mt-2">Download Courses PDF</a>
+            {% else %}
+                <p>No course file available.</p>
+            {% endif %}
+        </div>
+    </div>
+
 </div>
 
-<div class="container my-5">
-    <a href="{% url 'faculty' %}" class="btn btn-primary">← Back to Faculty</a>
-</div>
+<!-- Bootstrap JS (via CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{#<div class="banner-global">#}
+{#    <h1 class="gradient-text-global-big-size">{{ faculty.name }}</h1>#}
+{#</div>#}
+{##}
+{#<div class="container my-5">#}
+{#    <div class="row g-5 align-items-center">#}
+{#        <!-- Faculty Profile 3D Card -->#}
+{#        <div class="col-md-4 text-center">#}
+{#            <div class="faculty-card">#}
+{#                <div class="wrapper">#}
+{#                    <img src="{{ faculty.profile_pic.url }}" class="cover-image" alt="{{ faculty.name }}">#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <!-- Faculty Information -->#}
+{#        <div class="col-md-8">#}
+{#            <div class="card-body text-start">#}
+{#                <h2 class="gradient-text-global">{{ faculty.name }}</h2>#}
+{#                <h5 class="card-subtitle mb-3">{{ faculty.designation }}</h5>#}
+{#                <p class="card-text mb-4">{{ faculty.bio }}</p>#}
+{##}
+{#                <div class="additional-info">#}
+{#                    {% if faculty.research_area %}#}
+{#                    <h5 class="gradient-text-global mb-2">Research Interests</h5>#}
+{#                    <p>{{ faculty.research_area }}</p>#}
+{#                    {% endif %}#}
+{##}
+{#                    {% if faculty.publications %}#}
+{#                    <h5 class="gradient-text-global mb-2 mt-4">Selected Publications</h5>#}
+{#                    <p>{{ faculty.publications }}</p>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="container my-5">#}
+{#    <a href="{% url 'faculty' %}" class="btn btn-primary">← Back to Faculty</a>#}
+{#</div>#}
 {% endblock %}

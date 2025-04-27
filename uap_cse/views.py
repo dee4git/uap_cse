@@ -13,7 +13,7 @@ def faculty(request):
     })
 def faculty_detail(request, pk):
     faculty = get_object_or_404(Faculty, pk=pk)
-    return render(request, 'faculty/faculty_detail.html', {'faculty': faculty})
+    return render(request, 'faculty/faculty_detail.html', {'faculty_profile': faculty})
 
 
 def undergraduate(request):
