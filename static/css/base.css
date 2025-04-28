@@ -2,7 +2,7 @@
     --primary-color: #9896e8;
     --bg-color: #f7f7ff;
     --bg-shade: rgba(0, 0, 0, 0.03);
-    --txt-color: #161518;
+    --txt-color: #0f091a;
     --shadow-color: rgba(170, 170, 170, 0.78);
     --secondary-color: rgba(181, 181, 238, 0.39);
     /* Add transition for all color changes */
@@ -26,7 +26,7 @@
 .dark-mode {
     --bg-color: #101015;
     --bg-shade: rgba(255, 255, 255, 0.03);
-    --txt-color: rgb(239, 236, 251);
+    --txt-color: rgb(238, 227, 255);
     --shadow-color: rgb(228, 228, 228);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }

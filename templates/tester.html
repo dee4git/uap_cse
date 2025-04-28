@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/tuition.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap">
+{% endblock %}
+
+{% block content %}
+<div class="banner-global">
+    <h2 class="gradient-text-global">Testing page</h2><br>
+</div>
+    <!-- Navigation Links -->
+    <div class="navigation-links" style="margin: 5%; justify-content: center;">
+{#        <a href="{% url 'base' %}">base</a><br>#}
+{#        <a href="{% url 'curriculum' %}">Curriculum</a><br>#}
+{#        <a href="{% url 'faculty_detail' %}"> Faculty detail </a><br>#}
+{#        <a href="{% url 'forms' %}">Form</a><br>#}
+{#        <a href="{% url 'update-faculty' %}"> Update faculty </a><br>#}
+{#        <a href="{% url 'faculty_research' %}"> Faculty Research </a><br>#}
+{#        <a href="{% url 'update_sl' %}"> Update_SL </a><br>#}
+
+        <a href="{% url 'alumni_stories' %}">Alumni Stories</a><br>
+        <a href="{% url 'home' %}">Home</a><br>
+        <a href="{% url 'faculty' %}"> Faculty </a><br>
+        <a href="{% url 'login' %}">Login</a><br>
+        <a href="{% url 'signup' %}">Signup</a><br>
+        <a href="{% url 'update' %}"> Update </a><br>
+
+        <a href="{% url 'undergraduate' %}">Undergraduate</a><br>
+        <a href="{% url 'graduate' %}">Graduate</a><br>
+        <a href="{% url 'tuition' %}">Tuition Fee</a><br>
+        <a href="{% url 'why_cse' %}"> Why CSE? </a><br>
+        <a href="{% url 'host' %}">ICPC Host</a><br>
+        <a href="{% url 'gallery' %}">Gallery</a><br>
+
+        <a href="{% url 'clubs' %}"> Club </a><br>
+        <a href="{% url 'club_detail' %}">club detail</a><br>
+        <a href="{% url 'tester' %}">tester</a><br>
+        <a href="{% url 'error' %}">Error Page</a>
+    </div>
+{% endblock %}

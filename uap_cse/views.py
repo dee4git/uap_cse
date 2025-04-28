@@ -43,6 +43,13 @@ def club_detail(request):
 def gallery(request):
     return render(request, 'hard_html/gallery.html')
 
+def error(request):
+    return render(request, 'hard_html/errorPage.html')
+
+def tester(request):
+    return render(request, 'tester.html')
+
+
 from academics.models import PDFFile
 
 def show_pdf(request):
