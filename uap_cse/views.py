@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from clubs.models import Club
 from faculty.models import Faculty
 from django.shortcuts import get_object_or_404
 
@@ -32,7 +34,8 @@ def host(request):
     return render(request, 'hard_html/icpc_host.html')
 
 def clubs(request):
-    return render(request, 'hard_html/clubs.html')
+    clubs = Club.objects.all()
+    return render(request, 'hard_html/clubs.html', {"clubs": clubs})
 
 def club_detail(request):
     return render(request, 'club_detail.html')

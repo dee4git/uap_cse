@@ -16,16 +16,21 @@
           Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that match your interests!
         </p>
     </div>
+    <div class="custom-card-container">
+  {% comment %} Dynamic club (only the first one for now) {% endcomment %}
+  {% if clubs %}
+    {% for club in clubs %}
+      <a href="{% url 'club_detail' %}" class="custom-card-link">
+        <div class="custom-card">
+          <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="custom-card-logo">
+          <p class="custom-card-text">{{ club.name }}</p>
+          <span class="custom-read-more">Learn More</span>
+        </div>
+      </a>
+    {% endfor %}
+  {% endif %}
 <div class="custom-card-container">
   {% comment %} Loop over clubs in context if dynamic {% endcomment %}
-  <a href="{% url 'club_detail'%}" class="custom-card-link">
-    <div class="custom-card">
-      <img src="{% static 'img/Software&Hardware club.png' %}" alt="Software & Hardware Club Logo" class="custom-card-logo">
-      <p class="custom-card-text">Software & Hardware Club</p>
-      <span class="custom-read-more">Learn More</span>
-    </div>
-  </a>
-
   <a href="{% url 'club_detail' %}" class="custom-card-link">
     <div class="custom-card">
       <img src="{% static 'img/mathclublogo.png' %}" alt="Math Club Logo" class="custom-card-logo">
@@ -66,14 +71,6 @@
     </div>
   </a>
 
-  <a href="{% url 'club_detail' %}" class="custom-card-link">
-    <div class="custom-card">
-      <img src="{% static 'img/sports.png' %}" alt="Sports Club Logo" class="custom-card-logo">
-      <p class="custom-card-text">Sports Club</p>
-      <span class="custom-read-more">Learn More</span>
-    </div>
-  </a>
-
   <a href="{% url 'club_detail'%}" class="custom-card-link">
     <div class="custom-card">
       <img src="{% static 'img/cyber security club.png' %}" alt="Cyber Security Club Logo" class="custom-card-logo">
@@ -91,3 +88,4 @@
 
 </script>
 {% endblock %}
+</div>
