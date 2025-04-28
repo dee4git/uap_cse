@@ -47,19 +47,39 @@
     border-radius: 1rem; /* Rounded corners */
 }
 .gradient-texts {
- background: linear-gradient(108.4deg, rgba(150,92,255,1) 6.9%, rgba(55,152,255,1) 86.5%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 4em;
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
-  background-size: 200% 200%;
-  animation: gradientMove 5s ease infinite;
+    background: linear-gradient(108.4deg, rgba(150,92,255,1) 6.9%, rgba(55,152,255,1) 86.5%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    width: 100%;
+    height: 80px; /* Define height to prevent overlap */
+    overflow: hidden; /* Avoid content spilling */
+    z-index: 10; /* Make sure it stays above other elements */
 }
+
+@media (max-width: 768px) {
+    .gradient-texts {
+        font-size: 3em; /* Reduce size on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .gradient-texts {
+        font-size: 2em; /* Further reduce for mobile */
+        height: 60px; /* Adjust height */
+    }
+}
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -259,3 +279,18 @@ iframe {
     transform: translateY(-100%); /* End with text out of view */
   }
 }
+ .text-new {
+            width: 100%;
+            font-size: 3em;
+            text-transform: uppercase;
+            text-align: center;
+            animation: shutter 5s ease-in-out forwards;
+        }
+@keyframes shutter {
+    0% { transform: translateY(10px); opacity: 0; } /* Starts slightly below */
+    25% { transform: translateY(0px); opacity: 1; } /* Moves into view */
+    75% { transform: translateY(-5px); opacity: 1; } /* Rises slightly */
+    100% { transform: translateY(-10px); opacity: 0; } /* Fades and moves up */
+}
+
+

@@ -16,7 +16,9 @@
     <div class="uap-cse-head" style="text-align: center">
         <h1 class="gradient-text-global text-center fw-bold ">Department of CSE</h1>
         <hr/>
+        <div class="text-new" id="animatedText">
         <h1 class="gradient-text-global text-center mb-5 ">University of Asia Pacific</h1>
+   </div>
     </div>
     <div class="container py-5">
         <div class="row justify-content-center g-4">
@@ -33,9 +35,9 @@
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                 <div class="glass-card">
                        <div class="div-img">
-                        <img src="{% static 'img/hero/2.png' %}" alt="">
+                        <img src="{% static 'img/hero/2.png' %}" alt="" class="glass-card-link">
                     </div>
-                    <span class="glass-text">Faculty & Stuff</span></div>
+                    <span class="glass-text">Faculty & Staff</span></div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                <a href="{% url 'host' %}" class="glass-card-link">
@@ -50,21 +52,21 @@
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                 <div class="glass-card">
                       <div class="div-img">
-                        <img src="{% static 'img/hero/4.png' %}" alt="">
+                        <img src="{% static 'img/hero/4.png' %}" alt="" class="glass-card-link">
                     </div>
                     <span class="glass-text">Club & Events</span></div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                 <div class="glass-card">
                         <div class="div-img">
-                        <img src="{% static 'img/hero/5.png' %}" alt="">
+                        <img src="{% static 'img/hero/5.png' %}" alt="" class="glass-card-link">
                     </div>
                     <span class="glass-text">Notice Board</span></div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                 <div class="glass-card">
                     <div class="div-img">
-                        <img src="{% static 'img/hero/6.png' %}" alt="">
+                        <img src="{% static 'img/hero/6.png' %}" alt="" class="glass-card-link">
                     </div>
                     <span class="glass-text">Get upto 100% scholarship!</span></div>
             </div>
@@ -120,5 +122,36 @@
             </div>
         </div>
     </div>
+<<script>
+    const words = ["Excellence", "Strive", "Innovate", "Learn", "Grow"];
+    const gradients = [
+        "linear-gradient(45deg, #d8b4ff, #ae83ff, #8963ff)",
+        "linear-gradient(45deg, #f3e3ff, #d4aaff, #b48cff)",
+        "linear-gradient(45deg, #e8ccff, #c2a1ff, #9c77ff)"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById('animatedText');
+
+    function changeText() {
+        textElement.innerText = words[index];
+        textElement.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+        textElement.style.webkitBackgroundClip = "text";
+        textElement.style.color = "transparent";
+        textElement.style.animation = "none";
+        void textElement.offsetWidth;
+        textElement.style.animation = "shutter 5s ease-in-out forwards";
+
+        // Ensure the text returns to full opacity before next animation starts
+        setTimeout(() => {
+            textElement.style.opacity = "100";
+        }, 4500);
+
+        index = (index + 1) % words.length;
+    }
+
+    setInterval(changeText, 6000);
+</script>
+
 
 {% endblock %}

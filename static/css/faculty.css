@@ -14,7 +14,7 @@
     width: 100%;
     max-width: 280px;
     height: auto;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,7 @@
 .faculty-card:hover {
     transform: perspective(1000px) rotateX(8deg) translateY(-5px);
     box-shadow: 0px 12px 36px rgba(90, 60, 200, 0.2);
+
 }
 
 
@@ -39,31 +40,41 @@
 
 /* Wrapper Effect */
 .wrapper {
+    width: 250px;
+    max-width: 250px;
+    height: 250px;
     transition: all 0.5s;
     position: relative;
-    width: 100%;
     z-index: -1;
 }
 
 .faculty-card:hover .wrapper {
     transform: perspective(1000px) translateY(-3%) rotateX(12deg);
     box-shadow: 2px 20px 25px rgba(0, 0, 0, 0.6);
+    background: transparent !important;
 }
-.profile-img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1rem;
-     background: none !important;
-}
+/*.profile-img-container {*/
+/*    width: 250px;*/
+/*    height: 250px;*/
+/*    max-width: 280px;*/
+/*    object-fit: cover;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*     background: transparent !important;*/
+/*}*/
 
 .profile-img {
-     width: 100%;
-    height: 100%;
-    max-width: 220px;
+     width: 250px;
+    height: 250px;
+    max-width: 250px;
+    max-height: 250px;
     object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     background: transparent !important;
-    border-radius: 1.5rem;
+    border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.4s ease;
     opacity: 0;
