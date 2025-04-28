@@ -1,78 +1,161 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Our Faculty{% endblock %}
+{% block title %}Our Alumni{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/faculty.css' %}">
-<link rel="stylesheet" href="{% static 'css/alumni.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/alumni.css' %}">
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
 {% endblock %}
 
+
 {% block content %}
-<div class="banner">
-    <h1 class="gradient-text">Alumni</h1>
-</div>
-<section class="faculty-section">
+    <div class="banner-global">
+        <h1 class="gradient-text-global-big-size">Alumni</h1>
+    </div>
+    <div class="container">
 
-    <hr style="border: 3px solid #b3a8cb;
-        width: 100%;
-        margin: 1.5rem auto;
-        border-radius: 1rem;">
+        <div class="row g-4">
+                <!-- Faculty 1 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni1.png' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Shah  Al Masud</div>
+                                    <div class="card-subtitle">CEO, ComJagat Technologies Limited</div>
+                                    <div class="citation-count">Year of Graduation: 2003</div>
 
-    <div class="faculty-container">
-        <div class="faculty-card">
-            <img src="../static/img/p1.png" alt="Md Abdul Wahed Tomal">
-            <div class="card-info">
-               <h3>Md Abdul Wahed Tomal</h3>
-               <p>CEO, ComJagat Technologies Limited</p>
-               <p>Year of Graduation: 2003</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty 2 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni2.png' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Farzana Rahman</div>
+                                    <div class="card-subtitle">Associate Professor, EEE</div>
+                                </div>
+
+                            </div>
+                            <p class="card-text">
+                                Specialist in Renewable Energy Systems and Smart Grid technologies. Enthusiastic about research and outreach.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Faculty 3 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni5.jpg' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Farzana Rahman</div>
+                                    <div class="card-subtitle">Assistant Professor, Arch</div>
+                                </div>
+
+                            </div>
+                            <p class="card-text">
+                                Focused on sustainable architecture and parametric design. Loves combining design with data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <hr class="fat_hr">
+            <div class="row g-4">
+                <!-- Faculty 1 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni3.png' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Shah Murtaza Rashid Al Masud</div>
+                                    <div class="card-subtitle">Professor, Dept. of CSE</div>
+                                </div>
+
+                            </div>
+                            <p class="card-text">
+                                Expert in Machine Learning, Data Mining & High-Performance Computing.
+                                Passionate about student development and academic excellence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty 2 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni3.png' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Farzana Rahman</div>
+                                    <div class="card-subtitle">Associate Professor, EEE</div>
+                                </div>
+
+                            </div>
+                            <p class="card-text">
+                                Specialist in Renewable Energy Systems and Smart Grid technologies. Enthusiastic about research and outreach.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Faculty 3 -->
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{% static 'img/alumni5.jpg' %}" alt="Faculty" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">Dr. Farzana Rahman</div>
+                                    <div class="card-subtitle">Assistant Professor, Arch</div>
+                                </div>
+
+                            </div>
+                            <p class="card-text">
+                                Focused on sustainable architecture and parametric design. Loves combining design with data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="faculty-container">
-        <div class="faculty-card">
-            <img src="../static/img/p2.jpg" alt="Dr. Shantanu Chakraborty">
-            <div class="card-info">
-                <h3>Dr. Shantanu Chakraborty</h3>
-                <p>Senior R&amp;D Expert in AI, ML &amp; Energy, Australia</p>
-                <p>Year of Graduation: 2004</p>
-            </div>
-        </div>
-        <div class="faculty-card">
-            <img src="../static/img/p3.jpg" alt="Towhid Hossain">
-            <div class="card-info">
-               <h3>Towhid Hossain</h3>
-               <p>CEO, FIFOTech</p>
-               <p>Year of Graduation: 2004</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-container">
-        <div class="card active" style="background-image: url('../static/img/p2.jpg');">
-            <div class="overlay">
-                <h3>Dr. Shah Murtaza Rashid Al Masud</h3>
-                <p>Professor & Head of Department</p>
-            </div>
-        </div>
-        <div class="card" style="background-image: url('../static/img/p1.png');">
-            <div class="overlay">
-                <h3>Khan Mohummad Kaisar</h3>
-                <p>Vice Chairman CoED, The Institution of Engineers, Bangladesh (IEB)</p>
-                <p>Year of Graduation: 2002</p>
-            </div>
-        </div>
-        <div class="card" style="background-image: url('../static/img/p3.jpg');">
-            <div class="overlay">
-                <h3>Al Asma Begum</h3>
-                <p>Senior Business Analyst, BBC, Design & Engineering Division (London)</p>
-                <p>Year of Graduation: 2001</p>
-            </div>
-        </div>
-    </div>
-
-    <!--  New Section for Apply Buttons -->
+   <!--  New Section for Apply Buttons -->
     <section class="apply-section">
         <ul class="apply-button-list">
             <li class="apply-mobile"><a href="{% url 'alumni_stories' %}" class="apply-btn">Alumni Stories</a></li>
@@ -80,6 +163,5 @@
         </ul>
     </section>
 
-    <script src="../static/js/faculty.js"></script>
-</section>
 {% endblock %}
+

@@ -1,3 +1,4 @@
+
 .apply-section {
     margin-top: 96px; /* 1 inch after last cards */
     margin-bottom: 100px;
@@ -34,3 +35,25 @@
     color: black !important;
     transform: scale(1.05);
 }
+
+.alumni-card {
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 24px rgba(130, 100, 255, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    /*padding-bottom: 1rem;*/
+}
+ .alcard-body {
+      padding: 1.25rem 1.5rem 1.8rem;
+    }
