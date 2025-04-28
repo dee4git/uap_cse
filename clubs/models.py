@@ -16,7 +16,7 @@ import os
 class Club(models.Model):
     convener = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='club_logos/', default='defaults/faculty.png')
+    logo = models.ImageField(upload_to='club_logos/', default='defaults/clubcover.png')
     moto = models.CharField(max_length=255)
     cover_picture = models.ImageField(upload_to='club_covers/', default='defaults/clubcover.png')
     description = models.TextField()
