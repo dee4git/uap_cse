@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .routine-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .routine-info {
+            margin-bottom: 10px;
+        }
+        .routine-info strong {
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .download-btn:hover {
+            background-color: #218838;
+        }
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        select {
+            margin: 10px 0;
+            padding: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Routine Filter</h1>
+
+    <form method="get">
+        <label>Type:</label>
+        <select name="type">
+            <option value="class" {% if selected_type == 'class' %}selected{% endif %}>Class Routine</option>
+            <option value="exam" {% if selected_type == 'exam' %}selected{% endif %}>Exam Routine</option>
+        </select>
+
+        <label>Year:</label>
+        <select name="year">
+            <option value="">--All--</option>
+            <option value="1st" {% if selected_year == '1st' %}selected{% endif %}>1st Year</option>
+            <option value="2nd" {% if selected_year == '2nd' %}selected{% endif %}>2nd Year</option>
+            <option value="3rd" {% if selected_year == '3rd' %}selected{% endif %}>3rd Year</option>
+            <option value="4th" {% if selected_year == '4th' %}selected{% endif %}>4th Year</option>
+        </select>
+
+        <label>Semester:</label>
+        <select name="semester">
+            <option value="">--All--</option>
+            <option value="1st" {% if selected_semester == '1st' %}selected{% endif %}>1st Semester</option>
+            <option value="2nd" {% if selected_semester == '2nd' %}selected{% endif %}>2nd Semester</option>
+        </select>
+
+        {% if selected_type == 'class' %}
+            <label>Section:</label>
+            <select name="section">
+                <option value="">--All--</option>
+                <option value="A" {% if selected_section == 'A' %}selected{% endif %}>A</option>
+                <option value="B" {% if selected_section == 'B' %}selected{% endif %}>B</option>
+                <option value="C" {% if selected_section == 'C' %}selected{% endif %}>C</option>
+                <option value="D" {% if selected_section == 'D' %}selected{% endif %}>D</option>
+            </select>
+        {% endif %}
+
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if selected_type or selected_year or selected_semester or selected_section %}
+        {% if routines %}
+            <div class="routines">
+                {% for routine in routines %}
+                    <div class="routine-card">
+                        <div class="routine-info">
+                            <strong>Year:</strong> {{ routine.get_year_display }},
+                            <strong>Semester:</strong> {{ routine.get_semester_display }}
+                            {% if routine.section %}
+                                , <strong>Section:</strong> {{ routine.get_section_display }}
+                            {% endif %}
+                        </div>
+                        <img src="{{ routine.image.url }}" alt="Routine Image">
+                        <a href="{{ routine.image.url }}" download class="download-btn">Download</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No routines found for the selected criteria.</p>
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>

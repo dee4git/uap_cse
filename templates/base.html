@@ -37,16 +37,19 @@
                         <a href="{% url 'undergraduate' %}">Undergraduate</a>
                         <a href="{% url 'graduate' %}">Graduate</a>
                         <a href="{% url 'tuition'%}">Tuition Fee</a>
+                         <a href="{% url 'admission_result_view' %}">Admission Result</a>
+                        <a href="https://admission.uap-bd.edu/Admission/Home.aspx"> Apply Online</a>
                     </div>
                 </li>
                 <li>
                     <a href="#" class="nav-item">Academic</a>
                     <div class="dropdown">
                         <a href="#">Programs</a>
-                        <a href="#">Curriculum</a>
+                        <a href="{% url 'show_pdf' %}">Curriculum</a>
                         <a href="#">Courses</a>
                         <a href="{% url 'faculty' %}">Faculty</a>
-                        <a href="#">Notices</a>
+                        <a href="{% url 'notice_board' %}">Notices</a>
+                        <a href="{% url 'routine_view' %}">Routine</a>
                     </div>
                 </li>
                 <li>
@@ -54,7 +57,7 @@
                     <div class="dropdown">
                         <a href="#">Research</a>
                         <a href="{% url 'clubs'%}">Clubs</a>
-                        <a href="#">Contact</a>
+                        <a href="https://uap-bd.edu/contactus.php">Contact</a>
                         <a href="{% url 'login'%}">Login</a>
                     </div>
                 </li>

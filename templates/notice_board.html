@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
+    <style>
+        .notice-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .notice-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+        }
+        .notice-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .notice-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .notice-description {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Notice Board</h1>
+
+<div class="notice-container">
+    {% for notice in notices %}
+        <div class="notice-item">
+            <h2 class="notice-title">{{ notice.title }}</h2>
+            {% if notice.image %}
+                <img src="{{ notice.image.url }}" alt="{{ notice.title }}">
+            {% endif %}
+            <p class="notice-description">{{ notice.description }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

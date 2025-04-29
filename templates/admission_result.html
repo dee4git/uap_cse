@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Results | CSE - UAP</title>
+
+    <style>
+        /* General styling for the body and page layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #172a74;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #21a9af;
+            padding-bottom: 5px;
+            color: #184e8e;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #007b5e;
+        }
+
+        /* Styling for the PDF container */
+        .pdf-container {
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .pdf-container p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .pdf-container a {
+            color: #21a9af;
+            text-decoration: none;
+        }
+
+        .pdf-container a:hover {
+            text-decoration: underline;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Handling the "No results" message */
+        .no-results {
+            font-style: italic;
+            text-align: center;
+            color: #777;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            iframe {
+                height: 400px;
+            }
+
+            .pdf-container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admission Results</h1>
+
+    <h2>Written Test Results</h2>
+    {% if written_results %}
+        {% for pdf in written_results %}
+            <div class="pdf-container">
+                <h3>{{ pdf.title }}</h3>
+                <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
+                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No written test results available.</p>
+    {% endif %}
+
+    <h2>Final Results</h2>
+    {% if final_results %}
+        {% for pdf in final_results %}
+            <div class="pdf-container">
+                <h3>{{ pdf.title }}</h3>
+                <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
+                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No final results available.</p>
+    {% endif %}
+
+    <h2>Waiting List Results</h2>
+    {% if waiting_results %}
+        {% for pdf in waiting_results %}
+            <div class="pdf-container">
+                <h3>{{ pdf.title }}</h3>
+                <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
+                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No waiting list results available.</p>
+    {% endif %}
+
+</body>
+</html>

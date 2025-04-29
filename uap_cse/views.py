@@ -50,8 +50,4 @@ def tester(request):
     return render(request, 'tester.html')
 
 
-from academics.models import PDFFile
 
-def show_pdf(request):
-    pdfs = PDFFile.objects.all()
-    return render(request, 'curriculum.html', {'pdfs': pdfs})
