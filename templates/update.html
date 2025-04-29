@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block title %}Update Faculty{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% for i in facultys %}
+        {{ i.user.username }}<br>
+        {% if i.profile_pic %}
+            <img src="{{ i.profile_pic.url }}" width="200" /><br>
+        {% endif %}
+        {{ i.name }}<br>
+        {{ i.joining_date }}<br>
+        {{ i.designation }}<br>
+        {{ i.phone }}<br>
+        {{ i.bio }}<br>
+        {{ i.about }}<br>
+        {% if i.google_scholar_url %}
+                <a href="{% url 'faculty_research' i.id %}" class="research-link">View Research Papers</a><br>
+        {% endif %}
+        <a href="{% url 'update-faculty' i.id %}">Update profile</a><br><br>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,120 @@
+.login {
+    background: linear-gradient(135deg, #E6E6FA,#c9bfe0, #bfb4db);
+    font-family: 'Poppins', sans-serif;
+    margin: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: 300% 300%;
+    animation: gradientAnimation 12s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.login-container {
+    max-width: 400px;
+    background: var(--bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #C3B1E1, var(--primary-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  padding: 10px;
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--txt-color);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border: 2px solid #B39DDB;
+    box-shadow: 0 0 8px rgba(195, 177, 225, 0.6);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.login-bt{
+    background: linear-gradient(135deg, #D8BFD8, #A28089);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.login-bt:hover {
+    background: linear-gradient(135deg, #A28089, #D8BFD8);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-center a {
+    color: darkmagenta;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: plum;
+}
+
+.alert-danger {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}

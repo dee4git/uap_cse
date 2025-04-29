@@ -1,25 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Lexend', sans-serif;
-  background-size: 400% 400%;
-  margin: 0;
-  padding: 20px;
-  color: black;
+    font-family: 'Lexend', sans-serif;
+    background-size: 400% 400%;
+    margin: 0;
+    h3,h2{
+         color: var(--primary-color);
+     }
 }
-.gradient-text {
-    background: linear-gradient(108.4deg, rgb(204, 146, 177), rgb(113, 111, 185));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 3em;
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-    background-size: 200% 200%;
-    transition: background-position 0.1s ease;
-  animation: gradientMove 10s ease infinite;
-}
+
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
@@ -30,7 +21,7 @@ body {
 .cse-benefits {
     text-align: center;
     padding: 50px;
-    color: blueviolet;
+    color: var(--primary-color);
 }
 .container{
   max-width: 800px;
@@ -38,63 +29,78 @@ body {
     margin: auto;
 }
 .section-title {
-    background-color: navy;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    background-clip: text;
+    -webkit-background-clip: text;
     font-size: 32px;
     text-align: center;
-    font-weight: bold;
-     padding: 20px 10px;
+    font-weight: bolder;
+    padding: 20px 10px;
     margin-top: 30px;
-    text-transform: uppercase;
-    animation: fadeIn 2s ease-in-out;
+    /*text-transform: uppercase;*/
+    animation: fadeIn 0.5s ease-in-out;
 }
+
 .benefits-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-
+    display: grid;
+    grid-template-columns: repeat(3, minmax(400px, 1fr)); /* Wider boxes */
+    gap: 30px;
+    max-width: 1300px;
+    margin: auto;
 }
 
+/* Benefit Box Styling */
 .benefit-card {
-    padding: 20px;
-    width: 280px;
+     color: rebeccapurple;
+    padding: 25px;
+    height: 140px;
     border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-    transition: transform 0.3s ease-in-out, background 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left-aligned text */
+    justify-content: center;
+}
+
+
+.benefit-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+.benefit-card p {
+    font-size: 16px;
+    text-align: left;
 }
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    background: linear-gradient(108.4deg, mediumpurple 10%, mistyrose 90%);
-    color: navy;
+    background: linear-gradient(135deg, #E6E6FA,#c9bfe0);
+    color: #3a1b2f;
 }
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+    .benefits-container {
+        grid-template-columns: repeat(2, minmax(350px, 1fr)); /* Two per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-container {
+        grid-template-columns: repeat(1, minmax(350px, 1fr)); /* One per row */
+    }
+}
+
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.banner{
-    transform: scale(1.1);
-    margin-top: -25px;
-    margin-bottom: 50px; /* Added space below banner */
-    width: 100%;
-    padding: 40px;
-    background-image: linear-gradient(108.4deg, rgba(220, 194, 255, 0.69) 6.9%, rgba(185, 223, 248, 0.68) 86.5%);
-    background-size: 200% 200%;
-    animation: gradientAnimation 10s ease infinite;
-    position: relative;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-    transition: background 0.5s ease-in-out;
-    text-align: center;
-}
 
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
@@ -190,11 +196,13 @@ body {
   justify-content: center;
 }
  .section {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: flex-start;
-    background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
+     display: flex;
+     margin: 5%;
+     /*padding: 5px;*/
+     margin-bottom: 3rem;
+     align-items: flex-start;
+     border-radius: 0.5rem;
+     background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
 }
 
 
@@ -202,13 +210,17 @@ body {
     .section-icon {
       min-width: 100px;
       font-size: 2rem;
+        text-align: center;
+        margin-top: 20px;
       color: darkmagenta;
     }
 
     .section-content {
       flex: 1;
+        font-size: 1rem;
       background: rgba(255, 255, 255, 0.7);
       padding: 1.5rem;
+        text-align: justify;
       border-left: 6px solid darkmagenta;
       border-radius: 0.5rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -221,6 +233,7 @@ body {
 
     .section-content p,
     .section-content li {
+        color: #222c3d;
       line-height: 1.6;
     }
 

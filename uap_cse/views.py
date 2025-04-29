@@ -1,10 +1,20 @@
 from django.shortcuts import render
+from faculty.models import Faculty
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
     return render(request, 'home.html')
+
 def faculty(request):
-    return render(request, 'faculty.html')
+    facultys = Faculty.objects.all()
+    return render(request, 'faculty/faculty.html', {
+        'facultys' : facultys
+    })
+def faculty_detail(request, pk):
+    faculty = get_object_or_404(Faculty, pk=pk)
+    return render(request, 'faculty/faculty_detail.html', {'faculty_profile': faculty})
+
 
 def undergraduate(request):
     return render(request, 'hard_html/undergraduate.html')
@@ -23,10 +33,18 @@ def host(request):
 
 def clubs(request):
     return render(request, 'hard_html/clubs.html')
+
 def club_detail(request):
     return render(request, 'club_detail.html')
+
 def gallery(request):
     return render(request, 'hard_html/gallery.html')
+
+from academics.models import PDFFile
+
+def show_pdf(request):
+    pdfs = PDFFile.objects.all()
+    return render(request, 'curriculum.html', {'pdfs': pdfs})
 def alumni(request):
     return render(request, 'Alumni.html')
 def alumni_stories(request):

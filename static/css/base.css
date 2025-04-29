@@ -1,35 +1,40 @@
+:root {
+    --primary-color: #9896e8;
+    --bg-color: #f7f7ff;
+    --bg-shade: rgba(0, 0, 0, 0.03);
+    --txt-color: #161518;
+    --shadow-color: rgba(170, 170, 170, 0.78);
+    --secondary-color: rgba(181, 181, 238, 0.39);
+    /* Add transition for all color changes */
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out;
+}
+
+/* Apply transitions to all elements */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Lexend', sans-serif;
-}
-
-:root {
-    --primary-color: #8d8be1;
-    /*!*LIGHT MODE THEME*!*/
-    --bg-color: #e5e5e5;
-    --txt-color: #181515;
-    --shadow-color: rgba(178, 178, 178, 0.4);
-    --secondary-color: rgba(181, 181, 238, 0.39);
-
-    /*DARK MODE THEME*/
-    /*--bg-color: #111111;*/
-    /*--txt-color: #d3d3d3;*/
-    /*--shadow-color: rgba(95, 95, 95, 0.4);*/
-    /*--secondary-color: rgba(36, 36, 60, 0.39);*/
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
 }
 
 .dark-mode {
-    --bg-color: #111111;
-    --txt-color: #d3d3d3;
-    --shadow-color: rgba(95, 95, 95, 0.4);
+    --bg-color: #101015;
+    --bg-shade: rgba(255, 255, 255, 0.03);
+    --txt-color: rgb(239, 236, 251);
+    --shadow-color: rgb(228, 228, 228);
     --secondary-color: rgba(36, 36, 60, 0.39);
 }
 
 
 body {
     background-color: var(--bg-color);
+    --header-color: var(--primary-color);
 }
 
 header {
@@ -45,7 +50,7 @@ header {
     transition: all 0.4s ease;
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 25px var(--shadow-color);
-    border-bottom: 1px solid var(--primary-color);
+    /*border-bottom: 1px solid var(--primary-color);*/
 }
 
 header.loaded {
@@ -60,6 +65,11 @@ header.shrink {
     font-size: 60px;
     font-weight: 700;
     transition: font-size 0.3s ease;
+}
+.logo img{
+    height: 9vh;
+    width: auto;
+    margin-right: 10px;
 }
 
 header.shrink .logo {
@@ -82,6 +92,7 @@ nav {
     gap: 25px;
     position: relative;
     margin-top: 17px;
+    align-items: center;
 }
 
 .nav-links li {
@@ -131,6 +142,40 @@ nav {
 
 .nav-links li:hover .dropdown {
     display: block;
+    align-items: start;
+}
+
+
+.buttons {
+    display: flex;
+    align-items: center;
+    padding-inline: 10px;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--txt-color);
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+
+.theme-toggle:hover {
+    background-color: var(--secondary-color);
+    border: solid 2px var(--primary-color);
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    line-height: 1;
 }
 
 .apply-btn {
@@ -171,6 +216,7 @@ nav {
         padding: 20px 15px;
         border-radius: 16px;
         gap: 5px;
+        align-items: unset;
     }
 
     .nav-links li {
@@ -233,8 +279,34 @@ nav {
     .rotate-icon {
         transform: rotate(180deg);
     }
+
+    .logo img{
+        height: 6vh;
+        width: auto;
+        margin-right: 10px;
+    }
 }
 
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+/* Existing rotation animation */
+.theme-toggle.rotate .theme-icon {
+    animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 main {
     padding-top: 180px;

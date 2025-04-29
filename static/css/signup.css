@@ -1,0 +1,138 @@
+
+.signup {
+    background: linear-gradient(135deg, rgba(165, 136, 217, 0.88), rgba(177, 177, 248, 0.88));
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: -20px;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+
+.signup-container {
+    max-width: 400px;
+    background: var(--bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.signup-container:hover {
+    transform: scale(1.02);
+    transition: ease-in-out 0.3s;
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    color: #5A3E90;
+    margin-bottom: 15px;
+}
+h3 {
+    font-size: 18px;
+    color: var(--txt-color);
+    margin-bottom: 15px;
+}
+
+
+
+.form-row {
+    margin-bottom: 15px;
+
+}
+
+label {
+    display: block;
+    font-size: 17px;
+    color: var(--txt-color);
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #B39DDB;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #d8b4fe;
+    box-shadow: 0 0 8px rgba(90, 62, 144, 0.4);
+}
+
+
+.custom-signup-bt{
+    background: linear-gradient(90deg, #d8b4fe, #5A3E90);
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.custom-signup-bt:hover {
+    background: linear-gradient(90deg, #5A3E90, #d8b4fe);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+.text-center a {
+    color: #a17de7;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #7B61FF;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #C3B1E1, #7B61FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  padding: 10px;
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+    display: inline-block;
+}
+
+@keyframes gradientAnimation {
+  0% { background-size: 100% 100%; }
+  50% { background-size: 120% 120%; }
+  100% { background-size: 100% 100%; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+@media (max-width: 768px){
+    .signup-container {
+        max-width: 300px;
+    }
+    h1{
+        font-size: 1rem;
+    }
+}

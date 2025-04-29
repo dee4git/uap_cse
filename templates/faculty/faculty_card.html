@@ -1,0 +1,25 @@
+<a href="{% url 'faculty_detail' faculty.pk %}" class="faculty-card-link">
+    <div class="faculty-card text-center">
+        <div class="profile-img-container">
+            <div class="wrapper">
+                <img src="{{ faculty.profile_pic.url }}" alt="{{ faculty.name }}" class="profile-img cover-image" />
+            </div>
+        </div>
+        <div class="card-body text-start">
+            <div class="top-row mb-1">
+                <div>
+                    <div class="gradient-text-global card-title">
+                        {{ faculty.name }}
+                    </div>
+                    <div class="card-subtitle">{{ faculty.designation }}</div>
+                </div>
+                <div class="citation-count">
+                    Citations: {{ faculty.citation }}
+                </div>
+            </div>
+            <p class="card-text">
+                {{ faculty.bio|truncatewords:25 }}
+            </p>
+        </div>
+    </div>
+</a>

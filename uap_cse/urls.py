@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('faculty/', views.faculty, name='faculty'),
+    path('faculty/<int:pk>/', views.faculty_detail, name='faculty_detail'),
     path('undergraduate/', views.undergraduate, name='undergraduate'),
     path('graduate/', views.graduate, name='graduate'),
     path('tuition/', views.tuition, name='tuition'),
@@ -32,7 +33,12 @@ urlpatterns = [
     path('clubs/', views.clubs, name='clubs'),
     path('gallery/', views.gallery, name='gallery'),
     path('club_detail/', views.club_detail, name='club_detail'),
+    path('', include('faculty.urls')),
+    path('alumni/',include('others.urls')),
+    path('aca/',views.show_pdf, name='show_pdf'),
     path('alumni/', views.alumni, name='alumni'),
     path('alumni_stories/', views.alumni_stories, name='alumni_stories'),
     path('alumni_association/', views.alumni_association, name='alumni_association'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

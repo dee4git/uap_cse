@@ -8,13 +8,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="banner">
-  <h1 class="gradient-text">Explore All Clubs</h1>
+<div class="banner-global">
+  <h1 class="gradient-text-global">Explore All Clubs</h1>
 </div>
-<p class="club-description">
-  Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that match your interests!
-</p>
-
+    <div style="background-image: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);">
+        <p class="club-description">
+          Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that match your interests!
+        </p>
+    </div>
 <div class="custom-card-container">
   {% comment %} Loop over clubs in context if dynamic {% endcomment %}
   <a href="{% url 'club_detail'%}" class="custom-card-link">
