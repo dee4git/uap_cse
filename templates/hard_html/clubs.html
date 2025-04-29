@@ -19,13 +19,11 @@
     <div class="custom-card-container">
   {% if clubs %}
     {% for club in clubs %}
-      <a href="{% url 'club_detail' %}" class="custom-card-link">
         <div class="custom-card">
           <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="custom-card-logo">
           <p class="custom-card-text">{{ club.name }}</p>
-          <span class="custom-read-more">Learn More</span>
+            <a href="{% url 'club_detail' %}" class="custom-read-more">Learn More</a>
         </div>
-      </a>
     {% endfor %}
   {% endif %}
 
