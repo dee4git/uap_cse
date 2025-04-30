@@ -1,1 +1,15 @@
+venv/# Ignore Python cache files and compiled code
+__pycache__/
+*.py[cod]
+
+# Ignore SQLite DB if you're using it
+*.sqlite3
+db.sqlite3
+
+# Ignore environment files
+.env
+
+# Ignore PyCharm and virtualenv folders
+.idea/
 venv/
+
