@@ -1,4 +1,25 @@
 from scholarly import scholarly
+from .models import ScholarCache
+from datetime import timedelta
+from django.utils import timezone
+
+
+def get_or_cache_best_papers(google_scholar_url, limit=5, paper_update_interval=180):
+    if not google_scholar_url:
+        return []
+
+    try:
+        cache_entry = ScholarCache.objects.get(scholar_url=google_scholar_url)
+        if timezone.now() - cache_entry.last_updated < timedelta(days=paper_update_interval):
+            return cache_entry.papers
+    except ScholarCache.DoesNotExist:
+        cache_entry = ScholarCache(scholar_url=google_scholar_url)
+
+    # Fetch fresh data
+    fresh_data = get_best_papers(google_scholar_url, limit)
+    cache_entry.papers = fresh_data
+    cache_entry.save()
+    return fresh_data
 
 
 def get_best_papers(google_scholar_url, limit=5):

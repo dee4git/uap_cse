@@ -11,6 +11,8 @@ from .models import Faculty
 
 from django.shortcuts import render, get_object_or_404
 from .scholar_api import get_best_papers
+from .scholar_api import get_or_cache_best_papers
+from .forms import FacultySerialNumberForm
 
 
 def signup_view(request):
@@ -88,7 +90,7 @@ def update_view(request):
 
 def faculty_research(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)
-    papers = get_best_papers(faculty.google_scholar_url)
+    papers = get_or_cache_best_papers(faculty.google_scholar_url)
 
     context = {
         'faculty': faculty,
@@ -96,9 +98,6 @@ def faculty_research(request, faculty_id):
     }
 
     return render(request, 'faculty/faculty_research.html', context)
-
-
-from .forms import FacultySerialNumberForm
 
 
 def update_faculty_serial_number(request, faculty_id):

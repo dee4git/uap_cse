@@ -4,13 +4,17 @@ from ckeditor.fields import RichTextField
 
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
 import os
+from PIL import Image
 
-from django.db import models
-from django.contrib.auth.models import User
-import os
-from PIL import Image
+
+class ScholarCache(models.Model):
+    scholar_url = models.URLField(unique=True)
+    papers = models.JSONField()  # stores list of dicts
+    last_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.scholar_url
 
 
 class Faculty(models.Model):
