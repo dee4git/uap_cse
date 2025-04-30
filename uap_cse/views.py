@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 from clubs.models import Club
 from faculty.models import Faculty
-from django.shortcuts import get_object_or_404
+from faculty.scholar_api import get_or_cache_best_papers
 
 
 def home(request):
@@ -15,8 +16,8 @@ def faculty(request):
     })
 def faculty_detail(request, pk):
     faculty = get_object_or_404(Faculty, pk=pk)
-    return render(request, 'faculty/faculty_detail.html', {'faculty_profile': faculty})
-
+    papers = get_or_cache_best_papers(faculty.google_scholar_url)
+    return render(request, 'faculty/faculty_detail.html', {'faculty_profile': faculty, 'papers':papers})
 
 def undergraduate(request):
     return render(request, 'hard_html/undergraduate.html')

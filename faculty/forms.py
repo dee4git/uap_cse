@@ -34,7 +34,10 @@ class UpdateForm(forms.ModelForm):
             'about',
             'profile_pic',
             'google_scholar_url',
-
+            'researchgate_url',
+            'orcid_url',
+            'scopus_url',
+            'linkedin_url',
         ]
         help_texts = {
             'joining_date': 'Date format: YYYY-MM-DD',

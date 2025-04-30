@@ -1,25 +1,47 @@
 from scholarly import scholarly
-from .models import ScholarCache
+from .models import ScholarCache, Faculty
 from datetime import timedelta
 from django.utils import timezone
 
 
-def get_or_cache_best_papers(google_scholar_url, limit=5, paper_update_interval=180):
+def get_or_cache_best_papers(google_scholar_url, limit=8, paper_update_interval=180, citation_update_interval=20):
     if not google_scholar_url:
         return []
 
     try:
         cache_entry = ScholarCache.objects.get(scholar_url=google_scholar_url)
-        if timezone.now() - cache_entry.last_updated < timedelta(days=paper_update_interval):
-            return cache_entry.papers
     except ScholarCache.DoesNotExist:
         cache_entry = ScholarCache(scholar_url=google_scholar_url)
 
-    # Fetch fresh data
-    fresh_data = get_best_papers(google_scholar_url, limit)
-    cache_entry.papers = fresh_data
-    cache_entry.save()
-    return fresh_data
+    now = timezone.now()
+    if cache_entry.last_updated is None:
+        time_since_update = timedelta(days=180)
+    else:
+        time_since_update = now - cache_entry.last_updated
+
+    papers = cache_entry.papers if time_since_update < timedelta(days=paper_update_interval) else get_best_papers(google_scholar_url, limit)
+
+    # Update cache only if papers were re-fetched
+    if time_since_update >= timedelta(days=paper_update_interval):
+        cache_entry.papers = papers
+        cache_entry.save()
+
+    # Update citation count if older than citation_update_interval
+    if time_since_update >= timedelta(days=citation_update_interval):
+        try:
+            if "user=" in google_scholar_url:
+                author_id = google_scholar_url.split("user=")[1].split("&")[0]
+                author = scholarly.search_author_id(author_id)
+                scholarly.fill(author, sections=[])
+                citation_count = author.get("citedby", 0)
+
+                faculty_obj = Faculty.objects.get(google_scholar_url=google_scholar_url)
+                faculty_obj.citation = citation_count
+                faculty_obj.save()
+        except Exception as e:
+            print(f"Error updating citation count: {e}")
+
+    return papers
 
 
 def get_best_papers(google_scholar_url, limit=5):

@@ -60,6 +60,17 @@ def login_view(request):
             return redirect('login')
     return render(request, 'login.html')
 
+@login_required
+def update_view(request):
+    try:
+        faculty = Faculty.objects.get(user=request.user)
+        return render(request, 'update.html', {
+            'facultys': [faculty]
+        })
+
+    except Faculty.DoesNotExist:
+        messages.error(request, "No faculty profile found for your account")
+        return redirect('login')
 
 @login_required
 def update_faculty(request, pk):
@@ -74,20 +85,6 @@ def update_faculty(request, pk):
         form = UpdateForm(instance=p)
     return render(request, 'forms.html', {'form': form})
 
-
-@login_required
-def update_view(request):
-    try:
-        faculty = Faculty.objects.get(user=request.user)
-        return render(request, 'update.html', {
-            'facultys': [faculty]
-        })
-
-    except Faculty.DoesNotExist:
-        messages.error(request, "No faculty profile found for your account")
-        return redirect('login')
-
-
 def faculty_research(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)
     papers = get_or_cache_best_papers(faculty.google_scholar_url)
@@ -98,7 +95,6 @@ def faculty_research(request, faculty_id):
     }
 
     return render(request, 'faculty/faculty_research.html', context)
-
 
 def update_faculty_serial_number(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)
