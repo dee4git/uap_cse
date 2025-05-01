@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="banner-global">
-    <h2 class="gradient-text-global">Exam Routine</h2>
+    <h2 class="gradient-text-global-big-size">Exam Routine</h2>
 </div>
 
 <!-- DON'T CHANGE THE CODE-->
@@ -21,8 +21,8 @@
 <div class="routine-display">
     {% if exam_routine %}
         <div class="routine-card">
-            <img src="{{ exam_routine.image.url }}" alt="Exam Routine Image" style="max-width: 100%; height: auto;">
-            <a href="{{ exam_routine.image.url }}" download class="download-btn">Download</a>
+            <img src="{{ exam_routine.image.url }}" alt="Exam Routine Image" class="routine-img">
+            <a href="{{ exam_routine.image.url }}" download>Download</a>
         </div>
     {% else %}
         <p style="text-align: center; margin-top:20px;">No exam routine available.</p>
