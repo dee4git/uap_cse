@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br>
+    <h1>Alumni_Association</h1>
+    {% for i in file %}
+        <h2>{{ 'Alumni_page.pdf' }}</h2>
+        <p>UAP CSE ALUMNI ASSOCIATION  EXECUTIVE COMMITTEE (2025-2027) PDF:<a href="{{ 'Alumni_Association.file.pdf' }}">{{ 'Alumni_Association.title' }}</a></p>
+        <iframe src="{{ 'Alumni_page.pdf' }}" width="80%" height="100%"></iframe>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#{% load media %}#}
+{#<head>#}
+{#    <title>Alumni Page</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>Alumni_Association</h1>#}
+{#    {% for pdf in pdfs %}#}
+{#        <h2>{{ pdf.title }}</h2>#}
+{#        <p>UAP CSE ALUMNI ASSOCIATION  EXECUTIVE COMMITTEE (2025-2027) PDF:<a href="{{ pdf.pdf.url }}">{{ pdf.pdf.url }}</a></p>#}
+{#        <iframe src="{{ media 'pdfs/Alumni_page.pdf' }}" width="100%" height="600px"></iframe>#}
+{#        <hr>#}
+{#    {% endfor %}#}
+{##}
+{#</body>#}
+{#</html>#}

@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
 
 from django.contrib import messages
@@ -10,7 +9,7 @@ from .forms import SignUpForm, UpdateForm
 from .models import Faculty
 
 from django.shortcuts import render, get_object_or_404
-from .scholar_api import get_best_papers
+from .scholar_api import get_or_cache_best_papers
 
 
 def signup_view(request):
@@ -58,6 +57,17 @@ def login_view(request):
             return redirect('login')
     return render(request, 'login.html')
 
+@login_required
+def update_view(request):
+    try:
+        faculty = Faculty.objects.get(user=request.user)
+        return render(request, 'update.html', {
+            'facultys': [faculty]
+        })
+
+    except Faculty.DoesNotExist:
+        messages.error(request, "No faculty profile found for your account")
+        return redirect('login')
 
 @login_required
 def update_faculty(request, pk):
@@ -72,23 +82,9 @@ def update_faculty(request, pk):
         form = UpdateForm(instance=p)
     return render(request, 'forms.html', {'form': form})
 
-
-@login_required
-def update_view(request):
-    try:
-        faculty = Faculty.objects.get(user=request.user)
-        return render(request, 'update.html', {
-            'facultys': [faculty]
-        })
-
-    except Faculty.DoesNotExist:
-        messages.error(request, "No faculty profile found for your account")
-        return redirect('login')
-
-
 def faculty_research(request, faculty_id):
     faculty = get_object_or_404(Faculty, id=faculty_id)
-    papers = get_best_papers(faculty.google_scholar_url)
+    papers = get_or_cache_best_papers(faculty.google_scholar_url)
 
     context = {
         'faculty': faculty,
@@ -98,18 +94,3 @@ def faculty_research(request, faculty_id):
     return render(request, 'faculty/faculty_research.html', context)
 
 
-from .forms import FacultySerialNumberForm
-
-
-def update_faculty_serial_number(request, faculty_id):
-    faculty = get_object_or_404(Faculty, id=faculty_id)
-
-    if request.method == 'POST':
-        form = FacultySerialNumberForm(request.POST, instance=faculty)
-        if form.is_valid():
-            form.save()  # Save the updated serial number
-            return redirect('/')  # Redirect to the faculty list page or any other page
-    else:
-        form = FacultySerialNumberForm(instance=faculty)
-
-    return render(request, 'forms.html', {'form': form, 'faculty': faculty})

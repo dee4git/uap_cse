@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
+    margin: 10px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
@@ -28,7 +29,7 @@
 
 /* 3D Hover Effect */
 .faculty-card:hover {
-    transform: perspective(1000px) rotateX(8deg) translateY(-5px);
+    transform: scale(1.05) translateY(-10px);
     box-shadow: 0px 12px 36px rgba(90, 60, 200, 0.2);
 }
 
@@ -45,7 +46,7 @@
     z-index: -1;
 }
 
-.faculty-card:hover .wrapper {
+.wrapper:hover {
     transform: perspective(2000px) translateY(-3%) rotateX(12deg);
     box-shadow: 2px 20px 25px rgba(0, 0, 0, 0.6);
 }

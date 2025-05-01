@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import AllowedEmail, Faculty
+from django.contrib.auth.forms import PasswordResetForm
 
 
 class SignUpForm(forms.ModelForm):
@@ -33,40 +34,28 @@ class UpdateForm(forms.ModelForm):
             'bio',
             'about',
             'profile_pic',
+            'routine',
             'google_scholar_url',
-
+            'researchgate_url',
+            'orcid_url',
+            'scopus_url',
+            'linkedin_url',
         ]
         help_texts = {
             'joining_date': 'Date format: YYYY-MM-DD',
         }
 
 
-# faculty sl change form
-class FacultySerialNumberForm(forms.ModelForm):
-    class Meta:
-        model = Faculty
-        fields = ['sl']  # Only the 'sl' field will be used for updating serial numbers
+class CustomPasswordResetForm(PasswordResetForm):
+    def clean_email(self):
+        email = self.cleaned_data['email'].lower()
 
-    def clean_sl(self):
-        new_sl = self.cleaned_data['sl']
+        # Check if the email is in the allowed list
+        if not AllowedEmail.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is not authorized for password reset.")
 
-        # Check if the new serial number already exists
-        if Faculty.objects.filter(sl=new_sl).exists():
-            raise forms.ValidationError("This serial number already exists. Please choose a different number.")
+        # Check if the email exists in User model
+        if not User.objects.filter(email=email).exists():
+            raise forms.ValidationError("No user is registered with this email.")
 
-        return new_sl
-
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-
-        # Shift all faculties with a greater serial number by 1
-        if instance.sl:
-            # Fetch all faculties with a serial number greater than the new sl
-            faculties_to_shift = Faculty.objects.filter(sl__gte=instance.sl).exclude(id=instance.id)
-            for faculty in faculties_to_shift:
-                faculty.sl += 1
-                faculty.save()
-
-        if commit:
-            instance.save()
-        return instance
+        return email
