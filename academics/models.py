@@ -32,7 +32,7 @@ class AdmissionResult(models.Model):
 
 class NoticeBoard(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='notices/', blank=True, null=True)  # Upload images to 'notices/' directory
+    image = models.ImageField(upload_to='notices/')  # Upload images to 'notices/' directory
     description = models.TextField(blank=True, null=True)
     upload_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)  # To control visibility
