@@ -3,7 +3,7 @@
 # Register your models here.
 from django.contrib import admin
 
-from .models import AdmissionResult
+from .models import AdmissionResult,Course
 
 # admin.py
 from django.contrib import admin
@@ -86,3 +86,4 @@ class CurriculumAdmin(admin.ModelAdmin):
     # You can customize other aspects of the admin panel here as needed
     # For example, you can include other fields in the form layout, add custom actions, etc.
 
+admin.site.register(Course)

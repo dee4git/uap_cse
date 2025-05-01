@@ -121,3 +121,25 @@ class AcademicCalendar(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Course(models.Model):
+    code = models.CharField(max_length=120)
+    title = models.CharField(max_length=120)
+    description = models.TextField(blank=True,null=True)
+    credit = models.FloatField(default=0.0)
+    YEAR = [
+        ('1st','1st'),
+        ('2nd','2nd'),
+        ('3rd','3rd'),
+        ('4th','4th'),
+    ]
+    SEMESTER = [
+        ('1st','1st'),
+        ('2nd','2nd'),
+    ]
+    year = models.CharField(max_length=15, choices = YEAR, null = True)
+    semester = models.CharField(max_length=15, choices = SEMESTER, null = True)
+
+    def __str__(self):
+        return f'{self.code}|{self.title}'
