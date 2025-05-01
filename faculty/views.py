@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
 
 from django.contrib import messages
@@ -10,9 +9,7 @@ from .forms import SignUpForm, UpdateForm
 from .models import Faculty
 
 from django.shortcuts import render, get_object_or_404
-from .scholar_api import get_best_papers
 from .scholar_api import get_or_cache_best_papers
-from .forms import FacultySerialNumberForm
 
 
 def signup_view(request):
@@ -96,15 +93,4 @@ def faculty_research(request, faculty_id):
 
     return render(request, 'faculty/faculty_research.html', context)
 
-def update_faculty_serial_number(request, faculty_id):
-    faculty = get_object_or_404(Faculty, id=faculty_id)
 
-    if request.method == 'POST':
-        form = FacultySerialNumberForm(request.POST, instance=faculty)
-        if form.is_valid():
-            form.save()  # Save the updated serial number
-            return redirect('/')  # Redirect to the faculty list page or any other page
-    else:
-        form = FacultySerialNumberForm(instance=faculty)
-
-    return render(request, 'forms.html', {'form': form, 'faculty': faculty})
