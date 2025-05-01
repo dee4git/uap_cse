@@ -6,6 +6,9 @@ from .models import *
 def alumni_stories(request):
     alumni = Alumni.objects.all()
     return render(request, 'alumni_stories.html', {'alumni': alumni})
+def alumni(request):
+    alumni = Alumni.objects.all()
+    return render(request, 'alumni.html', {'alumni': alumni})
 
 def alumni_association(request):
     pdfs =Alumni_Association.objects.all()

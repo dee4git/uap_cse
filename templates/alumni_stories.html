@@ -1,24 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Alumni</title>
-</head>
-<body>
-    {%for i in alumni%}
-        <div>
-            <img src="{{i.photo.url}}" alt="Profile Photo" width="150">
-            <h2>{{ i.name }}</h2>
-            <p>{{ i.title }}</p>
-            <p><strong>Year of Graduation:</strong> {{ i.graduation_year }}</p>
-            <p><strong>Department:</strong> {{ i.department }}, {{ i.university }}</p>
-        </div>
+{% extends "base.html" %}
+{% load static %}
 
-        <div>
-            <blockquote>
-                {{ i.bio }}
-            </blockquote>
+{% block title %}Alumni Stories{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/alumni_stories.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner-global">
+    <h1 class="gradient-text-global-big-size">Alumni Stories</h1>
+</div>
+
+<div class="container mt-5">
+    {% for i in alumni %}
+        <div class="row g-4 mb-5 align-items-center">
+            {% if forloop.counter0|divisibleby:2 %}
+                <!-- Even rows (0, 2, 4...): Image Left, Paragraph Right -->
+                <div class="col-lg-3 col-md-4 col-sm-12 order-1 order-md-1">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{{ i.photo.url }}" alt="{{ i.name }}" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">{{ i.name }}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12 order-2 order-md-2">
+                    <div class="card-body text-start">
+                        <p class="glow-paragraph">{{ i.bio }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Odd rows (1, 3, 5...): Image Right, Paragraph Left -->
+                <div class="col-lg-9 col-md-8 col-sm-12 order-2 order-md-1">
+                    <div class="card-body text-start">
+                        <p class="glow-paragraph">{{ i.bio }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 order-1 order-md-2">
+                    <div class="faculty-card text-center">
+                        <div class="profile-img-container">
+                            <img src="{{ i.photo.url }}" alt="{{ i.name }}" class="profile-img" />
+                        </div>
+                        <div class="card-body text-start">
+                            <div class="top-row mb-1">
+                                <div>
+                                    <div class="gradient-text-global card-title">{{ i.name }}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-    {%endfor%}
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}
