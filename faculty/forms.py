@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import AllowedEmail, Faculty
+from django.contrib.auth.forms import PasswordResetForm
 
 
 class SignUpForm(forms.ModelForm):
@@ -44,3 +45,17 @@ class UpdateForm(forms.ModelForm):
             'joining_date': 'Date format: YYYY-MM-DD',
         }
 
+
+class CustomPasswordResetForm(PasswordResetForm):
+    def clean_email(self):
+        email = self.cleaned_data['email'].lower()
+
+        # Check if the email is in the allowed list
+        if not AllowedEmail.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is not authorized for password reset.")
+
+        # Check if the email exists in User model
+        if not User.objects.filter(email=email).exists():
+            raise forms.ValidationError("No user is registered with this email.")
+
+        return email
