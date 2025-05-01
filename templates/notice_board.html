@@ -1,50 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notice Board</title>
+<!-- notice_board.html -->
+{% extends 'base.html' %}
+{% block title %}Notice Board{% endblock %}
+
+{% block content %}
+    <h1>Notice Board</h1>
+    <div class="notice-list">
+        {% for notice in notices %}
+            <div class="notice-card">
+                <img src="{{ notice.image.url }}" alt="{{ notice.title }}" class="notice-image">
+                <h3><a href="{% url 'notice_detail' notice.id %}">{{ notice.title }}</a></h3>
+                <p>Published on: {{ notice.publish_date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block head %}
     <style>
-        .notice-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+        /* Adjust the grid layout to show 3 cards per row */
+        .notice-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+            gap: 30px;
+            margin: 20px auto;
+            max-width: 1200px;  /* Limit the overall width */
+            padding: 10px;
         }
-        .notice-item {
-            border: 1px solid #ddd;
-            padding: 20px;
-            width: 300px;
+
+        /* Styling for each notice card */
+        .notice-card {
+            background-color: #f4f4f9;  /* Light background for cards */
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .notice-item img {
-            max-width: 100%;
+
+        /* Hover effect for cards */
+        .notice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image styling */
+        .notice-image {
+            width: 100%;
             height: auto;
             border-radius: 8px;
+            margin-bottom: 20px;
         }
-        .notice-title {
-            font-size: 1.5rem;
-            margin: 10px 0;
+
+        /* Title styling */
+        .notice-card h3 {
+            font-size: 1.6em;
+            margin-top: 10px;
+            color: #333;
+            font-weight: bold;
         }
-        .notice-description {
-            font-size: 1rem;
+
+        /* Paragraph (Publish date) styling */
+        .notice-card p {
+            font-size: 1em;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* Link styling */
+        .notice-card a {
+            text-decoration: none;
+            color: #007b5e;
+        }
+
+        .notice-card a:hover {
+            color: #21a9af;
+        }
+
+        /* Make the layout responsive */
+        @media (max-width: 1200px) {
+            .notice-list {
+                grid-template-columns: repeat(2, 1fr);  /* 2 columns for medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .notice-list {
+                grid-template-columns: 1fr;  /* 1 column for small screens */
+            }
         }
     </style>
-</head>
-<body>
-
-<h1>Notice Board</h1>
-
-<div class="notice-container">
-    {% for notice in notices %}
-        <div class="notice-item">
-            <h2 class="notice-title">{{ notice.title }}</h2>
-            {% if notice.image %}
-                <img src="{{ notice.image.url }}" alt="{{ notice.title }}">
-            {% endif %}
-            <p class="notice-description">{{ notice.description }}</p>
-        </div>
-    {% endfor %}
-</div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission Results | CSE - UAP</title>
+<!-- admission_result.html -->
+{% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+    <title>Admission Results | CSE - UAP</title>
     <style>
-        /* General styling for the body and page layout */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -17,7 +15,10 @@
 
         h1, h2, h3 {
             text-align: center;
-            color: #172a74;
+            color: #8B0000;  /* Dark red color for heading text */
+            background-color: #ADD8E6; /* Light blue background */
+            padding: 10px;  /* Add some padding around the text */
+            border-radius: 5px;  /* Slightly round the corners */
         }
 
         h1 {
@@ -39,7 +40,6 @@
             color: #007b5e;
         }
 
-        /* Styling for the PDF container */
         .pdf-container {
             margin: 20px auto;
             background-color: #fff;
@@ -72,14 +72,12 @@
             margin-top: 20px;
         }
 
-        /* Handling the "No results" message */
         .no-results {
             font-style: italic;
             text-align: center;
             color: #777;
         }
 
-        /* Responsive styling */
         @media (max-width: 768px) {
             iframe {
                 height: 400px;
@@ -91,9 +89,15 @@
             }
         }
     </style>
-</head>
-<body>
+{% endblock %}
 
+
+<!-- DON'T CHANGE THE CODE-->
+<!-- DON'T CHANGE THE CODE-->
+<!-- DON'T CHANGE THE CODE-->
+<!-- IT WORKS I DON'T KNOW HOW -->
+
+{% block content %}
     <h1>Admission Results</h1>
 
     <h2>Written Test Results</h2>
@@ -101,10 +105,13 @@
         {% for pdf in written_results %}
             <div class="pdf-container">
                 <h3>{{ pdf.title }}</h3>
+
                 <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <!-- {% if pdf.image %}
+                    <img src="{{ pdf.image.url }}" alt="{{ pdf.title }}" style="width:100%; height:auto; margin-bottom: 15px;">
+                {% endif %}-->
                 <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
-                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
-                <hr>
+                <embed src="{{ pdf.pdf_file.url }}" type="application/pdf" width="100%" height="600px" />
             </div>
         {% endfor %}
     {% else %}
@@ -117,9 +124,11 @@
             <div class="pdf-container">
                 <h3>{{ pdf.title }}</h3>
                 <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <!-- {% if pdf.image %}
+                    <img src="{{ pdf.image.url }}" alt="{{ pdf.title }}" style="width:100%; height:auto; margin-bottom: 15px;">
+                {% endif %}-->
                 <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
-                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
-                <hr>
+                <embed src="{{ pdf.pdf_file.url }}" type="application/pdf" width="100%" height="600px" />
             </div>
         {% endfor %}
     {% else %}
@@ -132,14 +141,14 @@
             <div class="pdf-container">
                 <h3>{{ pdf.title }}</h3>
                 <p>Uploaded on: {{ pdf.upload_date }}</p>
+                <!-- {% if pdf.image %}
+                    <img src="{{ pdf.image.url }}" alt="{{ pdf.title }}" style="width:100%; height:auto; margin-bottom: 15px;">
+                {% endif %}-->
                 <p>PDF URL: <a href="{{ pdf.pdf_file.url }}" target="_blank">{{ pdf.pdf_file.url }}</a></p>
-                <iframe src="{{ pdf.pdf_file.url }}" width="100%" height="600px" frameborder="0"></iframe>
-                <hr>
+                <embed src="{{ pdf.pdf_file.url }}" type="application/pdf" width="100%" height="600px" />
             </div>
         {% endfor %}
     {% else %}
         <p class="no-results">No waiting list results available.</p>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}

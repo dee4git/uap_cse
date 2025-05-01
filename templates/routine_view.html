@@ -1,128 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Routine Filter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .routine-card {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-        }
-        .routine-info {
-            margin-bottom: 10px;
-        }
-        .routine-info strong {
-            font-weight: bold;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px 0;
-        }
-        .download-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .download-btn:hover {
-            background-color: #218838;
-        }
-        form {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        select {
-            margin: 10px 0;
-            padding: 5px;
-            width: 200px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-    <h1>Routine Filter</h1>
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/routine.css' %}">
+<link rel="stylesheet" href="{% static 'css/global.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap">
+{% endblock %}
 
-    <form method="get">
-        <label>Type:</label>
-        <select name="type">
-            <option value="class" {% if selected_type == 'class' %}selected{% endif %}>Class Routine</option>
-            <option value="exam" {% if selected_type == 'exam' %}selected{% endif %}>Exam Routine</option>
-        </select>
+{% block content %}
+<div class="banner-global">
+    <h2 class="gradient-text-global">Routine</h2>
+</div>
 
-        <label>Year:</label>
-        <select name="year">
-            <option value="">--All--</option>
-            <option value="1st" {% if selected_year == '1st' %}selected{% endif %}>1st Year</option>
-            <option value="2nd" {% if selected_year == '2nd' %}selected{% endif %}>2nd Year</option>
-            <option value="3rd" {% if selected_year == '3rd' %}selected{% endif %}>3rd Year</option>
-            <option value="4th" {% if selected_year == '4th' %}selected{% endif %}>4th Year</option>
-        </select>
+<!-- Form to filter routine and section -->
+<form method="get">
+    <label>Select Routine:</label>
+    <div id="routine-items">
+        <div class="circle" onclick="selectRoutine(this, '1-1')">1-1</div>
+        <div class="circle" onclick="selectRoutine(this, '1-2')">1-2</div>
+        <div class="circle" onclick="selectRoutine(this, '2-1')">2-1</div>
+        <div class="circle" onclick="selectRoutine(this, '2-2')">2-2</div>
+        <div class="circle" onclick="selectRoutine(this, '3-1')">3-1</div>
+        <div class="circle" onclick="selectRoutine(this, '3-2')">3-2</div>
+        <div class="circle" onclick="selectRoutine(this, '4-1')">4-1</div>
+        <div class="circle" onclick="selectRoutine(this, '4-2')">4-2</div>
+    </div>
 
-        <label>Semester:</label>
-        <select name="semester">
-            <option value="">--All--</option>
-            <option value="1st" {% if selected_semester == '1st' %}selected{% endif %}>1st Semester</option>
-            <option value="2nd" {% if selected_semester == '2nd' %}selected{% endif %}>2nd Semester</option>
-        </select>
+    <label>Select Section:</label>
+    <div id="sections">
+        <div class="circle" onclick="selectSection(this, 'A')">A</div>
+        <div class="circle" onclick="selectSection(this, 'B')">B</div>
+        <div class="circle" onclick="selectSection(this, 'C')">C</div>
+        <div class="circle" onclick="selectSection(this, 'D')">D</div>
+        <div class="circle" onclick="selectSection(this, 'E')">E</div>
+    </div>
 
-        {% if selected_type == 'class' %}
-            <label>Section:</label>
-            <select name="section">
-                <option value="">--All--</option>
-                <option value="A" {% if selected_section == 'A' %}selected{% endif %}>A</option>
-                <option value="B" {% if selected_section == 'B' %}selected{% endif %}>B</option>
-                <option value="C" {% if selected_section == 'C' %}selected{% endif %}>C</option>
-                <option value="D" {% if selected_section == 'D' %}selected{% endif %}>D</option>
-            </select>
-        {% endif %}
+    <input type="hidden" name="selected_routine" id="selected-routine" value="{{ selected_routine }}">
+    <input type="hidden" name="selected_section" id="selected-section" value="{{ selected_section }}">
 
-        <button type="submit">Filter</button>
-    </form>
+    <button type="submit">Filter</button>
+</form>
 
-    {% if selected_type or selected_year or selected_semester or selected_section %}
-        {% if routines %}
-            <div class="routines">
-                {% for routine in routines %}
-                    <div class="routine-card">
-                        <div class="routine-info">
-                            <strong>Year:</strong> {{ routine.get_year_display }},
-                            <strong>Semester:</strong> {{ routine.get_semester_display }}
-                            {% if routine.section %}
-                                , <strong>Section:</strong> {{ routine.get_section_display }}
-                            {% endif %}
-                        </div>
-                        <img src="{{ routine.image.url }}" alt="Routine Image">
-                        <a href="{{ routine.image.url }}" download class="download-btn">Download</a>
-                    </div>
-                {% endfor %}
+<!-- Display filtered routines -->
+<div class="routine-display" id="routine-display">
+    {% if routines %}
+        <!-- Only display the first filtered routine (assuming there is only one result per selection) -->
+        <div class="routine-card">
+            <div class="routine-info">
+                <strong>Year:</strong> {{ selected_routine|slice:":1" }},
+                <strong>Semester:</strong> {{ selected_routine|slice:"2:" }}
+                {% if selected_section %}
+                    , <strong>Section:</strong> {{ selected_section }}
+                {% endif %}
             </div>
-        {% else %}
-            <p>No routines found for the selected criteria.</p>
-        {% endif %}
+            <img src="{{ routines.first.image.url }}" alt="Routine Image">
+            <a href="{{ routines.first.image.url }}" download class="download-btn">Download</a>
+        </div>
+    {% else %}
+        <p style="text-align: center; margin-top:20px;">No routines found for the selected criteria.</p>
     {% endif %}
+</div>
 
-</body>
-</html>
+<script>
+    let selectedRoutine = null;
+    let selectedSection = null;
+
+    // Function to select routine
+    function selectRoutine(element, routine) {
+        document.querySelectorAll("#routine-items .circle").forEach(c => c.classList.remove("selected"));
+        element.classList.add("selected");
+        selectedRoutine = routine;
+        document.getElementById("selected-routine").value = routine;
+
+        // Debugging: Show the selected routine
+        console.log("Selected Routine:", routine);
+    }
+
+    // Function to select section
+    function selectSection(element, section) {
+        document.querySelectorAll("#sections .circle").forEach(c => c.classList.remove("selected"));
+        element.classList.add("selected");
+        selectedSection = section;
+        document.getElementById("selected-section").value = section;
+
+        // Debugging: Show the selected section
+        console.log("Selected Section:", section);
+    }
+</script>
+
+{% endblock %}

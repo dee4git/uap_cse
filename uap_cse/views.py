@@ -32,8 +32,6 @@ def tuition(request):
 def why_cse(request):
     return render(request, 'hard_html/why_cse.html')
 
-def host(request):
-    return render(request, 'hard_html/icpc_host.html')
 
 def clubs(request):
     clubs = Club.objects.all()

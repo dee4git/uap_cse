@@ -1,12 +1,16 @@
 # results/urls.py
 from django.urls import path
 from . import views
-
+from .views import routine_view
 urlpatterns = [
-    path('', views.show_pdf, name='show_pdf'),
-    path('res/', views.admission_result_view , name = 'admission_result_view'),
-    path('not/', views.notice_board_view, name='notice_board'),
-    path('add/', views.add_notice_view, name='add_notice'),
-    path('routines/', views.routine_view, name='routine_view'),
+    path('curriculum/', views.curriculum_view, name='curriculum'),
+    path('admission-results/', views.admission_result_view, name='admission_results'),
+    path('routine/', views.routine_view, name='routine_view'),
     path('waiver/', views.waiver, name='waiver'),
+    path('exam_routine/', views.exam_routine_view, name='exam_routine'),
+    path('missions/', views.mission_view, name='mission_view'),
+    path('academic-calendar/', views.academic_calendar_view, name='academic_calendar_view'),
+    path('icpc-event/', views.icpc_event_view, name='icpc_event_view'),
+path('notice-board/', views.notice_board_view, name='notice_board'),
+    path('notice/<int:notice_id>/', views.notice_detail_view, name='notice_detail'),
 ]

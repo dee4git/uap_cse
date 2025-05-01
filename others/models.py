@@ -1,5 +1,5 @@
 from django.db import models
-from media import pdfs
+
 
 # Create your models here.
 class Alumni(models.Model):
