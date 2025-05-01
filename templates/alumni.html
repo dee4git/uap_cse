@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Alumni{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/alumni.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<!-- Banner -->
+<div class="banner-global">
+    <h1 class="gradient-text-global-big-size">Our Alumni</h1>
+</div>
+
+<!-- Alumni Cards Section -->
+<div class="container mt-5">
+    {% for i in alumni %}
+        {% if forloop.first or forloop.counter0|divisibleby:3 %}
+        <div class="row g-4 mb-4 align-items-stretch">
+        {% endif %}
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="faculty-card text-center h-100">
+                    <div class="profile-img-container">
+                        <img src="{{ i.photo.url }}" alt="{{ i.name }}" class="profile-img" />
+                    </div>
+                    <div class="card-body text-start">
+                        <div class="top-row mb-1">
+                            <div>
+                                <div class="gradient-text-global card-title">{{ i.name }}</div>
+                                <div class="card-subtitle">{{ i.title }}</div>
+                                <div class="citation-count">Year of Graduation: {{ i.graduation_year }}</div>
+                                <div class="card-subtitle">{{ i.department }}, {{ i.university }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% if forloop.counter|divisibleby:3 or forloop.last %}
+        </div>
+        <hr class="my-4" />
+        {% endif %}
+    {% endfor %}
+</div>
+
+<!--  Button Section (Separate) -->
+<section class="apply-section mt-5">
+    <div class="container text-center">
+        <ul class="apply-button-list list-unstyled d-flex justify-content-center flex-wrap gap-3">
+            <li><a href="{% url 'others:alumni_stories' %}" class="apply-btn" >Alumni Stories</a></li>
+            <li><a href="{% url 'others:alumni_association' %}" class="apply-btn">Alumni Association</a></li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

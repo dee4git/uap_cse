@@ -34,7 +34,7 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('club_detail/', views.club_detail, name='club_detail'),
     path('', include('faculty.urls')),
-    path('alumni/',include('others.urls')),
+    path('others/', include(('others.urls', 'others'), namespace='others')),
     path('tester/',views.tester,name='tester'),
     path('error/',views.error,name='error'),
     path('aca/',include('academics.urls')),

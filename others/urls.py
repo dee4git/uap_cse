@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .import views
 urlpatterns = [
-    path('story/',views.alumni_stories,name='alumni_stories'),
+    path('alumni-stories/', views.alumni_stories, name='alumni_stories'),
     path('alumni_association/',views.alumni_association,name='alumni_association'),
+    path('alumni/', views.alumni, name='alumni'),
 ]
