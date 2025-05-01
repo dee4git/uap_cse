@@ -1,0 +1,36 @@
+<!-- notice_detail.html -->
+{% extends 'base.html' %}
+{% block title %}{{ notice.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ notice.title }}</h1>
+    <p>Published on: {{ notice.publish_date }}</p>
+    {% if notice.image %}
+        <img src="{{ notice.image.url }}" alt="{{ notice.title }}" class="notice-image">
+    {% endif %}
+    <div class="notice-description">
+        <p>{{ notice.description }}</p>
+    </div>
+    <a href="{% url 'notice_board' %}">Back to Notice Board</a>
+{% endblock %}
+
+{% block head %}
+    <style>
+        .notice-description {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .notice-image {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: 20px 0;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+{% endblock %}

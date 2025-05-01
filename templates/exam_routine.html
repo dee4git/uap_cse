@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/routine.css' %}">
+<link rel="stylesheet" href="{% static 'css/global.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap">
+{% endblock %}
+
+{% block content %}
+<div class="banner-global">
+    <h2 class="gradient-text-global">Exam Routine</h2>
+</div>
+
+<!-- DON'T CHANGE THE CODE-->
+<!-- DON'T CHANGE THE CODE-->
+<!-- DON'T CHANGE THE CODE-->
+<!-- IT WORKS I DON'T KNOW HOW -->
+
+<!-- Display the exam routine image -->
+<div class="routine-display">
+    {% if exam_routine %}
+        <div class="routine-card">
+            <img src="{{ exam_routine.image.url }}" alt="Exam Routine Image" style="max-width: 100%; height: auto;">
+            <a href="{{ exam_routine.image.url }}" download class="download-btn">Download</a>
+        </div>
+    {% else %}
+        <p style="text-align: center; margin-top:20px;">No exam routine available.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+<!-- icpc_event.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ICPC 2022 World Finals - Proud Host{% endblock %}
+
+{% block head %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .banner-global {
+            background: #021d40;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .gradient-text-global {
+            background: linear-gradient(90deg, rgba(0, 153, 255, 1) 0%, rgba(255, 0, 128, 1) 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #ffebf0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+                padding: 10px;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+  <div class="banner-global">
+      <h1 class="gradient-text-global">Proud Host of ICPC 2022 World Finals</h1>
+  </div>
+
+  {% for section in sections %}
+    <div class="section">
+      <h2>{{ section.section_title }}</h2>
+      <p>{{ section.paragraph }}</p>
+      {% if section.image %}
+        <img src="{{ section.image.url }}" alt="{{ section.section_title }}">
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endblock %}

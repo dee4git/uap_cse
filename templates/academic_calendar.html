@@ -1,0 +1,91 @@
+<!-- academic_calendar.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Academic Calendar | CSE - UAP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8B0000;  /* Dark red color */
+            background-color: #FFB6C1; /* Light pink background */
+            font-size: 3em;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+
+        .pdf-container {
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .pdf-container p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .pdf-container a {
+            color: #21a9af;
+            text-decoration: none;
+        }
+
+        .pdf-container a:hover {
+            text-decoration: underline;
+        }
+
+        embed {
+            border: none;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .no-results {
+            font-style: italic;
+            text-align: center;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            embed {
+                height: 400px;
+            }
+
+            .pdf-container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Academic Calendar</h1>
+
+    {% if calendars %}
+        {% for calendar in calendars %}
+            <div class="pdf-container">
+                <h3>{{ calendar.title }}</h3>
+                <p>PDF URL: <a href="{{ calendar.pdf_file.url }}" target="_blank">{{ calendar.pdf_file.url }}</a></p>
+                <embed src="{{ calendar.pdf_file.url }}" type="application/pdf" width="100%" height="600px" />
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No academic calendar available.</p>
+    {% endif %}
+{% endblock %}
