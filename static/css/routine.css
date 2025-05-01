@@ -1,0 +1,98 @@
+#routine-items, #sections, #routine-display{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+        .circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+           background: linear-gradient(185deg, lavender, #B39DDB);
+            color: #6f55af;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+        .circle.selected{
+          background: linear-gradient(185deg, mediumpurple, #B39DDB);
+            color: #e9e6f3;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .routine-display {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        form label{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+            color: #483674;
+}
+        form{
+          display: flex;
+            flex-direction: column;
+           align-items: center;
+          justify-content: center;
+             width: 100%;
+
+        }
+.filter-btn {
+    padding: 12px 24px; /* Adjust size */
+    background: linear-gradient(185deg, lavender, #B39DDB);
+    color: #6f55af;
+    border: none;
+    border-radius: 20px; /* Round corners */
+    transition: 0.3s;
+    cursor: pointer;
+    display: block;
+    margin: 20px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+        .filter-btn:hover {
+        background: linear-gradient(185deg, mediumpurple, #B39DDB);
+            color: #e9e6f3;
+        }
+
+     .routine-img {
+         width: 100%; /* Adjusts to container width */
+         max-width: 800px; /* Ensures the image isn't overly stretched */
+         height: auto; /* Maintains aspect ratio */
+         display: block;
+         margin: 0 auto; /* Centers the image */
+         border-radius: 8px; /* Optional rounded corners */
+         box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+     }
+         iframe {
+             border: none;
+             width: 100%;
+             height: 600px;
+             border-radius: 8px;
+             margin-top: 20px;
+         } /* Responsive styling */
+         @media (max-width: 768px) {
+             iframe {
+                 height: 400px;
+             }
+
+             .pdf-container {
+                 width: 100%;
+                 padding: 10px;
+             }
+         }
+

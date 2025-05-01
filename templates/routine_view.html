@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="banner-global">
-    <h2 class="gradient-text-global">Routine</h2>
+    <h2 class="gradient-text-global-big-size">Routine</h2>
 </div>
 
 <!-- Form to filter routine and section -->
@@ -38,7 +38,7 @@
     <input type="hidden" name="selected_routine" id="selected-routine" value="{{ selected_routine }}">
     <input type="hidden" name="selected_section" id="selected-section" value="{{ selected_section }}">
 
-    <button type="submit">Filter</button>
+    <button type="submit" class="filter-btn">Load</button>
 </form>
 
 <!-- Display filtered routines -->
@@ -53,8 +53,8 @@
                     , <strong>Section:</strong> {{ selected_section }}
                 {% endif %}
             </div>
-            <img src="{{ routines.first.image.url }}" alt="Routine Image">
-            <a href="{{ routines.first.image.url }}" download class="download-btn">Download</a>
+            <img src="{{ routines.first.image.url }}" alt="Routine Image" class="routine-img">
+            <a href="{{ routines.first.image.url }}" download class="filter-btn">Download</a>
         </div>
     {% else %}
         <p style="text-align: center; margin-top:20px;">No routines found for the selected criteria.</p>
