@@ -4,35 +4,116 @@
 {% block title %}Club | CSE{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/clubs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/clubs.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
-<div class="banner-global">
-  <h1 class="gradient-text-global">Explore All Clubs</h1>
-</div>
+    <div class="banner-global">
+        <h1 class="gradient-text-global">Explore All Clubs</h1>
+    </div>
     <div style="background-image: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);">
         <p class="club-description">
-          Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that match your interests!
+            Discover a variety of clubs, connect with like-minded individuals, and engage in exciting activities that
+            match your interests!
         </p>
     </div>
     <div class="custom-card-container">
-  {% if clubs %}
-    {% for club in clubs %}
-        <div class="custom-card">
-          <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="custom-card-logo">
-          <p class="custom-card-text">{{ club.name }}</p>
-            <a href="{% url 'club_detail' %}" class="custom-read-more">Learn More</a>
+        {% if clubs %}
+            {% for club in clubs %}
+                <div class="custom-card">
+                    <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="custom-card-logo">
+                    <p class="custom-card-text">{{ club.name }}</p>
+                    <a href="#" class="custom-read-more"
+                       onclick="openClubModal('{{ club.id }}', '{{ club.name|escapejs }}', '{{ club.logo.url }}', '{{ club.description|escapejs }}', '{{ club.motto|escapejs }}', '{{ club.cover.url }}', '{{ club.convener|default_if_none:'Not Assigned' }}', '{{ club.contact_email|default_if_none:'N/A' }}'); return false;">
+                        Learn More
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {#    Modal Overlay#}
+
+    <div class="modal-overlay" id="clubModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeClubModal()">&times;</span>
+
+            <div class="club-modal-header">
+                <img src="{{ club.logo.url }}" alt="Club Logo" class="club-modal-logo" id="modalClubLogo">
+                <div class="club-modal-title-section">
+                    <h2 class="club-modal-title" id="modalClubTitle"></h2>
+                    <p class="club-modal-motto" id="modalClubMotto"></p>
+                </div>
+            </div>
         </div>
-    {% endfor %}
-  {% endif %}
+        <img src="" alt="Club Cover" class="club-modal-cover" id="modalClubCover">
 
-<script>
-  function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('show');
-  }
+        <div class="club-modal-description" id="modalClubDescription">
+        </div>
 
-</script>
+        <div class="club-modal-details">
+            <p><i class="fas fa-user-tie detail-icon"></i> <strong>Convener:</strong> <span id="modalConvener"></span>
+            </p>
+            <p><i class="fas fa-envelope detail-icon"></i> <strong>Contact:</strong> <span
+                    id="modalContactEmail"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+
+        // Club modal functions
+        function openClubModal(id, name, logoUrl, description, motto, coverUrl, convener, email) {
+            // Populate modal content
+            document.getElementById('modalClubTitle').textContent = name;
+            document.getElementById('modalClubLogo').src = logoUrl;
+            document.getElementById('modalClubLogo').alt = `${name} Logo`;
+            document.getElementById('modalClubMotto').textContent = motto;
+            document.getElementById('modalClubCover').src = coverUrl;
+            document.getElementById('modalClubCover').alt = `${name} Cover`;
+            document.getElementById('modalClubDescription').textContent = description;
+            document.getElementById('modalConvener').textContent = convener || "Not Assigned";
+            document.getElementById('modalContactEmail').textContent = email || "N/A";
+
+            // Set contact button
+            const contactButton = document.getElementById('modalContactButton');
+            if (email) {
+                contactButton.href = `mailto:${email}`;
+                contactButton.style.display = "inline-block";
+            } else {
+                contactButton.style.display = "none";
+            }
+
+            // Show the modal
+            document.getElementById('clubModal').style.display = "flex";
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+        }
+
+        function closeClubModal() {
+            document.getElementById('clubModal').style.display = "none";
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+        }
+
+        // Close modal when clicking outside the content
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('clubModal');
+            if (event.target === modal) {
+                closeClubModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeClubModal();
+            }
+        });
+
+
+    </script>
 {% endblock %}
 </div>
