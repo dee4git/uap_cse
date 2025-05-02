@@ -20,7 +20,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.sl == 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="faculty-card text-center">
                     <div class="profile-img-container">
                         <a href="{% url 'faculty_detail' faculty.pk %}">
@@ -55,7 +55,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.designation == "Professor" and faculty.sl != 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 {% include "faculty/faculty_card.html" %}
             </div>
             {% endif %}
@@ -72,7 +72,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.designation == "Associate Professor" and faculty.sl != 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 {% include "faculty/faculty_card.html" %}
             </div>
             {% endif %}
@@ -89,7 +89,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.designation == "Assistant Professor" and faculty.sl != 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 {% include "faculty/faculty_card.html" %}
             </div>
             {% endif %}
@@ -106,7 +106,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.designation == "Lecturer" and faculty.sl != 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 {% include "faculty/faculty_card.html" %}
             </div>
             {% endif %}
@@ -123,7 +123,7 @@
     <div class="row g-4 justify-content-center">
         {% for faculty in facultys %}
             {% if faculty.designation == "Teaching Assistant" and faculty.sl != 1 %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 {% include "faculty/faculty_card.html" %}
             </div>
             {% endif %}
