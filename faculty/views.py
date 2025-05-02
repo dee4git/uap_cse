@@ -27,13 +27,13 @@ def signup_view(request):
             login(request, user)
             return redirect('update')
         else:
-            return render(request, 'signup.html', {
+            return render(request, 'faculty/signup.html', {
                 'form': form,
             })
     else:
         form = SignUpForm()
 
-    return render(request, 'signup.html', {
+    return render(request, 'faculty/signup.html', {
         'form': form,
     })
 
@@ -55,7 +55,7 @@ def login_view(request):
             # If authentication fails
             messages.error(request, "Invalid username or password")
             return redirect('login')
-    return render(request, 'login.html')
+    return render(request, 'faculty/login.html')
 
 @login_required
 def update_view(request):

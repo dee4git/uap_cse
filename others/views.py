@@ -5,11 +5,11 @@ from .models import *
 # Create your views here.
 def alumni_stories(request):
     alumni = Alumni.objects.all()
-    return render(request, 'alumni_stories.html', {'alumni': alumni})
+    return render(request, 'alumni/alumni_stories.html', {'alumni': alumni})
 def alumni(request):
     alumni = Alumni.objects.all()
-    return render(request, 'alumni.html', {'alumni': alumni})
+    return render(request, 'alumni/alumni.html', {'alumni': alumni})
 
 def alumni_association(request):
     pdfs =Alumni_Association.objects.all()
-    return render(request, 'alumni_association.html', {'pdfs': pdfs})
+    return render(request, 'alumni/alumni_association.html', {'pdfs': pdfs})

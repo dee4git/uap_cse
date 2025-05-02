@@ -42,7 +42,7 @@ def test(request):
     return render(request, 'clubs/test.html', {"clubs": clubs})
 
 def club_detail(request):
-    return render(request, 'club_detail.html')
+    return render(request, 'clubs/club_detail.html')
 
 def gallery(request):
     return render(request, 'hard_html/gallery.html')
