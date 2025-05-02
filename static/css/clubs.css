@@ -1,13 +1,14 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Lexend", sans-serif;
     text-align: center;
     margin: 0;
+    padding: 0;
     min-height: 100vh;
     background-color: var(--bg-color);
 }
@@ -15,104 +16,105 @@ body {
 
 /* Custom Card Container Grid */
 .custom-card-container {
-  grid-template-columns: repeat(4, 1fr);
-  align-items: stretch;
-  padding: 2rem;
-  margin-inline: 50px;
-  display: grid;
-  gap:30px;
-  justify-content: center; /* Centers the cards */
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+    padding: 2rem;
+    margin-inline: 50px;
+    display: grid;
+    gap: 30px;
+    justify-content: center; /* Centers the cards */
 }
 
 /* Card Wrapper Link */
 .custom-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
 }
 
 .custom-card-link:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 /* Custom Card Style */
 .custom-card {
-  background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px var(--shadow-color);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-height: 280px;
-  min-height: 230px;
-  transition: transform 0.3s ease-in-out;
+    background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 280px;
+    min-height: 230px;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Hover effect */
 .custom-card:hover {
-  transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 /* Card Logo */
 .custom-card-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 /* Card Text */
 .custom-card-text {
-  font-size: 20px;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-align: center;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 /* Read More Button (span for click look) */
 .custom-read-more {
-  font-weight: bold;
-  font-size: 14px;
-  color: blueviolet;
-  border: 2px solid #d8b4fe;
-  padding: 6px 18px;
-  border-radius: 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    color: blueviolet;
+    border: 2px solid #d8b4fe;
+    padding: 6px 18px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .custom-read-more:hover {
-  background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
-  color: white;
+    background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
+    color: white;
 }
 
 /* Responsive Grid */
 @media (max-width: 992px) {
-  .custom-card-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .custom-card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-  .custom-card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .custom-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 576px) {
-  .custom-card-container {
-    grid-template-columns: 1fr;
-  }
+    .custom-card-container {
+        grid-template-columns: 1fr;
+    }
 
-  .banner {
-    padding: 30px;
-  }
+    .banner {
+        padding: 30px;
+    }
 }
+
 .club-description {
     font-size: 18px;
     font-weight: bold;
@@ -121,9 +123,8 @@ body {
     /*background-image: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff); !* Light background *!*/
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1); /* Light shadow for depth */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
-
 
 
 /*!* Banner Section *!*/
@@ -144,205 +145,142 @@ body {
 
 /* Gradient Text Header */
 .gradient-text {
-  background: linear-gradient(108.4deg, rgb(204, 146, 177), rgb(113, 111, 185));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-  padding: 10px;
-  background-size: 200% 200%;
-  animation: gradientMove 10s ease infinite;
-}
-
-/* Modal/Overlay Styles */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(3px);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  border-radius: 15px;
-  width: 85%;
-  max-width: 800px;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 30px;
-  position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 0.4s;
-  border: 1px solid rgb(220, 194, 255, 0.3);
-  background-image: linear-gradient(to bottom, rgba(220, 194, 255, 0.3), rgba(220, 194, 255, 0.3));
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #9333ea;
-  transition: all 0.2s;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.close-modal:hover {
-  background-color: #f3e8ff;
-  transform: rotate(90deg);
-}
-
-.club-modal-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgb(220, 194, 255, 0.3);
-  padding: 20px;
-}
-
-.club-modal-logo {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-right: 25px;
-  border-radius: 12px;
-  padding: 5px;
-  background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.club-modal-title-section {
-  text-align: left;
-  flex-grow: 1;
-}
-
-.club-modal-title {
-  font-size: 28px;
-  margin: 0 0 5px 0;
-  color: #333;
-  background: linear-gradient(108.4deg, #716FB9, #CC92B1);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.club-modal-motto {
-  font-style: italic;
-  color: blueviolet;
-  font-size: 16px;
-}
-
-.club-modal-description {
-  line-height: 1.7;
-  margin-bottom: 25px;
-  color: blueviolet;
-  text-align: left;
-  padding: 0.5px;
-}
-
-.club-modal-cover {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.club-modal-details {
-  background: linear-gradient(135deg, #f9f5ff, #f3e8ff);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 25px;
-  text-align: left;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.club-modal-details p {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.detail-icon {
-  margin-right: 10px;
-  color: #9333ea;
-  font-size: 18px;
-}
-
-.club-contact-button {
-  background: linear-gradient(135deg, #9333ea, #c084fc);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
-}
-
-.club-contact-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(147, 51, 234, 0.4);
+    background: linear-gradient(108.4deg, rgb(204, 146, 177), rgb(113, 111, 185));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    padding: 10px;
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
 }
 
 /* Animations */
 @keyframes gradientAnimation {
-  0% { background-size: 100% 100%; }
-  50% { background-size: 120% 120%; }
-  100% { background-size: 100% 100%; }
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 120% 120%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-@keyframes fadeInUp { /* for .modal-content */
-  from {opacity: 0; transform: translateY(-30px);}
-  to {opacity: 1; transform: translateY(0);}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-@media (max-width: 576px) {
-  .club-modal-header {
-    flex-direction: column;
-    text-align: center;
-  }
+.modal-content {
+    background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
+    margin: 5vh auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 90vh;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+    overflow-y: auto;
+}
 
-  .club-modal-logo {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1010;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
 
-  .club-modal-title-section {
-    text-align: center;
-  }
+.close-modal:hover {
+    color: #e6ccff;
+}
 
-  .modal-content {
-    width: 95%;
-    padding: 20px;
-  }
+.modal-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d8b4fe;
+}
 
-  .club-modal-cover {
-    height: 180px;
-  }
+.modal-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.modal-body {
+    min-height: calc(80% - 70px);
+}
+
+/* Show modal when target is the modal ID */
+.modal:target {
+    display: block;
+}
+
+.modal-cover {
+    margin: -25px -25px 20px -25px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+.modal-motto {
+    font-style: italic;
+    color: #6b46c1;
+    margin-top: 5px;
+}
+
+.convener-info {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #4b5563
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

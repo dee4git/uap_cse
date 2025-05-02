@@ -37,6 +37,10 @@ def clubs(request):
     clubs = Club.objects.all()
     return render(request, 'clubs/clubs.html', {"clubs": clubs})
 
+def test(request):
+    clubs = Club.objects.all()
+    return render(request, 'clubs/test.html', {"clubs": clubs})
+
 def club_detail(request):
     return render(request, 'club_detail.html')
 
