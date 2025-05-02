@@ -13,13 +13,27 @@
     <br><br><br>
     {#        <div class="gradient-text" style="justify-content: center;!important;">#}
 
-    <div class="uap-cse-head" style="text-align: center">
+
+
+ <div class="uap-cse-head" style="text-align: center; display: flex; align-items: center; justify-content: center;">
+    <div>
+
         <h1 class="gradient-text-global text-center fw-bold ">Department of CSE</h1>
-        <hr/>
-        <div class="text-new" id="animatedText">
-        <h1 class="gradient-text-global text-center mb-5 ">University of Asia Pacific</h1>
-   </div>
+   <hr/>
+        <div id="iconContainer">
+     <img id="animatedIcon" src="{% static 'img/uap_logo.png' %}" alt="UAP Logo">
+        </div>
+{#        <h1 class="gradient-text-global text-center mb-5">#}
+{#    <span id="animatedText">University of Asia Pacific</span>#}
+{#</h1>#}
+
+       <div class="text-new" id="animatedText">
+           <h1 class="gradient-text-global text-center mb-5">University of Asia Pacific</h1>
+       </div>
     </div>
+</div>
+
+
     <div class="container py-5">
         <div class="row justify-content-center g-4">
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
@@ -206,12 +220,10 @@
 </div>
 
     <a href="{% url 'tester' %}"><h2 class="gradient-text-global">TEST!!</h2></a>
-<<script>
+<script>
     const words = ["Excellence", "Strive", "Innovate", "Learn", "Grow"];
     const gradients = [
-        "linear-gradient(45deg, #d8b4ff, #ae83ff, #8963ff)",
-        "linear-gradient(45deg, #f3e3ff, #d4aaff, #b48cff)",
-        "linear-gradient(45deg, #e8ccff, #c2a1ff, #9c77ff)"
+        "linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%)"
     ];
 
     let index = 0;
@@ -236,6 +248,46 @@
 
     setInterval(changeText, 6000);
 </script>
+<script>
+    const icons = [
+        "icofont-graduate",
+        "icofont-university",
+        "icofont-abc",
+        "icofont-medal"
+    ];
 
+    let iconIndex = 0;
+
+    function changeIcon() {
+        let iconElement = document.getElementById("animatedIcon");
+
+        // **Step 1: Fade Out Smoothly**
+        iconElement.style.transition = "opacity 1.5s ease-in-out, transform 1.5s ease-in-out";
+        iconElement.style.opacity = "0";
+        iconElement.style.transform = "translateY(-10px)";
+
+        // **Step 2: AFTER fade-out completes, change the icon**
+        setTimeout(() => {
+            if (iconElement.tagName.toLowerCase() === "img") {
+                iconElement.outerHTML = `<i id="animatedIcon" class="icofont ${icons[iconIndex]}"></i>`;
+            } else {
+                iconIndex = (iconIndex + 1) % icons.length;
+                iconElement.outerHTML = `<i id="animatedIcon" class="icofont ${icons[iconIndex]}"></i>`;
+            }
+
+            // **Step 3: Update reference to newly created icon element**
+            iconElement = document.getElementById("animatedIcon");
+
+            // **Step 4: Fade-in smoothly after update**
+            setTimeout(() => {
+                iconElement.style.opacity = "1";
+                iconElement.style.transform = "translateY(0px)";
+            }, 500); // Ensures no flashing
+        }, 1500); // Change the icon AFTER previous fade-out completes
+    }
+
+    setTimeout(changeIcon, 5000); // First change happens after 6 seconds
+    setInterval(changeIcon, 5000); // Icons change every 6 seconds
+</script>
 
 {% endblock %}
