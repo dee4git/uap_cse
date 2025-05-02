@@ -35,7 +35,7 @@ def why_cse(request):
 
 def clubs(request):
     clubs = Club.objects.all()
-    return render(request, 'hard_html/clubs.html', {"clubs": clubs})
+    return render(request, 'clubs/clubs.html', {"clubs": clubs})
 
 def club_detail(request):
     return render(request, 'club_detail.html')
