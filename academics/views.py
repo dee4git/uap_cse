@@ -102,7 +102,7 @@ def routine_view(request):
 
 # views.py
 from django.shortcuts import render
-from .models import ExamRoutine
+from .models import ExamRoutine,Course
 
 def exam_routine_view(request):
     # Assuming you just want to show the first available exam routine
@@ -116,3 +116,9 @@ def waiver(request):
         # Add context data if you want to pass dynamic content to the template
     }
     return render(request, 'hard_html/waiver.html', context)
+
+def course(request):
+    courses = Course.objects.all()
+    return render(request,'course.html',{
+        "courses":courses
+    })

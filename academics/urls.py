@@ -13,4 +13,5 @@ urlpatterns = [
     path('icpc-event/', views.icpc_event_view, name='icpc_event_view'),
 path('notice-board/', views.notice_board_view, name='notice_board'),
     path('notice/<int:notice_id>/', views.notice_detail_view, name='notice_detail'),
+    path('course', views.course, name='course'),
 ]
