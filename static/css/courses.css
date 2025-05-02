@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lexend", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.custom-read-more {
+    font-weight: bold;
+    font-size: 14px;
+    color: blueviolet;
+    border: 2px solid #d8b4fe;
+    padding: 6px 18px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff);
+    margin: 5vh auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 90vh;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1010;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal:hover {
+    color: #e6ccff;
+}
+
+.modal-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d8b4fe;
+}
+
+.modal-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.modal-body {
+    min-height: calc(80% - 70px);
+}
+
+/* Show modal when target is the modal ID */
+.modal:target {
+    display: block;
+}
+
+.modal-cover {
+    margin: -25px -25px 20px -25px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+.modal-motto {
+    font-style: italic;
+    color: #6b46c1;
+    margin-top: 5px;
+}
+
+
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
