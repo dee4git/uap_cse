@@ -4,10 +4,13 @@ from django.shortcuts import get_object_or_404
 from clubs.models import Club
 from faculty.models import Faculty
 from faculty.scholar_api import get_or_cache_best_papers
-
+from academics.models import fact_and_figures
 
 def home(request):
-    return render(request, 'home.html')
+    facts = fact_and_figures.objects.all()
+    return render(request, 'home.html', {
+        "facts":facts
+    })
 
 def faculty(request):
     facultys = Faculty.objects.all().order_by('sl')

@@ -142,82 +142,20 @@
             </div>
         </div>
     </div>
+
+    <!--Fact and figure-->
     <div class="container py-5">
     <h2 class="gradient-text-global text-center mb-4">Facts and Figures</h2>
-    <div class="row justify-content-center g-4">
-        <!-- 25th Anniversary -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>25th Anniversary</h4>
-                <p>25th anniversary of CSE Dept. from 1996-2021.</p>
-            </div>
+    <div class="facts-container">
+    {% for fact in facts %}
+        <div class="fact-item">
+            <h3>{{ fact.title }}</h3>
+            <p>{{ fact.description|safe }}</p>
         </div>
-
-        <!-- 11th in Computer Science -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>11th in Computer Science</h4>
-                <p>11th in Computer Science, and 12th in Engineering among all public and private universities in Bangladesh according to the SCImago Institution Ranking (SIR) 2021 by Subject area.</p>
-            </div>
-        </div>
-
-        <!-- 23+ Faculty -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>23+ Faculty</h4>
-                <p>23 full-time high qualified faculty members in which 7 faculty members with Ph.D. from reputed universities from Australia, Netherlands, Japan, Malaysia, and China.</p>
-            </div>
-        </div>
-
-        <!-- 800+ Students -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>800+ Students</h4>
-                <p>800+ students: 700+ undergraduate students and 100+ master’s students in Spring 2021.</p>
-            </div>
-        </div>
-
-        <!-- 10 Labs -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>10 Labs</h4>
-                <p>10 state-of-the-art computer labs including Game lab, and Research & Innovation lab.</p>
-            </div>
-        </div>
-
-        <!-- 8 Semesters -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>8 Semesters</h4>
-                <p>8 semesters: 2 semesters each year as instructed by UGC to ensure quality education.</p>
-            </div>
-        </div>
-
-        <!-- 2000+ Alumni -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>2000+ Alumni</h4>
-                <p>2000+ Alumni: above 90% graduate with jobs, entrepreneurs, or are enrolled in graduate education.</p>
-            </div>
-        </div>
-
-        <!-- 8 Clubs -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>8 Clubs</h4>
-                <p>8 Clubs and 1 ACM Student Chapter: to facilitate co-curriculum and extra curriculum activities.</p>
-            </div>
-        </div>
-
-        <!-- Guaranteed Waiver -->
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-            <div class="fact-card">
-                <h4>Guaranteed Waiver</h4>
-                <p>You can achieve Guaranteed Waiver up to 100% based on your semester result.</p>
-            </div>
-        </div>
+    {% endfor %}
     </div>
 </div>
+
 
     <a href="{% url 'tester' %}"><h2 class="gradient-text-global">TEST!!</h2></a>
 <script>

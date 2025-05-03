@@ -122,11 +122,11 @@ class AcademicCalendar(models.Model):
     def __str__(self):
         return self.title
 
-
+from ckeditor.fields import RichTextField
 class Course(models.Model):
     code = models.CharField(max_length=120)
     title = models.CharField(max_length=120)
-    description = models.TextField(blank=True,null=True)
+    description = RichTextField(blank=True,null=True)
     credit = models.FloatField(default=0.0)
     YEAR = [
         ('1st','1st'),
@@ -143,3 +143,11 @@ class Course(models.Model):
 
     def __str__(self):
         return f'{self.code}|{self.title}'
+
+
+class fact_and_figures(models.Model):
+    title = models.CharField(max_length=120)
+    description = RichTextField (blank=True, null=True)
+
+    def __str__(self):
+        return self.title

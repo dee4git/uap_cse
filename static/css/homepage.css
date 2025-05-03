@@ -18,6 +18,25 @@
      transform: scale(1.03);
      transition: transform 0.3s ease;
  }
+
+ .facts-container {
+    max-height: 600px; /* adjust as needed to fit ~9 items */
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f5f5fa;
+    border-radius: 12px;
+    }
+
+.fact-item {
+    background: hrgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
 .uap-cse-head h1 {
   font-size: clamp(2.5rem, 6vw + 1rem, 8vh);
   font-weight: bold;
