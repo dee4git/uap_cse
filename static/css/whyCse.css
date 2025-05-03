@@ -1,5 +1,146 @@
+.hero-section {
+      background-color: #E6E6FA; /* Lavender */
+      color: #4B3F72; /* Deep Purple for heading */
+      padding: 100px 20px;
+      text-align: center;
+    max-height: 400px!important;
+    }
+.hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+.hero-section p {
+      color: #6A5ACD; /* Slate Blue for subtext */
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+    }
+.hero-btn {
+      background-color: #6A5ACD;
+      color: white;
+      padding: 12px 24px;
+      font-weight: 500;
+      border: none;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+.hero-btn:hover {
+      background-color: #5a4bb7;
+    }
 
-.notice-header {
+    @media (max-width: 576px) {
+      .hero-section h1 {
+        font-size: 2.2rem;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+    }
+
+
+
+
+
+ .highlights-section {
+      background: linear-gradient(135deg, #f4f0fa, #eae2f8);
+      padding: 80px 0;
+     max-height: 550px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4b3f72;
+    }
+
+    .section-subtitle {
+      color: #7a659f;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+    }
+
+    .highlight-card {
+      background-color: #fff;
+      border-radius: 1.5rem;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(110, 89, 190, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(110, 89, 190, 0.2);
+    }
+
+    .highlight-icon {
+      font-size: 2.8rem;
+      color: #6a5acd;
+      margin-bottom: 20px;
+    }
+
+    .highlight-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4b3f72;
+      margin-bottom: 5px;
+    }
+
+    .highlight-label {
+      font-size: 1rem;
+      color: #7a659f;
+    }
+
+
+
+
+.cta-section {
+       background: linear-gradient(135deg, #f4f0fa, #eae2f8);
+        max-height: 400px;
+      padding: 100px 20px;
+      text-align: center;
+
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-title {
+        color: #4B3F72;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      font-weight: 400;
+        color: #6A5ACD;
+    }
+
+    .cta-button {
+      background-color: #4b3f72;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #8e6fdd;
+        color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(110, 89, 190, 0.2);
+    }
+
+    .cta-section a {
+      text-decoration: none;
+    }
+
+
+
+ .notice-header {
       text-align: center;
       padding: 60px 20px 20px;
     }
@@ -81,3 +222,20 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+.cta-buttonNew {
+    background-color: #4b3f72;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 14px;
+}
+    .cta-buttonNew:hover {
+      background-color: #8e6fdd;
+        color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(110, 89, 190, 0.2);
+    }
