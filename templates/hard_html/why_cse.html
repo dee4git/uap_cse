@@ -3,175 +3,115 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/whyCse.css' %}">
+
 {% endblock %}
 
 {% block content %}
-<div class="banner-global">
-  <h1 class="gradient-text-global">Why CSE at UAP</h1>
+
+<section class="hero-section">
+    <div class="container">
+      <h1>Why CSE at UAP?</h1>
+      <p>Learn. Build. Lead. Step into a future of innovation with the Department of Computer Science and Engineering.</p>
+      <a href="#" class="btn hero-btn">Explore More ⟶</a>
+    </div>
+</section>
+
+<section class="highlights-section">
+    <div class="container text-center">
+      <h2 class="section-title">📌 Department Highlights</h2>
+      <p class="section-subtitle">Why our CSE Department stands out at UAP</p>
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-3">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="highlight-value">20+</div>
+            <div class="highlight-label">Expert Faculty</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="highlight-value">5 Labs</div>
+            <div class="highlight-label">Modern Equipment</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="highlight-value">90%</div>
+            <div class="highlight-label">Placement Rate</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-flask"></i></div>
+            <div class="highlight-value">8+</div>
+            <div class="highlight-label">Research Groups</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div style="background-color: #E6E6FA">
+<div class="container py-5">
+    <h1 class="text-center mb-5" style="color: #4B3F72;">Explore More About Department</h1>
+  <div class="row club-section" >
+
+    <!-- Sidebar Nav -->
+    <div class="col-md-3 p-4 club-nav" style="height: 600px; border-radius: 12px; background-color:white;">
+      <div class="nav flex-column nav-pills" id="club-tabs" role="tablist" aria-orientation="vertical">
+        <button class=" active cta-buttonNew" id="art-tab" data-bs-toggle="pill" data-bs-target="#art" type="button" role="tab">Classroom</button>
+        <button class="cta-buttonNew" id="tech-tab" data-bs-toggle="pill" data-bs-target="#tech" type="button" role="tab">Laboratories</button>
+        <button class=" cta-buttonNew" id="drama-tab" data-bs-toggle="pill" data-bs-target="#drama" type="button" role="tab">Library</button>
+
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="col-md-9 px-2">
+      <div class="tab-content club-content p-3" id="club-tabContent" style="height: 600px; overflow-y: scroll; background-color: white; border-radius: 12px;">
+
+        <!-- Art Club -->
+        <div class="tab-pane fade show active" id="art" role="tabpanel">
+
+           <h3>Digital Classrooms</h3>
+            <p>All Information Goes Here....</p>
+        </div>
+
+        <!-- Tech Club -->
+        <div class="tab-pane fade" id="tech" role="tabpanel">
+          <h4>💻 Tech Club</h4>
+          <p>Build cool projects, participate in hackathons, and explore areas like AI, web development, and robotics. We meet every weekend for code labs and tech talks!</p>
+        </div>
+
+        <!-- Drama Club -->
+        <div class="tab-pane fade" id="drama" role="tabpanel">
+         <h3>Digital Classrooms</h3>
+        <p>Our classrooms are modern digital spaces equipped with smart boards, high-speed internet, and interactive projectors. Designed for hybrid and technology-integrated learning, they support live streaming, digital attendance, and more. Spacious, connected, and comfortable—these classrooms represent the future of education.</p>
+            <img src="{% static 'img/classroom1.jpg' %}" alt="" style="width:300px;">
+            <img src="{% static 'img/classroom1.jpg' %}" alt="" style="width:300px; margin: 3px;">
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<section class="cta-section">
     <div class="container">
-        <a class="navbar-brand" href="#">UAP CSE</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#cse-laboratories">CSE Laboratories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#programming-labs">Programming Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#mobile-games-lab">Mobile Games Lab</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#project-lab">Project Lab</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#circuit-labs">Circuit Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#digital-lab">Digital Lab</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#classrooms">Classrooms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#library">Library</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- CSE Laboratories & Classroom Section -->
-<section class="section py-5" id="cse-laboratories">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">CSE Laboratories & Classroom</h2>
-
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/entry.jpg' %}" alt="Entry" class="img-fluid rounded shadow">
-            </div>
-        </div>
-
-        <p class="text-justify mb-4">
-            The department of CSE has specialized laboratories, all of which are assigned to different purposes. There are lab attendants as well as lab assistants for each lab. Also a faculty member is associated with each lab to monitor the overall work environment of the labs. Many of the lab facilities are pride of the department as they are recognized by external peers as is evident in the formation of Mobile Games and Apps Development Lab, which is facilitated by the Bangladesh Government authority, the patronization offered to only few of the universities of Bangladesh
-        </p>
-
-        <p class="text-justify mb-5">
-            UAP puts ample focus on developing its classroom and lab facilities with necessary modern equipment. About the classrooms UAP maintains a unique policy by making every classroom available for all departments so that a sense of cohesiveness and communal atmosphere is maintained within varied departments. The classrooms are also varied in sizes accommodating 30 to 60 students. In every semester the classroom slots are allocated centrally to each department according to their requisition. The rest of the classes are kept free to fulfill additional or temporary requirements of each department whenever they need one. This unique system allows the students and faculties from one department to interact with students from other departments and to create a sense of oneness. The class rooms are air conditioned and equipped with computer, multimedia projector, Sound system (fixed or on demand), Wi-Fi etc.
-
-
-        </p>
+      <h2 class="cta-title">Join the CSE Revolution at UAP</h2>
+      <p class="cta-subtitle">Be a part of a growing, innovative, and creative department. Start your journey today!</p>
+      <a href="#" class="cta-button">Apply Now</a>
     </div>
 </section>
 
-<!-- Programming Labs Section -->
-<section class="section py-5" id="programming-labs">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Programming Lab I, II-cum-VLSI Lab, III, IV, V</h2>
 
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/lab1.jpg' %}" alt="Programming Lab" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/lab2.jpg' %}" alt="Programming Lab" class="img-fluid rounded shadow">
-            </div>
-        </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
-        <p class="text-justify">
-            These labs are networked with each other and the other PCs of the department through LAN. A server room is arranged to administrate the proper functioning of the lab and to accommodate LINUX server, Oracle Server, Windows server and other sophisticated resources like a scanner, a high resolution digital camera, etc. 142 high end pcs are distributed amongst the labs along with heavy-duty printers. Each student is given separate account in CSELAB domain. Students have to logon to their respected accounts to avail the existing network resources. A student can browse from any PC free of charge for unlimited period. The Department has provided students with constant broadband Internet browsing facility.
-        </p>
-    </div>
-</section>
-
-<!-- Mobile Games Lab Section -->
-<section class="section py-5" id="mobile-games-lab">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Mobile Games and Apps Development Lab</h2>
-        <img src="{% static 'img/mov_lab.jpg' %}" alt="Mobile Games Lab" class="img-fluid rounded shadow mb-3">
-        <p>
-           University of Asia Pacific (UAP) is one of sixth private universities, chosen by Bangladesh Government to help develop mobile games and apps in order to catch up with cutting-edge technology of smart phone and its significant impact on our day to day life. A laboratory has been set up to facilitate this effort. Currently, the lab has ten computers with high configuration, Android smart phone and tablet – all financed by government. Also, government has given 4 air-conditioners, colour printer, ten UPS to back up in case of power cut. Other furniture such fan, chair and tables are also provided. These labs are designed such a way that any student, with consent from ICT, can use any lab, regardless of their affiliation. This is a stepping stone for further development in mobile games development and apps.
-        </p>
-    </div>
-</section>
-
-<!-- Project Lab Section -->
-<section class="section py-5" id="project-lab">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Project Lab</h2>
-        <img src="{% static 'img/project_lab.jpg' %}" alt="Project Lab" class="img-fluid rounded shadow mb-3">
-        <p>
-            It contains twenty-five (25) PCs with network and internet facilities. It is intended for final year students to carry out their project works. However, students are encouraged to use this lab to develop hardware/software projects.
-        </p>
-    </div>
-</section>
-
-<!-- Circuit Labs Section -->
-<section class="section py-5" id="circuit-labs">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Circuit Lab I and II</h2>
-        <p>
-            This lab is used to study the behavioral characteristics of the different electrical and electronic projects. This lab has fullfledged 5 equipment set-ups so that 5 groups of students can carry on with any electronic and electrical experiment and project simultaneously. Each equipment set-up includes modern Oscilloscope, dc generator, signal generator, trainer board, high-configured PC. This lab also has sufficient amount of all necessary electrical and electronic components including ICs (Digital and Analog), resistors, capacitors, inductors, transformer, etc.
-
-        </p>
-    </div>
-</section>
-
-<!-- Digital Lab Section -->
-<section class="section py-5" id="digital-lab">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Digital Lab</h2>
-        <p>
-            Digital lab has a number of highly sophisticated modern equipments such as trainer boards, 8086 microprocessor kits, digital IC tester, PC etc. Also it has a huge resource of digital and analog ICs and other electronic components. In this lab students can design and implement starting from small digital circuits to 8-bit microprocessor. Also, they can acquire the technical know-how of 8086 microprocessor and its peripherals. Furthermore, students can easily interface any personal computer with analog world for adaptive control and automation. This lab has also full-fledged 5 equipment set-ups so that 5 groups of students can carry on any digital and interfacing experiment and project simultaneously.
-        </p>
-    </div>
-</section>
-
-<!-- Classrooms Section -->
-<section class="section py-5" id="classrooms">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Our Classrooms</h2>
-
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/classroom1.jpg' %}" alt="Classroom 2" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/classroom2.jpg' %}" alt="Classroom 3" class="img-fluid rounded shadow">
-            </div>
-        </div>
-
-        <p>
-            Our classrooms are clean and well maintained. We have digital projector in all our classrooms so that class materials can be shown and shared with the students.
-        </p>
-    </div>
-</section>
-
-<!-- Library Section -->
-<section class="section py-5" id="library">
-    <div class="container text-center">
-        <h2 class="sub-heading mb-4">Library</h2>
-
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/library1.jpg' %}" alt="Library 1" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6 mb-3">
-                <img src="{% static 'img/library2.jpg' %}" alt="Library 2" class="img-fluid rounded shadow">
-            </div>
-        </div>
-
-        <p>
-            UAP takes pride in its newly renovated Central Library on the 9th floor of the city campus building. However, it is not only about the meticulously designed outlook of the library, which makes it comparable to any international library, UAP is committed to making the library experience of its users to be top-notch also. Central Library continues to expand and develop its services and take new initiatives throughout the year to facilitate students to learn and acquire knowledge. The library continues to keep its focus on making library services more accessible and fulfilling the need of the students and faculty. All the students and faculty members of UAP have full access to the central library. The library hosts a vast and diverse collection of books, monographs, and periodicals of academic interest. Each book is labeled and arranged in such a manner that any individual can get access to his preferred book, departmental, or otherwise, without any inconvenience.
-        </p>
-    </div>
-</section>
-{% endblock %}
+    <script src="{% static 'js/whyCse.js' %}"></script>
+{% endblock %}
