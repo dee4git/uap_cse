@@ -102,7 +102,7 @@ def routine_view(request):
 
 # views.py
 from django.shortcuts import render
-from .models import ExamRoutine,Course
+from .models import ExamRoutine,Course,Prerequisite
 
 def exam_routine_view(request):
     # Assuming you just want to show the first available exam routine
@@ -119,6 +119,8 @@ def waiver(request):
 
 def course(request):
     courses = Course.objects.all()
+    prerequisites = Prerequisite.objects.all()
     return render(request, 'academics/course.html', {
-        "courses":courses
+        "courses":courses,
+        "prerequisites":prerequisites,
     })
