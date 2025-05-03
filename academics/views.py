@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 # views.py
@@ -124,3 +124,67 @@ def course(request):
         "courses":courses,
         "prerequisites":prerequisites,
     })
+
+from django.http import HttpResponseForbidden
+from functools import wraps
+from faculty.models import AllowedEmail
+
+def allowed_email_role_required(min_role='3'):
+    def decorator(view_func):
+        @wraps(view_func)
+        def _wrapped_view(request, *args, **kwargs):
+            if not request.user.is_authenticated:
+                return HttpResponseForbidden("You must be logged in.")
+
+            try:
+                allowed = AllowedEmail.objects.get(email=request.user.email)
+                if int(allowed.role) >= int(min_role):
+                    return view_func(request, *args, **kwargs)
+                else:
+                    return HttpResponseForbidden("You do not have permission.")
+            except AllowedEmail.DoesNotExist:
+                return HttpResponseForbidden("You are not in the allowed list.")
+
+        return _wrapped_view
+    return decorator
+
+@allowed_email_role_required(min_role='3')
+def edit_course(request):
+    courses = Course.objects.all()
+    prerequisites = Prerequisite.objects.all()
+    return render(request, 'academics/edit_course.html', {
+        "courses":courses,
+        "prerequisites":prerequisites,
+    })
+
+from .import forms
+
+@allowed_email_role_required(min_role='3')
+def add_course(request):
+    if request.method=="POST":
+        form=forms.CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('course')
+    else:
+        form=forms.CourseForm()
+    return render(request,'forms.html',{
+        "form":form,
+    })
+
+@allowed_email_role_required(min_role='3')
+def update_course(request, pk):
+    course = Course.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = forms.CourseForm(request.POST or None, instance=course)
+        if form.is_valid():
+            form.save()
+            return redirect('edit-course')
+    else:
+        form = forms.CourseForm(instance=course)
+    return render(request, 'forms.html', {
+        'form': form})
+@allowed_email_role_required(min_role='3')
+def delete_course(request, pk):
+    Course.objects.get(pk=pk).delete()
+    return redirect('edit-course')

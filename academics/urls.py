@@ -14,4 +14,8 @@ urlpatterns = [
 path('notice-board/', views.notice_board_view, name='notice_board'),
     path('notice/<int:notice_id>/', views.notice_detail_view, name='notice_detail'),
     path('course', views.course, name='course'),
+    path('edit-course', views.edit_course, name='edit-course'),
+    path('add-course', views.add_course, name='add-course'),
+    path('update-course/<int:pk>', views.update_course, name='update-course'),
+    path('delete-course/<int:pk>', views.delete_course, name='delete-course'),
 ]

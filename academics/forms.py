@@ -1,7 +1,13 @@
 from django import forms
-from .models import NoticeBoard
+from .models import Notice,Course
 
 class NoticeBoardForm(forms.ModelForm):
     class Meta:
-        model = NoticeBoard
-        fields = ['title', 'image', 'description', 'is_active']
+        model = Notice
+        fields = ['title', 'image', 'description']
+
+
+class CourseForm(forms.ModelForm):
+    class Meta:
+        model = Course
+        fields = ['code', 'title', 'description', 'credit', 'year', 'semester']
