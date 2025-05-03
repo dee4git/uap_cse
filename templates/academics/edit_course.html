@@ -19,7 +19,7 @@
          flex-direction: column;
          align-items: center;
          justify-content: center;
-         max-height: 200px;
+         max-height: 250px;
          min-height: 150px;
          transition: transform 0.3s ease-in-out;
         }
@@ -91,6 +91,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -140,6 +141,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -188,6 +190,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -236,6 +239,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -284,6 +288,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -332,6 +337,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -380,6 +386,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}
@@ -428,6 +435,7 @@
                 <strong>{{ course.code }}</strong><br>
                 {{ course.title }}<br>Credit:{{course.credit}}<br>
                 <a href="{% url 'update-course' course.id %}">Update Course</a>
+                <a href="{% url 'set-prerequisite' course.id %}">Set Prerequisite</a>
                 <a href="{% url 'delete-course' course.id %}">Delete</a>
                 <div class="hp">Prerequisite:
                 {% for prerequisite in prerequisites %}

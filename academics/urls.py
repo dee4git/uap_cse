@@ -22,4 +22,5 @@ path('notice-board/', views.notice_board_view, name='notice_board'),
     path('add-fact', views.add_fact, name='add-fact'),
     path('update-fact/<int:pk>', views.update_fact, name='update-fact'),
     path('delete-fact/<int:pk>', views.delete_fact, name='delete-fact'),
+    path('set-prerequisite/<int:pk>', views.set_prerequisite, name='set-prerequisite'),
 ]

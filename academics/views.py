@@ -171,7 +171,7 @@ def add_course(request):
         form=forms.CourseForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('course')
+            return redirect('edit-course')
     else:
         form=forms.CourseForm()
     return render(request,'forms.html',{
@@ -224,3 +224,19 @@ def update_fact(request, pk):
 def delete_fact(request, pk):
     fact_and_figures.objects.get(pk=pk).delete()
     return redirect('edit-fact')
+
+@allowed_email_role_required(min_role='3')
+def set_prerequisite(request, pk):
+    course = Course.objects.get(pk=pk)
+    if request.method == "POST":
+        form = forms.PrerequisiteForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.course = course
+            instance.save()
+            return redirect('edit-course')
+    else:
+        form = forms.PrerequisiteForm()
+    return render(request, 'forms.html', {
+        "form": form,
+    })

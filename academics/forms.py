@@ -1,5 +1,5 @@
 from django import forms
-from .models import Notice,Course,fact_and_figures
+from .models import Notice,Course,fact_and_figures,Prerequisite
 
 class NoticeBoardForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,8 @@ class Fact_Figure_Form(forms.ModelForm):
     class Meta:
         model = fact_and_figures
         fields = ['title', 'description']
+
+class PrerequisiteForm(forms.ModelForm):
+    class Meta:
+        model = Prerequisite
+        fields =['prerequisite']
