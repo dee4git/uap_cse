@@ -1,5 +1,5 @@
 from django import forms
-from .models import Notice,Course
+from .models import Notice,Course,fact_and_figures
 
 class NoticeBoardForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,8 @@ class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
         fields = ['code', 'title', 'description', 'credit', 'year', 'semester']
+
+class Fact_Figure_Form(forms.ModelForm):
+    class Meta:
+        model = fact_and_figures
+        fields = ['title', 'description']

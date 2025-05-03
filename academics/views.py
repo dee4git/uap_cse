@@ -102,7 +102,7 @@ def routine_view(request):
 
 # views.py
 from django.shortcuts import render
-from .models import ExamRoutine,Course,Prerequisite
+from .models import ExamRoutine,Course,Prerequisite,fact_and_figures
 
 def exam_routine_view(request):
     # Assuming you just want to show the first available exam routine
@@ -156,6 +156,12 @@ def edit_course(request):
         "courses":courses,
         "prerequisites":prerequisites,
     })
+@allowed_email_role_required(min_role='3')
+def edit_fact(request):
+    facts = fact_and_figures.objects.all()
+    return render(request, 'academics/edit_fact.html', {
+        "facts":facts
+    })
 
 from .import forms
 
@@ -188,3 +194,33 @@ def update_course(request, pk):
 def delete_course(request, pk):
     Course.objects.get(pk=pk).delete()
     return redirect('edit-course')
+
+@allowed_email_role_required(min_role='3')
+def add_fact(request):
+    if request.method=="POST":
+        form=forms.Fact_Figure_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('edit-fact')
+    else:
+        form=forms.Fact_Figure_Form()
+    return render(request,'forms.html',{
+        "form":form,
+    })
+
+@allowed_email_role_required(min_role='3')
+def update_fact(request, pk):
+    fact = fact_and_figures.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = forms.Fact_Figure_Form(request.POST or None, instance=fact)
+        if form.is_valid():
+            form.save()
+            return redirect('edit-fact')
+    else:
+        form = forms.Fact_Figure_Form(instance=fact)
+    return render(request, 'forms.html', {
+        'form': form})
+@allowed_email_role_required(min_role='3')
+def delete_fact(request, pk):
+    fact_and_figures.objects.get(pk=pk).delete()
+    return redirect('edit-fact')
