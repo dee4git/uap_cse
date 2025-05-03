@@ -28,6 +28,7 @@ class UpdateForm(forms.ModelForm):
         model = Faculty
         fields = [
             'name',
+            'shortname',
             'joining_date',
             'designation',
             'phone',

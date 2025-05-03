@@ -61,7 +61,7 @@ def login_view(request):
 def update_view(request):
     try:
         faculty = Faculty.objects.get(user=request.user)
-        return render(request, 'update.html', {
+        return render(request, 'faculty/update.html', {
             'facultys': [faculty]
         })
 
