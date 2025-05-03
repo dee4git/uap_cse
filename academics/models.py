@@ -142,8 +142,7 @@ class Course(models.Model):
     semester = models.CharField(max_length=15, choices = SEMESTER, null = True)
 
     def __str__(self):
-        return f'{self.code}|{self.title}'
-
+        return self.code
 
 class fact_and_figures(models.Model):
     title = models.CharField(max_length=120)
@@ -151,3 +150,21 @@ class fact_and_figures(models.Model):
 
     def __str__(self):
         return self.title
+
+class Prerequisite(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.SET_NULL,
+        null= True,
+        related_name='main_course_prerequisites'
+    )
+    prerequisite = models.ForeignKey(
+        Course,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='prerequisite_for_courses'
+    )
+
+    def __str__(self):
+        return f'{self.course}--{self.prerequisite}'
