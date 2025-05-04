@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University Help Desk</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --text: #222;
+      --bot-bg: #e8f0fe;
+      --user-bg: #d1e7dd;
+      --header-bg: #003366;
+      --button-bg: #ffffff;
+      --button-hover: #e1e1e1;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+    }
+
+    .chatbot-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 360px;
+      max-height: 80vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      z-index: 9999;
+      border: 1px solid #ccc;
+    }
+
+    .chat-header {
+      background: var(--header-bg);
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .msg {
+      padding: 10px 14px;
+      border-radius: 10px;
+      max-width: 80%;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .bot {
+      background-color: var(--bot-bg);
+      align-self: flex-start;
+    }
+
+    .user {
+      background-color: var(--user-bg);
+      align-self: flex-end;
+    }
+
+    .question-buttons {
+      padding: 10px;
+      background: var(--bg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-top: 1px solid #ddd;
+    }
+
+    .question-buttons button {
+      background: var(--button-bg);
+      color: var(--text);
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s;
+    }
+
+    .question-buttons button:hover {
+      background: var(--button-hover);
+    }
+
+    .input-box {
+      display: flex;
+      border-top: 1px solid #ddd;
+      background: var(--bg);
+    }
+
+    .input-box input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .input-box button {
+      padding: 0 16px;
+      border: none;
+      background: var(--header-bg);
+      color: white;
+      cursor: pointer;
+    }
+
+    .chat-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--header-bg);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-toggle-btn img {
+      width: 28px;
+      height: 28px;
+      filter: invert(1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Chat Toggle Button -->
+<div class="chat-toggle-btn" onclick="toggleChat()">
+  <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="Chat Icon" />
+</div>
+
+<!-- Chatbot Popup -->
+<div class="chatbot-popup" id="chatbot">
+  <div class="chat-header">University Help Desk</div>
+  <div class="chat-messages" id="messages"></div>
+  <div class="question-buttons" id="buttonContainer"></div>
+  <div class="input-box">
+    <input type="text" id="userInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  let questionHistory = [];
+
+  function scrollToBottom() {
+    const messages = document.getElementById("messages");
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function showMessage(text, type) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "msg " + type;
+    msgDiv.innerHTML = text;
+    document.getElementById("messages").appendChild(msgDiv);
+    scrollToBottom();
+  }
+
+  function clearButtons() {
+    document.getElementById("buttonContainer").innerHTML = '';
+  }
+
+  function ask(question) {
+    showMessage(question, 'user');
+    clearButtons();
+    questionHistory.push(question);
+
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'msg bot';
+    typingDiv.id = 'typing';
+    typingDiv.innerHTML = `Bot is typing...`;
+    document.getElementById('messages').appendChild(typingDiv);
+    scrollToBottom();
+
+    fetch(`/chatbot/get_response/?message=${encodeURIComponent(question)}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('typing').remove();
+        showMessage(data.response, 'bot');
+        showNextButtons(question);
+      });
+  }
+
+  function showOnlyHiButton() {
+    const container = document.getElementById("buttonContainer");
+    container.innerHTML = '';
+    const btn = document.createElement("button");
+    btn.textContent = "Hi / Hello";
+    btn.onclick = () => ask("hi");
+    container.appendChild(btn);
+  }
+
+  function showNextButtons(previous) {
+    const container = document.getElementById("buttonContainer");
+    container.innerHTML = '';
+
+    const options = {
+      'hi': ['Admission portal', 'Administration', 'About University', 'More', 'Contact'],
+      'admission portal': ['Admission Info'],
+      'admission info': ['Undergraduate', 'Graduate'],
+      'undergraduate': ['Tuition Fees'],
+      'graduate': ['Tuition Fees '],
+      'student portal': [],
+      'administration': [],
+      'about university': ['Official Website'],
+      'more': ['Clubs', 'Events'],
+      'contact': ['UAP Administration', 'Admission Office', 'Dept. CSE'],
+    };
+
+    const next = options[previous.toLowerCase()] || [];
+
+    next.forEach(label => {
+      const btn = document.createElement("button");
+      btn.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+      btn.onclick = () => ask(label);
+      container.appendChild(btn);
+    });
+
+    // Home button
+    const homeBtn = document.createElement("button");
+    homeBtn.textContent = "🏠 Home";
+    homeBtn.onclick = () => {
+      questionHistory = [];
+      clearButtons();
+      showNextButtons('hi');
+    };
+    container.appendChild(homeBtn);
+
+    // Back button
+    if (questionHistory.length > 1) {
+      const backBtn = document.createElement("button");
+      backBtn.textContent = "⬅️ Back";
+      backBtn.onclick = goBack;
+      container.appendChild(backBtn);
+    }
+  }
+
+  function goBack() {
+    questionHistory.pop();
+    const prev = questionHistory.pop();
+    if (prev) ask(prev);
+    else showOnlyHiButton();
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message !== "") {
+      ask(message);
+      input.value = "";
+    }
+  }
+
+  function toggleChat() {
+    const chatbot = document.getElementById("chatbot");
+    chatbot.style.display = chatbot.style.display === "none" ? "flex" : "none";
+  }
+
+  window.onload = () => {
+    document.getElementById("chatbot").style.display = "none";
+    showOnlyHiButton();
+  }
+</script>
+
+</body>
+</html>
