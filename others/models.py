@@ -15,7 +15,6 @@ class Alumni(models.Model):
 
 class Alumni_Association(models.Model):
     title = models.CharField(max_length=255)
-    file = models.FileField(upload_to='pdfs/', default='pdfs/Alumni_page.pdf')
-
+    pdf_file = models.FileField(upload_to='alumni_association/', null=True, blank=True)
     def __str__(self):
         return self.title

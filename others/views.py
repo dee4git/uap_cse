@@ -11,5 +11,5 @@ def alumni(request):
     return render(request, 'alumni/alumni.html', {'alumni': alumni})
 
 def alumni_association(request):
-    pdfs =Alumni_Association.objects.all()
-    return render(request, 'alumni/alumni_association.html', {'pdfs': pdfs})
+    alumni_association =Alumni_Association.objects.all()
+    return render(request, 'alumni/alumni_association.html', {'alumni_association': alumni_association})
