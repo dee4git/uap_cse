@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'academics',
     'others',
     'ckeditor',
+    'chatbot',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
