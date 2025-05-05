@@ -4,6 +4,7 @@
 {% block head %}
     <title>Alumni | CSE - UAP</title>
     <link rel="stylesheet" href="{% static 'css/alumni.css' %}">
+    <link rel="stylesheet" href="{% static 'css/alumni_association.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +21,7 @@
                     <i class="fa fa-download"></i> Download
                     </a>
                 </div>
-                <embed src="{{ alumni_association.pdf_file.url }}" type="application/pdf" width="100%" height="600px" />
+                <embed src="{{ alumni_association.pdf_file.url }}" type="application/pdf" width="100%" height="800px" />
                 <p>PDF URL: <br>
                 <a href="{{ alumni_association.pdf_file.url }}" target="_blank">{{ alumni_association.pdf_file.url }}</a></p>
               </div>
