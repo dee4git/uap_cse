@@ -38,7 +38,12 @@
 
 
 
-
+.club-section p {
+    text-align: justify;
+}
+.club-section h3{
+    color: #4B3F72
+}
 
  .highlights-section {
       background: linear-gradient(135deg, #f4f0fa, #eae2f8);
@@ -237,5 +242,5 @@
       background-color: #8e6fdd;
         color: white;
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(110, 89, 190, 0.2);
-    }
+      box-shadow: 0 15px 30px rgba(110, 89, 190, 0.2);
+    }
