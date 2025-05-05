@@ -13,7 +13,7 @@
     <div class="container">
       <h1>Why CSE at UAP?</h1>
       <p>Learn. Build. Lead. Step into a future of innovation with the Department of Computer Science and Engineering.</p>
-      <a href="#" class="btn hero-btn">Explore More ⟶</a>
+      <a href="#" class="cta-button" style="text-decoration: none;">Explore More ⟶</a>
     </div>
 </section>
 
@@ -60,7 +60,7 @@
   <div class="row club-section" >
 
     <!-- Sidebar Nav -->
-    <div class="col-md-3 p-4 club-nav" style="height: 600px; border-radius: 12px; background-color:white;">
+    <div class="col-md-3 p-4 club-nav" style="height: 700px; border-radius: 12px; background-color:white;">
       <div class="nav flex-column nav-pills" id="club-tabs" role="tablist" aria-orientation="vertical">
         <button class=" active cta-buttonNew" id="art-tab" data-bs-toggle="pill" data-bs-target="#art" type="button" role="tab">Classroom</button>
         <button class="cta-buttonNew" id="tech-tab" data-bs-toggle="pill" data-bs-target="#tech" type="button" role="tab">Laboratories</button>
@@ -71,27 +71,63 @@
 
     <!-- Content Area -->
     <div class="col-md-9 px-2">
-      <div class="tab-content club-content p-3" id="club-tabContent" style="height: 600px; overflow-y: scroll; background-color: white; border-radius: 12px;">
+      <div class="tab-content club-content p-3" id="club-tabContent" style="height: 700px; overflow-y: scroll; background-color: white; border-radius: 12px;">
 
         <!-- Art Club -->
         <div class="tab-pane fade show active" id="art" role="tabpanel">
 
-           <h3>Digital Classrooms</h3>
-            <p>All Information Goes Here....</p>
+           <h3>Digital Classrooms & Laboratories</h3>
+            <p>Our classrooms are modern digital spaces equipped with smart boards, high-speed internet, and
+            interactive projectors. Designed for hybrid and technology-integrated learning, they support live
+            streaming, digital attendance, and more. Spacious, connected, and comfortable—these classrooms
+            represent the future of education.</p>
+            <img class="rounded mx-auto d-block" src="{% static 'img/entry.jpg' %}" alt="" style="width:600px;">
+
+
+
+
         </div>
 
         <!-- Tech Club -->
         <div class="tab-pane fade" id="tech" role="tabpanel">
-          <h4>💻 Tech Club</h4>
-          <p>Build cool projects, participate in hackathons, and explore areas like AI, web development, and robotics. We meet every weekend for code labs and tech talks!</p>
+         <h3>Programming Lab I, II-cum-VLSI Lab, III, IV, V</h3>
+            <p>These labs are networked with each other and the other PCs of the department through LAN.
+                A server room is arranged to administrate the proper functioning of the lab and to accommodate
+                LINUX server, Oracle Server, Windows server and other sophisticated resources like a scanner,
+                a high resolution digital camera, etc. 142 high end pcs are distributed amongst the labs along
+                with heavy-duty printers. Each student is given separate account in CSELAB domain. Students have
+                to logon to their respected accounts to avail the existing network resources. A student can browse
+                from any PC free of charge for unlimited period.
+                The Department has provided students with constant broadband Internet browsing facility.</p>
+            <p></p>
+            <img class="rounded mx-auto" src="{% static 'img/lab1.jpg' %}" alt="" style="width:400px; height: 300px;">
+            <img class="rounded mx-auto" src="{% static 'img/lab2.jpg' %}" alt="" style="width:400px; height: 300px;">
+            <h3 class="mt-5">Mobile Games and Apps Development Lab</h3>
+            <p style="text-align: justify">University of Asia Pacific (UAP) is one of sixth private universities, chosen by Bangladesh Government to help develop mobile games and apps in order to catch up with cutting-edge technology of smart phone and its significant impact on our day to day life.
+                A laboratory has been set up to facilitate this effort. Currently, the lab has ten computers with high configuration, Android smart phone and tablet – all financed by government.
+                Also, government has given 4 air-conditioners, colour printer, ten UPS to back up in case of power cut. Other furniture such fan, chair and tables are also provided.
+                These labs are designed such a way that any student, with consent from ICT, can use any lab, regardless of their affiliation.
+                This is a stepping stone for further development in mobile games development and apps.</p>
+            <img class="rounded mx-auto d-block" src="{% static 'img/mov_lab.jpg' %}" alt="" style="width:600px;">
+
         </div>
 
         <!-- Drama Club -->
         <div class="tab-pane fade" id="drama" role="tabpanel">
-         <h3>Digital Classrooms</h3>
-        <p>Our classrooms are modern digital spaces equipped with smart boards, high-speed internet, and interactive projectors. Designed for hybrid and technology-integrated learning, they support live streaming, digital attendance, and more. Spacious, connected, and comfortable—these classrooms represent the future of education.</p>
-            <img src="{% static 'img/classroom1.jpg' %}" alt="" style="width:300px;">
-            <img src="{% static 'img/classroom1.jpg' %}" alt="" style="width:300px; margin: 3px;">
+         <h3>Our Library</h3>
+            <img class="rounded float-left" src="{% static 'img/library1.jpg' %}" alt="" style="width:450px;">
+            <img class="rounded float-right" src="{% static 'img/library2.jpg' %}" alt="" style="width:450px;">
+            <p class="mt-4">
+                UAP takes pride in its newly renovated Central Library on the 9th floor of the city campus building.
+                However, it is not only about the meticulously designed outlook of the library, which makes it comparable
+                to any international library, UAP is committed to making the library experience of its users to be top-notch also.
+                Central Library continues to expand and develop its services and take new initiatives throughout the year to
+                facilitate students to learn and acquire knowledge. The library continues to keep its focus on making library
+                services more accessible and fulfilling the need of the students and faculty. All the students and faculty members
+                of UAP have full access to the central library. The library hosts a vast and diverse collection of books, monographs,
+                and periodicals of academic interest. Each book is labeled and arranged in such a manner that any individual
+                can get access to his preferred book, departmental, or otherwise, without any inconvenience.
+            </p>
         </div>
 
       </div>
@@ -114,4 +150,4 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
     <script src="{% static 'js/whyCse.js' %}"></script>
-{% endblock %}
+{% endblock %}
