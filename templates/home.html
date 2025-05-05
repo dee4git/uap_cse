@@ -20,16 +20,14 @@
 
         <h1 class="gradient-text-global text-center fw-bold ">Department of CSE</h1>
    <hr/>
-        <div id="iconContainer">
-     <img id="animatedIcon" src="{% static 'img/uap_logo.png' %}" alt="UAP Logo">
-        </div>
-{#        <h1 class="gradient-text-global text-center mb-5">#}
-{#    <span id="animatedText">University of Asia Pacific</span>#}
-{#</h1>#}
-
-       <div class="text-new" id="animatedText">
-           <h1 class="gradient-text-global text-center mb-5">University of Asia Pacific</h1>
-       </div>
+      <div class="icon-text-wrapper">
+    <div id="iconWrapper">
+        <img id="animatedIcon" src="{% static 'img/uap_logo.png' %}" alt="UAP Logo">
+    </div>
+    <h1 class="text-new gradient-text-global text-center mb-5" id="animatedText">
+        University of Asia Pacific
+    </h1>
+</div>
     </div>
 </div>
 
@@ -47,11 +45,13 @@
             </div>
 
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+                 <a href="{% url 'faculty'%}" class="glass-card-link">
                 <div class="glass-card">
                        <div class="div-img">
                         <img src="{% static 'img/hero/2.png' %}" alt="" class="glass-card-link">
                     </div>
                     <span class="glass-text">Faculty & Staff</span></div>
+                 </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
                <a href="{% url 'icpc_event_view' %}" class="glass-card-link">
@@ -124,7 +124,7 @@
                         • Promoting creativity by applying their theoretical knowledge in practical problem-solving.<br>
                         • Enabling them to communicate ideas clearly and concisely both in written and verbal forms.<br>
                         • Creating awareness about environment, social responsibility, and economic development within the ethical boundaries.<br>
-                        • Engaging for further research or professional involvement.
+                        • Engaging in further research or professional involvement.
                     </p>
                 </div>
             </div>
@@ -159,73 +159,55 @@
 
     <a href="{% url 'tester' %}"><h2 class="gradient-text-global">TEST!!</h2></a>
 <script>
-    const words = ["Excellence", "Strive", "Innovate", "Learn", "Grow"];
-    const gradients = [
-        "linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%)"
-    ];
+    const words = ["Excellence", "Strive", "Innovate", "Learn", "Grow", "Develop","Achieve"];
+const icons = ["icofont-abc", "icofont-university", "icofont-graduate", "icofont-medal", "icofont-brainstorming","icofont-certificate", "icofont-book-alt"];
+const gradients = [
+    "linear-gradient(108.4deg, rgb(204, 146, 177) 6.9%, rgb(113, 111, 185) 86.5%)"
+];
 
-    let index = 0;
-    const textElement = document.getElementById('animatedText');
+let index = 0;
+let iconStarted = false;
 
-    function changeText() {
-        textElement.innerText = words[index];
-        textElement.style.background = gradients[Math.floor(Math.random() * gradients.length)];
-        textElement.style.webkitBackgroundClip = "text";
-        textElement.style.color = "transparent";
-        textElement.style.animation = "none";
-        void textElement.offsetWidth;
-        textElement.style.animation = "shutter 5s ease-in-out forwards";
+const textElement = document.getElementById("animatedText");
+let iconWrapper = document.getElementById("iconWrapper");
 
-        // Ensure the text returns to full opacity before next animation starts
+function changeText() {
+    textElement.innerText = words[index];
+    textElement.style.background = gradients[0];
+    textElement.style.webkitBackgroundClip = "text";
+    textElement.style.color = "transparent";
+    textElement.style.animation = "none";
+    void textElement.offsetWidth;
+    textElement.style.animation = "shutter 5s ease-in-out forwards";
+}
+
+function changeIcon() {
+    iconWrapper.innerHTML = `<i class="icofont ${icons[index]}"></i>`;
+    const icon = iconWrapper.querySelector("i");
+    icon.style.animation = "none";
+    void icon.offsetWidth;
+    icon.style.animation = "shutterIcon 5s ease-in-out forwards";
+}
+
+function runAnimations() {
+    changeText();
+
+    if (iconStarted) {
+        changeIcon();
+    } else if (index === 0) {
+        // Remove image and start icons from next interval
         setTimeout(() => {
-            textElement.style.opacity = "100";
-        }, 4500);
-
-        index = (index + 1) % words.length;
+            iconWrapper.innerHTML = `<i class="icofont ${icons[0]}"></i>`;
+            iconStarted = true;
+        }, 1000); // Wait a second before replacing image
     }
 
-    setInterval(changeText, 6000);
+    index = (index + 1) % words.length;
+}
+
+setInterval(runAnimations, 6000);
+
 </script>
-<script>
-    const icons = [
-        "icofont-graduate",
-        "icofont-university",
-        "icofont-abc",
-        "icofont-medal"
-    ];
 
-    let iconIndex = 0;
-
-    function changeIcon() {
-        let iconElement = document.getElementById("animatedIcon");
-
-        // **Step 1: Fade Out Smoothly**
-        iconElement.style.transition = "opacity 1.5s ease-in-out, transform 1.5s ease-in-out";
-        iconElement.style.opacity = "0";
-        iconElement.style.transform = "translateY(-10px)";
-
-        // **Step 2: AFTER fade-out completes, change the icon**
-        setTimeout(() => {
-            if (iconElement.tagName.toLowerCase() === "img") {
-                iconElement.outerHTML = `<i id="animatedIcon" class="icofont ${icons[iconIndex]}"></i>`;
-            } else {
-                iconIndex = (iconIndex + 1) % icons.length;
-                iconElement.outerHTML = `<i id="animatedIcon" class="icofont ${icons[iconIndex]}"></i>`;
-            }
-
-            // **Step 3: Update reference to newly created icon element**
-            iconElement = document.getElementById("animatedIcon");
-
-            // **Step 4: Fade-in smoothly after update**
-            setTimeout(() => {
-                iconElement.style.opacity = "1";
-                iconElement.style.transform = "translateY(0px)";
-            }, 500); // Ensures no flashing
-        }, 1500); // Change the icon AFTER previous fade-out completes
-    }
-
-    setTimeout(changeIcon, 5000); // First change happens after 6 seconds
-    setInterval(changeIcon, 5000); // Icons change every 6 seconds
-</script>
 
 {% endblock %}
