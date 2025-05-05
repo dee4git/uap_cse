@@ -285,7 +285,6 @@ iframe {
     justify-content: center;
     align-items: center;
     position: relative;
-
     margin-right: 150px;
 }
 
@@ -313,7 +312,6 @@ iframe {
     transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
     animation: shutterIcon 5s ease-in-out forwards;
 }
-
 
 .text-new {
     font-family: 'Lexend', sans-serif;
