@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block head %}
+
     <title>Alumni | CSE - UAP</title>
      <link rel="stylesheet" href="{% static 'css/alumni_association.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 {% endblock %}
 
 {% block content %}
     <div class="banner-global">
     <h1 class="gradient-text-global-big-size">Alumni Association</h1>
+
 </div>
 
 
@@ -16,10 +21,10 @@
         {% for alumni_association in alumni_association %}
             <div class="pdf-container">
                 <h3>{{ alumni_association.title }}</h3>
-
                 <div class="download-button">
     <a href="{{ alumni_association.pdf_file.url }}" class="btn-download" download>
         <i class="fa fa-download"></i> Download
+        <i class="bi bi-arrow-down-square" style="margin-left: 5px;"></i>
     </a>
                 </div>
 
@@ -34,6 +39,8 @@
 
 
     {% else %}
+
         <p class="no-results">No documents available.</p>
     {% endif %}
+
 {% endblock %}
