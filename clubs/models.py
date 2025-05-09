@@ -12,6 +12,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 import os
+from ckeditor.fields import RichTextField
 
 class Club(models.Model):
     convener = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True, blank=True)
@@ -19,7 +20,7 @@ class Club(models.Model):
     logo = models.ImageField(upload_to='club_logos/', default='defaults/clubcover.png')
     moto = models.CharField(max_length=255)
     cover_picture = models.ImageField(upload_to='club_covers/', default='defaults/clubcover.png')
-    description = models.TextField()
+    description = RichTextField()
     status = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):

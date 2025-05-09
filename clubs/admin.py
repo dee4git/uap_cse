@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import *
+from .models import Club
 
-# Register your models here.
-admin.site.register(Club)
+@admin.register(Club)
+class ClubAdmin(admin.ModelAdmin):
+    list_display = ('name', 'status')
+    search_fields = ('name',)
