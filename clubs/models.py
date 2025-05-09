@@ -77,7 +77,7 @@ class Club(models.Model):
 
 
 class ClubMember(models.Model):
-    club = models.ForeignKey(Club, on_delete=models.CASCADE)
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='members')  # Add related_name
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # club member = user
     position = models.CharField(max_length=100)
     email = models.EmailField()

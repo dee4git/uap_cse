@@ -33,16 +33,58 @@
                         <a href="#" class="close-modal">&times;</a>
                         <div class="modal-cover">
                             <img src="{{ club.cover_picture.url }}" alt="{{ club.name }} Cover">
+                            <div class="modal-logo-container">
+                                <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="modal-logo">
+                            </div>
                         </div>
                         <div class="modal-header">
                             <h2 class="modal-title">{{ club.name }}</h2>
-                            <p class="modal-motto">{{ club.moto }}</p>
+                            <p class="modal-motto">{{ club.moto }}</p> <!-- Motto directly under the name -->
                         </div>
+                        <!-- Modal Body -->
                         <div class="modal-body">
                             {% if club.convener %}
-                                <p class="convener-info">Convener: {{ club.convener.name }}</p>
+                                <p class="convener-info">
+                                    Convened by <br>
+                                    <a href="{% url 'faculty_detail' club.convener.id %}" class="convener-link">
+                                        {{ club.convener.name }}
+                                    </a>
+                                </p>
                             {% endif %}
-                            <p>{{ club.description }}</p>
+
+                            <p class="club-description">{{ club.description }}</p>
+                            
+                            {% if club.members.exists %}
+                                <div class="club-members">
+                                    <h3 class="members-title">Meet the Panel</h3>
+                                    <div class="members-list">
+                                        {% for member in club.members.all %}
+                                            <div class="member-card">
+                                                <div class="member-photo">
+                                                    {% if member.profile_picture %}
+                                                        <img src="{{ member.profile_picture.url }}" alt="{{ member.user.get_full_name }}'s Photo">
+                                                    {% else %}
+                                                        <img src="{% static 'defaults/default-profile.png' %}" alt="Default Profile Picture">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="member-info">
+                                                    <p class="member-name">
+                                                        {% if member.user.first_name or member.user.last_name %}
+                                                            {{ member.user.first_name }} {{ member.user.last_name }}
+                                                        {% else %}
+                                                            {{ member.user.username }}
+                                                        {% endif %}
+                                                    </p>
+                                                    <p class="member-email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                                                    <p class="member-position">{{ member.position }}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p>No members found for this club.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

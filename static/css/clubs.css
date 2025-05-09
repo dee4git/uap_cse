@@ -116,11 +116,10 @@ body {
 }
 
 .club-description {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333; /* Darker text color */
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
     text-align: center;
-    /*background-image: linear-gradient(135deg, #f3e8ff, #e6e6fa, #ede1ff, #f8f0ff); !* Light background *!*/
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
@@ -183,7 +182,7 @@ body {
 }
 
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -191,7 +190,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+    overflow-y: auto; /* Allow scrolling if content exceeds the viewport */
 }
 
 .modal-content {
@@ -207,6 +206,8 @@ body {
     position: relative;
     animation: modalFadeIn 0.3s ease;
     overflow-y: auto;
+    overflow: visible; /* Ensure the logo is not clipped */
+    z-index: 5;
 }
 
 .close-modal {
@@ -225,53 +226,207 @@ body {
     color: #e6ccff;
 }
 
-.modal-header {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #d8b4fe;
-}
-
-.modal-title {
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
-}
-
-.modal-body {
-    min-height: calc(80% - 70px);
-}
-
-/* Show modal when target is the modal ID */
-.modal:target {
-    display: block;
-}
-
+/* Modal Cover */
 .modal-cover {
-    margin: -25px -25px 20px -25px;
-    height: 250px;
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: visible; /* Allow the logo to overflow */
+    border-radius: 8px 8px 0 0;
+    z-index: 10; /* Ensure the cover is behind the logo */
 }
 
 .modal-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 50%;
-    border-radius: 12px 12px 0 0;
-    display: block;
+}
+
+/* Modal Logo */
+.modal-logo-container {
+    position: absolute;
+    bottom: -60px; /* Keep it overlapping the modal cover */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px; /* Slightly increased size */
+    height: 120px; /* Slightly increased size */
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 20; /* Bring the logo to the front */
+}
+
+.modal-logo {
+    width: 95%; /* Adjusted to fit the container */
+    height: 95%; /* Adjusted to fit the container */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align the content horizontally */
+    justify-content: center; /* Center align the content vertically */
+    text-align: center; /* Ensure text is centered */
+    margin-top: 70px; /* Space for the logo */
+    padding: 10px 20px;
+    height: auto; /* Allow dynamic height */
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Space between title and motto */
 }
 
 .modal-motto {
+    font-size: 1rem; /* Reduced font size for a smaller appearance */
     font-style: italic;
     color: #6b46c1;
-    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+    text-align: center;
+    height: auto; /* Allow dynamic height */
+    overflow-y: auto; /* Enable scrolling if content exceeds the modal height */
+}
+
+.club-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 .convener-info {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4b5563;
+    margin-bottom: 20px;
+}
+
+.club-members {
+    text-align: left;
     margin-top: 20px;
-    font-weight: 600;
-    color: #4b5563
+}
+
+.club-members h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.club-members ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.club-members li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.club-members a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.club-members a:hover {
+    text-decoration: underline;
+}
+
+/* Members Section */
+.club-members {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.members-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.members-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 8px; /* Slightly smaller border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 10px; /* Reduced padding */
+    width: 250px; /* Reduced width */
+    margin: 10px auto; /* Add spacing between cards */
+}
+
+.member-photo {
+    flex-shrink: 0;
+    width: 50px; /* Smaller photo size */
+    height: 50px; /* Smaller photo size */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px; /* Reduced margin */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    text-align: left;
+}
+
+.member-name {
+    font-size: 1rem; /* Slightly smaller font size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+.member-email {
+    font-size: 0.8rem; /* Smaller font size */
+    color: #555;
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+.member-email a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.member-email a:hover {
+    text-decoration: underline;
+}
+
+.member-position {
+    font-size: 0.8rem; /* Smaller font size */
+    font-style: italic;
+    color: #777;
+}
+
+/* Show modal when target is the modal ID */
+.modal:target {
+    display: block;
 }
 
 @keyframes modalFadeIn {
