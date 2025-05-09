@@ -49,6 +49,7 @@ static_root/
 .cache
 nosetests.xml
 coverage.xml
+.idea/
 *.cover
 *.py,cover
 .hypothesis/
