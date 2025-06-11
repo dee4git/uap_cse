@@ -6,11 +6,11 @@ body {
     font-family: 'Lexend', sans-serif;
     background-size: 400% 400%;
     margin: 0;
-    h3,h2{
+
+ h3,h2{
          color: var(--primary-color);
      }
 }
-
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
@@ -37,7 +37,6 @@ body {
     font-weight: bolder;
     padding: 20px 10px;
     margin-top: 30px;
-    /*text-transform: uppercase;*/
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -72,13 +71,13 @@ body {
 
 
 .benefit-card p {
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
 }
 
 .benefit-card:hover {
+    box-shadow: 0px 6px 12px rgba(128, 90, 182, 0.5);
     transform: translateY(-5px);
-    background: linear-gradient(135deg, #E6E6FA,#c9bfe0);
     color: #3a1b2f;
 }
 
@@ -108,93 +107,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-.hover-text span {
-    display: inline-block;
-    transition: background-color 0.3s ease-in-out, color 0.3s;
-    padding: 5px;
-}
 
-.hover-text span:hover {
-    background-color: rgba(0, 0, 200, 0.5);
-    color: #fff;
-    border-radius: 5px;
-}
-
-.flip-card-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  padding: 50px 30px;
-  max-width: 1200px;
-  margin-top: 0px;
-}
-
-.flip-card {
-  perspective: 600px;
-    justify-content: center;
-    padding: 20px;
-}
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  transform-style: preserve-3d;
-  transition: transform 0.7s ease;
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Card front with gradient and icon/text style */
-.flip-front {
- background-image: linear-gradient( 108.4deg, rgba(220,194,255,1) 6.9%, rgba(185,223,248,1) 86.5% );
-  color: #47034E;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.flip-front:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* Card back with glass effect */
-.flip-back {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  color: #690056;
-  transform: rotateY(180deg);
-  font-size: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Optional: Make icons & titles more aligned */
-.flip-front h3 {
-  margin: 0;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
  .section {
      display: flex;
      margin: 5%;
@@ -204,8 +117,6 @@ body {
      border-radius: 0.5rem;
      background: linear-gradient(135deg, #e6ccff, #d8b4fe, #c084fc, #e0b3ff);
 }
-
-
 
     .section-icon {
       min-width: 100px;
@@ -251,3 +162,27 @@ body {
       flex: 1 1 45%;
       margin-top: 1rem;
     }
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1300px;
+}
+
+.info-card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+.info-card p,ul{
+    font-size: 18px;
+}
+
+.info-card:hover {
+    box-shadow: 0px 6px 12px rgba(128, 90, 182, 0.5);
+    transform: translateY(-5px);
+    color: #3a1b2f;
+}
