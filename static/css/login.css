@@ -1,13 +1,13 @@
 .login {
-    background: linear-gradient(135deg, #E6E6FA,#c9bfe0, #bfb4db);
-    font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #E6E6FA, #B39DDB, #E6E6FA);
+    font-family: 'Lexend', sans-serif;
     margin: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-size: 300% 300%;
-    animation: gradientAnimation 12s ease-in-out infinite;
+    animation: gradientAnimation 10s ease-in-out infinite;
 }
 
 @keyframes gradientAnimation {
@@ -36,7 +36,7 @@ h1 {
     margin-bottom: 20px;
 }
 .gradient-text {
-    background: linear-gradient(135deg, #C3B1E1, var(--primary-color));
+   background: linear-gradient(135deg, #C3A8E4, #8A6FEF, #5E3EFF);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

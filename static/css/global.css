@@ -1,17 +1,17 @@
-body {
+* {
   font-family: 'Lexend', sans-serif;
   background-size: 400% 400%;
   margin: 0;
 }
 
 .gradient-text-global {
-    background: linear-gradient(108.4deg, rgb(142, 109, 128) 6.9%, rgb(90, 90, 115) 86.5%);
+ background: linear-gradient(108.4deg, rgb(138, 60, 103) 6.9%, rgb(68, 68, 153) 86.5%);
     background-clip: text;
     font-weight: bold;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientMove 10s ease infinite;
-    background-size: 200% 200%;
+    background-size: 300% 300%;
 }
 .gradient-text-global .dark-mode {
     background: linear-gradient(108.4deg, rgb(219, 168, 197) 6.9%, rgb(172, 172, 221) 86.5%);
@@ -23,14 +23,14 @@ body {
 }
 
 .gradient-text-global-big-size {
-    background: linear-gradient(108.4deg, rgb(98, 75, 88) 6.9%, rgb(90, 90, 115) 86.5%);
+     background: linear-gradient(108.4deg, rgb(138, 60, 103) 6.9%, rgb(68, 68, 153) 86.5%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: 3em;
     animation: gradientMove 10s ease infinite;
-    background-size: 200% 200%;
+    background-size: 300% 300%;
 }
 .gradient-text-global-big-size .dark-mode {
     background: linear-gradient(108.4deg, rgb(219, 168, 197) 6.9%, rgb(172, 172, 221) 86.5%);
@@ -42,7 +42,7 @@ body {
     margin-bottom: 80px; /* Added space below banner */
     width: 100%;
     padding: 40px;
-    background-image: linear-gradient(108.4deg, rgba(197, 159, 241, 0.8), rgba(152, 197, 229, 0.82));
+     background-image: linear-gradient( 108.4deg, rgba(220,194,255,1) 6.9%, rgba(185,223,248,1) 86.5% );
     background-size: 200% 200%;
     animation: gradientAnimation 10s ease infinite;
     position: relative;

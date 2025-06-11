@@ -1,20 +1,26 @@
 
 .signup {
-    background: linear-gradient(135deg, rgba(165, 136, 217, 0.88), rgba(177, 177, 248, 0.88));
-    font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #E6E6FA, #B39DDB, #E6E6FA);
+    font-family: 'Lexend', sans-serif;
+    margin: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: -20px;
-    animation: gradientAnimation 10s ease infinite;
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease-in-out infinite;
 }
 
-
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 .signup-container {
-    max-width: 400px;
+    max-width: 500px;
     background: var(--bg-color);
     padding: 30px;
+    margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -102,12 +108,12 @@ input:focus {
     color: #7B61FF;
 }
 .gradient-text {
-    background: linear-gradient(135deg, #C3B1E1, #7B61FF);
+   background: linear-gradient(135deg, #C3A8E4, #8A6FEF, #5E3EFF);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2.5em;
   text-align: center;
   padding: 10px;
   background-size: 200% 200%;
@@ -115,11 +121,6 @@ input:focus {
     display: inline-block;
 }
 
-@keyframes gradientAnimation {
-  0% { background-size: 100% 100%; }
-  50% { background-size: 120% 120%; }
-  100% { background-size: 100% 100%; }
-}
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
