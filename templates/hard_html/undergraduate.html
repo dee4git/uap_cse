@@ -1,10 +1,11 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block title %}Undergraduate{% endblock %}
 
 {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/undergraduate.css' %}">
 {% endblock %}
 
@@ -13,122 +14,106 @@
     <h2 class="gradient-text-global">Admission Info</h2><br>
     <h1 class="gradient-text-global">Undergraduate</h1>
 </div>
+
 <div class="cse-benefits">
     <h1 class="section-title">Why CSE at UAP?</h1>
 </div>
 <div class="benefits-container">
     <div class="benefit-card">
-        <h2>External Peer Review Rating</h2>
+        <h2><i class="fa-solid fa-star"></i> External Peer Review Rating</h2>
         <p>Ranked "Very Good" by External Peer Review Team (EPRT), IQAC, UGC.</p>
     </div>
     <div class="benefit-card">
-        <h2>University Ranking</h2>
+        <h2><i class="fa-solid fa-university"></i> University Ranking</h2>
         <p>Ranked 11th among public and private universities in Bangladesh (SCImago Ranking 2021).</p>
     </div>
     <div class="benefit-card">
-        <h2>Faculty Qualifications</h2>
+        <h2><i class="fa-solid fa-user-graduate"></i> Faculty Qualifications</h2>
         <p>Faculty members with Ph.D. degrees from reputed universities worldwide.</p>
     </div>
     <div class="benefit-card">
-        <h2>Adjunct Faculty</h2>
+        <h2><i class="fa-solid fa-chalkboard-teacher"></i> Adjunct Faculty</h2>
         <p>Adjunct faculty only from renowned public universities like BUET, DU, and JU.</p>
     </div>
     <div class="benefit-card">
-        <h2>Industrial Training</h2>
+        <h2><i class="fa-solid fa-industry"></i> Industrial Training</h2>
         <p>Industrial training integrated into the course curriculum.</p>
     </div>
     <div class="benefit-card">
-        <h2>Government-funded Lab</h2>
+        <h2><i class="fa-solid fa-laptop-code"></i> Government-funded Lab</h2>
         <p>Government-funded Lab for Game & Android App development.</p>
     </div>
 </div>
 
-
 <div class="container">
     <h1 class="section-title">General Info</h1>
-   <div class="card-container">
-    <div class="info-card">
-        <h2>Motivation</h2>
-        <p>The admission screening procedure at UAP aims to find the most deserving students for each department...</p>
+    <div class="card-container">
+        <div class="info-card">
+            <h2><i class="fa-solid fa-lightbulb"></i> Motivation</h2>
+            <p>The admission screening procedure at UAP aims to find the most deserving students...</p>
+        </div>
+        <div class="info-card">
+            <h2><i class="fa-solid fa-clock"></i> General Timing and Procedure</h2>
+            <ul>
+                <li>Spring Semester (July to December)</li>
+                <li>Fall Semester (January to June)</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h2><i class="fa-solid fa-file-signature"></i> Admission Test</h2>
+            <p>Applicants must sit for an admission test conducted by the university...</p>
+        </div>
+        <div class="info-card">
+            <h2><i class="fa-solid fa-exchange-alt"></i> Transfer Students</h2>
+            <p>Credit transfer students from other universities are also considered for admission...</p>
+        </div>
+        <div class="info-card">
+            <h2><i class="fa-solid fa-globe"></i> International Students</h2>
+            <p>Prospective students from abroad must demonstrate commitment...</p>
+        </div>
     </div>
 
-    <div class="info-card">
-        <h2>General Timing and Procedure</h2>
-        <ul>
-            <li>Spring Semester (in general): July to December</li>
-            <li>Fall Semester (in general): January to June</li>
-        </ul>
-    </div>
-
-    <div class="info-card">
-        <h2>Admission Test</h2>
-        <p>Applicants must sit for an admission test conducted by the university...</p>
-    </div>
-
-    <div class="info-card">
-        <h2>Transfer Students</h2>
-        <p>Credit transfer students from other universities are also considered for admission...</p>
-    </div>
-
-    <div class="info-card">
-        <h2>International Students</h2>
-        <p>It is necessary for a prospective student from abroad to demonstrate commitment...</p>
-    </div>
-</div>
-
-<h1 class="section-title">Admission Info</h1>
-<div class="card-container">
-    <div class="info-card">
-        <h2>Admission Criteria</h2>
-        <p><strong>B.Sc. Eng. in CSE</strong></p>
-        <p><strong>Minimum GPA Requirements</strong></p>
-        <ul>
-            <li>Total GPA in SSC & HSC = 7.50</li>
-            <li>Total GPA in O & A level = 7.50</li>
-            <li>(Minimum GPA of 2.5 in 5 subjects in O level and 2 subjects in A level)</li>
-        </ul>
-        <p><strong>Subject Requirements:</strong> Must have Physics, Mathematics in HSC and Chemistry in SSC or HSC.</p>
-    </div>
-
-    <div class="info-card">
-        <h2>Special Notes</h2>
-        <ul>
-            <li><strong>Admit Card:</strong> Collect from UAP admission office.</li>
-            <li><strong>Admission Notice / Test Schedules:</strong> Available at the office or online.</li>
-            <li><strong>Diploma Students:</strong> Must have a minimum GPA of 3.0.</li>
-            <li><strong>H.S.C. Appeared Candidates:</strong> Must meet requirements after HSC results.</li>
-            <li><strong>Students with Study Gap:</strong> Max 2 years (or 1 for Pharmacy).</li>
-        </ul>
-        <p><strong style="color: #c70039;">Deviation between documents and info will cancel admission.</strong></p>
+    <h1 class="section-title">Admission Info</h1>
+    <div class="card-container">
+        <div class="info-card">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Admission Criteria</h2>
+            <p><strong>B.Sc. Eng. in CSE</strong></p>
+            <p><strong>Minimum GPA Requirements</strong></p>
+            <ul>
+                <li><i class="fa-solid fa-chart-bar"></i> Total GPA in SSC & HSC = 7.50</li>
+                <li><i class="fa-solid fa-chart-bar"></i> Total GPA in O & A level = 7.50</li>
+                <li><i class="fa-solid fa-check-circle"></i> Minimum GPA of 2.5 in 5 subjects in O level and 2 in A level</li>
+            </ul>
+            <p><strong><i class="fa-solid fa-book-open"></i> Subject Requirements:</strong> Must have Physics, Mathematics in HSC and Chemistry in SSC or HSC.</p>
+        </div>
+        <div class="info-card">
+            <h2><i class="fa-solid fa-file-alt"></i> Special Notes</h2>
+            <ul>
+                <li><i class="fa-solid fa-ticket"></i> <strong>Admit Card:</strong> Collect from UAP admission office.</li>
+                <li><i class="fa-solid fa-calendar"></i> <strong>Admission Notice / Test Schedules:</strong> Available at the office or online.</li>
+                <li><i class="fa-solid fa-user-graduate"></i> <strong>Diploma Students:</strong> Must have a minimum GPA of 3.0.</li>
+                <li><i class="fa-solid fa-file-contract"></i> <strong>H.S.C. Appeared Candidates:</strong> Must meet requirements after HSC results.</li>
+                <li><i class="fa-solid fa-hourglass-half"></i> <strong>Students with Study Gap:</strong> Max 2 years (or 1 for Pharmacy).</li>
+            </ul>
+            <p><strong style="color: #c70039;"><i class="fa-solid fa-exclamation-circle"></i> Deviation between documents and info will cancel admission.</strong></p>
+        </div>
     </div>
 </div>
 
-
-</div>
 <div class="benefits-container">
     <div>
-        <h3 class="section-title"> 📍 Admission Office</h3><br>
-        <div class="benefits-container">
+        <h3 class="section-title"><i class="fa-solid fa-map-marker-alt"></i> Admission Office</h3>
         <div class="benefit-card">
-          <p>T74/A Green Road, Farmgate<br>
-            Dhaka - 1215, Bangladesh<br>
-            PABX: +8802-58157091-4, FAX: +8802-58157097.</p>
-        </div>
+            <p>T74/A Green Road, Farmgate<br>Dhaka - 1215, Bangladesh<br>PABX: +8802-58157091-4, FAX: +8802-58157097.</p>
         </div>
     </div>
     <br>
     <div>
-        <h3 class="section-title">👩‍💼 Admission Personnel</h3><br>
-        <div class="benefits-container">
+        <h3 class="section-title"><i class="fa-solid fa-user-tie"></i> Admission Personnel</h3>
         <div class="benefit-card">
-          <p>
-            Rabeya Khandoker<br>
-            Admission Officer<br>
-            ✉️ rabeyakhandoker@uap-bd.edu
-          </p>
-        </div>
+            <p>Rabeya Khandoker<br>Admission Officer<br>✉️ rabeyakhandoker@uap-bd.edu</p>
         </div>
     </div>
 </div>
-    <br>
+    <br><br>
 {% endblock %}
