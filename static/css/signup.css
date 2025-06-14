@@ -74,20 +74,33 @@ input:focus {
 
 
 .custom-signup-bt{
-    background: linear-gradient(90deg, #d8b4fe, #5A3E90);
-    color: #fff;
-    padding: 12px;
-    font-size: 16px;
+   background: linear-gradient(135deg, #E6E6FA, #B39DDB, #E6E6FA);
+    color: #3a1b2f;
+    padding: 10px;
+    font-size: 17px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
     width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.custom-signup-bt:hover {
-    background: linear-gradient(90deg, #5A3E90, #d8b4fe);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.custom-signup-bt::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #B39DDB, #E6E6FA, #B39DDB);
+    transition: left 0.5s ease-in-out;
+}
+
+.custom-signup-bt:hover::before {
+    left: 0;
 }
 
 .error {

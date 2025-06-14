@@ -81,22 +81,34 @@ input[type="password"]:focus {
     color: #333;
 }
 
-.login-bt{
-    background: linear-gradient(135deg, #D8BFD8, #A28089);
-    color: #fff;
+.login-bt {
+    background: linear-gradient(135deg, #E6E6FA, #B39DDB, #E6E6FA);
+    color: #3a1b2f; /* Ensure text visibility */
     padding: 10px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
     width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.login-bt:hover {
-    background: linear-gradient(135deg, #A28089, #D8BFD8);
+.login-bt::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #B39DDB, #E6E6FA, #B39DDB);
+    transition: left 0.5s ease-in-out;
+}
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.login-bt:hover::before {
+    left: 0;
 }
 
 .text-center a {
@@ -107,7 +119,7 @@ input[type="password"]:focus {
 }
 
 .text-center a:hover {
-    color: plum;
+    color: #B39DDB
 }
 
 .alert-danger {
