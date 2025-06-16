@@ -5,7 +5,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/clubs.css' %}">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
@@ -94,12 +94,15 @@
             {% endfor %}
         {% endif %}
     </div>
+   <audio id="popSound" src="{% static 'img/pop-331049.mp3' %}" preload="auto"></audio>
+
 <script>
 const floatingIconsMap = {
     'software-hardware-club-cse-uap': ['fa-solid fa-laptop', 'fa-solid fa-screwdriver-wrench', 'fa-solid fa-gear'],
     'cse-cultural-club-uap': ['fa-solid fa-masks-theater', 'fa-solid fa-palette', 'fa-solid fa-music'],
 };
 
+// Directions for CSS animation
 const directions = ['float-up', 'float-down', 'float-diagonal'];
 
 document.querySelectorAll('.custom-card').forEach(card => {
@@ -110,7 +113,13 @@ document.querySelectorAll('.custom-card').forEach(card => {
     const icons = floatingIconsMap[clubKey];
     const containerHeight = container.clientHeight;
     const containerWidth = container.clientWidth;
-    const maxIcons = 5;
+
+    const maxIcons = 4;
+
+    // Start a few icons initially
+    for (let i = 0; i < maxIcons; i++) {
+        setTimeout(() => createFloatingIcon(), i * 1000);
+    }
 
     function createFloatingIcon() {
         const iconClass = icons[Math.floor(Math.random() * icons.length)];
@@ -122,27 +131,62 @@ document.querySelectorAll('.custom-card').forEach(card => {
         const size = 1 + Math.random() * 1.2;
         icon.style.fontSize = `${size}rem`;
 
-        // Random position inside the container
+        // Random position inside container
         icon.style.left = `${Math.random() * (containerWidth - 30)}px`;
         icon.style.top = `${Math.random() * (containerHeight - 30)}px`;
 
-        container.appendChild(icon);
-icon.addEventListener('click', () => {
-    icon.classList.add('flicker-pop');
-    icon.style.pointerEvents = 'none'; // prevent double clicks
-    setTimeout(() => icon.remove(), 500); // remove after effect
-});
+        // Click pop effect
+        icon.addEventListener('click', (e) => {
+            icon.classList.add('flicker-pop');
+            icon.style.pointerEvents = 'none';
 
-        // Auto remove after animation
+            // Particle burst from relative click
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            createParticleBurst(x, y, container);
+
+            // Optional sound
+            const sound = document.getElementById('popSound');
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play().catch(() => {});
+            }
+
+            setTimeout(() => {
+                icon.remove();
+                createFloatingIcon(); // Respawn
+            }, 600);
+        });
+
+        container.appendChild(icon);
+
+        // Auto remove and respawn after animation
         setTimeout(() => {
             icon.remove();
-            createFloatingIcon(); // respawn continuously
+            createFloatingIcon();
         }, 8000);
     }
 
-    // Initial icon spawn
-    for (let i = 0; i < maxIcons; i++) {
-        setTimeout(() => createFloatingIcon(), i * 1500); // staggered entry
+    function createParticleBurst(x, y, container) {
+        const particleCount = 10;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = 20 + Math.random() * 20;
+
+            particle.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+            particle.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            container.appendChild(particle);
+
+            setTimeout(() => particle.remove(), 600);
+        }
     }
 });
 </script>
