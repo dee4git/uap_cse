@@ -5,7 +5,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/clubs.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
@@ -18,10 +18,13 @@
             match your interests!
         </p>
     </div>
+
     <div class="custom-card-container">
         {% if clubs %}
             {% for club in clubs %}
-                <div class="custom-card">
+                <div class="custom-card" data-club-name="{{ club.name|lower|slugify }}">
+                    <div class="floating-elements"></div>
+
                     <img src="{{ club.logo.url }}" alt="{{ club.name }} Logo" class="custom-card-logo">
                     <p class="custom-card-text">{{ club.name }}</p>
                     <a href="#modal-{{ club.id }}" class="custom-read-more">Learn More</a>
@@ -39,9 +42,9 @@
                         </div>
                         <div class="modal-header">
                             <h2 class="modal-title">{{ club.name }}</h2>
-                            <p class="modal-motto">{{ club.moto }}</p> <!-- Motto directly under the name -->
+                            <p class="modal-motto">{{ club.moto }}</p>
                         </div>
-                        <!-- Modal Body -->
+
                         <div class="modal-body">
                             {% if club.convener %}
                                 <p class="convener-info">
@@ -53,7 +56,7 @@
                             {% endif %}
 
                             <p class="club-description">{{ club.description }}</p>
-                            
+
                             {% if club.members.exists %}
                                 <div class="club-members">
                                     <h3 class="members-title">Meet the Panel</h3>
@@ -91,4 +94,57 @@
             {% endfor %}
         {% endif %}
     </div>
+<script>
+const floatingIconsMap = {
+    'software-hardware-club-cse-uap': ['fa-solid fa-laptop', 'fa-solid fa-screwdriver-wrench', 'fa-solid fa-gear'],
+    'cse-cultural-club-uap': ['fa-solid fa-masks-theater', 'fa-solid fa-palette', 'fa-solid fa-music'],
+};
+
+const directions = ['float-up', 'float-down', 'float-diagonal'];
+
+document.querySelectorAll('.custom-card').forEach(card => {
+    const clubKey = card.dataset.clubName;
+    const container = card.querySelector('.floating-elements');
+    if (!floatingIconsMap[clubKey]) return;
+
+    const icons = floatingIconsMap[clubKey];
+    const containerHeight = container.clientHeight;
+    const containerWidth = container.clientWidth;
+    const maxIcons = 5;
+
+    function createFloatingIcon() {
+        const iconClass = icons[Math.floor(Math.random() * icons.length)];
+        const directionClass = directions[Math.floor(Math.random() * directions.length)];
+
+        const icon = document.createElement('i');
+        icon.className = `${iconClass} floating-icon ${directionClass}`;
+
+        const size = 1 + Math.random() * 1.2;
+        icon.style.fontSize = `${size}rem`;
+
+        // Random position inside the container
+        icon.style.left = `${Math.random() * (containerWidth - 30)}px`;
+        icon.style.top = `${Math.random() * (containerHeight - 30)}px`;
+
+        container.appendChild(icon);
+icon.addEventListener('click', () => {
+    icon.classList.add('flicker-pop');
+    icon.style.pointerEvents = 'none'; // prevent double clicks
+    setTimeout(() => icon.remove(), 500); // remove after effect
+});
+
+        // Auto remove after animation
+        setTimeout(() => {
+            icon.remove();
+            createFloatingIcon(); // respawn continuously
+        }, 8000);
+    }
+
+    // Initial icon spawn
+    for (let i = 0; i < maxIcons; i++) {
+        setTimeout(() => createFloatingIcon(), i * 1500); // staggered entry
+    }
+});
+</script>
+
 {% endblock %}

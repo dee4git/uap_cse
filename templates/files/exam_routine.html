@@ -22,7 +22,7 @@
     {% if exam_routine %}
         <div class="routine-card">
             <img src="{{ exam_routine.image.url }}" alt="Exam Routine Image" class="routine-img">
-            <a href="{{ exam_routine.image.url }}" download>Download</a>
+            <a href="{{ exam_routine.image.url }}" download class="filter-btn">Download</a>
         </div>
     {% else %}
         <p style="text-align: center; margin-top:20px;">No exam routine available.</p>
