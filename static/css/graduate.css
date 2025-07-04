@@ -4,6 +4,7 @@ body {
     margin: 0;
     min-height: 100vh;
     background-color: var(--bg-color);
+    color: var(--txt-color);
 }
 
 
@@ -35,10 +36,18 @@ body {
     100% { background-position: 0% 50%; }
 }
 .section{
-      padding: 20px;
-      margin: 8%;
-      justify-content: space-between;
-      background-color: var(--bg-color);
+    padding: 20px;
+    margin: 8%;
+    justify-content: space-between;
+    background-color: var(--bg-shade);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: var(--txt-color);
+}
+
+.container-section{
+    padding: 20px;
+    color: var(--txt-color);
 }
 
 /* Headings */
@@ -46,8 +55,9 @@ h3 {
     font-size: 26px;
     margin-bottom: 15px;
     border-left: 5px solid #c084fc;
-    padding-left: 10px;
+    padding: 10px;
     text-align: left;
+    background-color: var(--secondary-color);
 }
 
 ul {
@@ -72,7 +82,8 @@ li {
 
 .tab-button {
     padding: 10px 20px;
-    background-color: white;
+    background-color: var(--primary-color);
+    color: var(--txt-color);
     border: none;
     cursor: pointer;
     border-radius: 8px 8px 0 0;
@@ -81,18 +92,17 @@ li {
 }
 
 .tab-button.active {
-    background-color: #E6E6FA;;
-    color: #c084fc;
+    background-color: var(--secondary-color);
 }
 
 .tab-content {
     display: none;
     padding: 20px 40px;
-    border: 1px solid white;
     border-top: none;
-    background-color: white;
+    background-color: var(--secondary-color);
     border-radius: 0 0 8px 8px;
     text-align: left;
+    color: var(--txt-color);
 }
 
 .tab-content.active {

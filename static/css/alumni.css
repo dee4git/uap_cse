@@ -38,42 +38,9 @@ body {
  .apply-btn {
         margin-top: 12px;
         text-align: center;
-    }
+ }
 
- /*body {*/
- /*           font-family: Lexend, sans-serif;*/
- /*           background-color: #f4f4f9;*/
- /*           margin: 0;*/
- /*           padding: 0;*/
- /*           color: #333;*/
- /*       }*/
 
- /*       h1, h2, h3 {*/
- /*           text-align: center;*/
- /*           color: #8B0000;  !* Dark red color for heading text *!*/
- /*           background: linear-gradient(185deg, lavender, #B39DDB); !* Light lavender background *!*/
- /*           padding: 10px;  !* Add some padding around the text *!*/
- /*           border-radius: 5px;  !* Slightly round the corners *!*/
- /*       }*/
-
- /*       h1 {*/
- /*           font-size: 2.5em;*/
- /*           margin-top: 50px;*/
- /*       }*/
-
- /*       h2 {*/
- /*           margin-top: 30px;*/
- /*           font-size: 1.8em;*/
- /*           border-bottom: 2px solid #21a9af;*/
- /*           padding-bottom: 5px;*/
- /*           color: #184e8e;*/
- /*       }*/
-
- /*       h3 {*/
- /*           font-size: 1.2em;*/
- /*           margin-bottom: 10px;*/
- /*           color: #007b5e;*/
- /*       }*/
 
         .pdf-container {
             margin: 20px auto;

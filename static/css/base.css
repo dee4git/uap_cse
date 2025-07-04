@@ -4,7 +4,7 @@
     --bg-shade: rgba(0, 0, 0, 0.03);
     --txt-color: #0f091a;
     --shadow-color: rgba(170, 170, 170, 0.78);
-    --secondary-color: rgba(181, 181, 238, 0.39);
+    --secondary-color: rgba(192, 192, 239, 0.55);
     /* Add transition for all color changes */
     transition: background-color 0.3s ease-in-out,
                 color 0.3s ease-in-out,
@@ -28,7 +28,7 @@
     --bg-shade: rgba(255, 255, 255, 0.03);
     --txt-color: rgb(238, 227, 255);
     --shadow-color: rgb(53, 53, 53);
-    --secondary-color: rgba(36, 36, 60, 0.39);
+    --secondary-color: rgba(82, 82, 127, 0.55);
 }
 
 
