@@ -82,6 +82,11 @@ body {
     min-height: calc(80% - 70px);
 }
 
+.modal-body p{
+    color: #333;
+}
+
+
 /* Show modal when target is the modal ID */
 .modal:target {
     display: block;
@@ -120,4 +125,10 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+section {
+    margin-inline: 5%;
+    margin-bottom: 3%;
+    color: var(--txt-color);
 }
